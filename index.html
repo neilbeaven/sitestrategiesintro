@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thanks — Next Steps | Site Strategies</title>
 <style>
   :root {
@@ -18,11 +18,12 @@
   body { font-family: Arial, sans-serif; background: var(--bg); color: var(--ink); margin: 0; }
   header { text-align: center; padding: 2rem 1rem; }
   header h1 { color: var(--brand); margin-bottom: 20px; font-size: clamp(26px, 4vw, 40px); }
-  header img { width: 450px; height: auto; margin-top: 25px; margin-bottom: 30px; }
-  header p { color: var(--muted); margin-top: 1rem; font-size: 1rem; }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 1rem 1rem 2rem; }
+  /* Make logo fluid and centered on all screens, with sensible max */
+  header img { display:block; margin: 25px auto 30px; width: 100%; max-width: 450px; height: auto; }
+  header p { color: var(--muted); margin-top: 0.25rem; font-size: 1rem; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 16px 32px; }
   .section { margin-top: 2.5rem; }
-  .section h2 { border-bottom: 2px solid var(--brand); padding-bottom: 0.4rem; margin-bottom: 1rem; font-size: 1.5rem; }
+  .section h2 { border-bottom: 2px solid var(--brand); padding-bottom: 0.4rem; margin: 0 auto 1rem; font-size: 1.5rem; max-width: 900px; }
   .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; }
   .cta { display: block; width: 100%; text-align: center; text-decoration: none; border-radius: 12px; padding: 1.1rem 1.25rem; font-weight: 800; font-size: 1.2rem; margin: .6rem 0; }
   .cta-primary { background: var(--brand); color: #fff; }
@@ -30,13 +31,27 @@
   .cta-linkedin { background: var(--linkedin); color: #fff; }
   .cta:hover { filter: brightness(1.05); }
   .note { color: var(--muted); font-size: .95rem; margin-top: .75rem; }
-  .resources-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .resources-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
   .resource-card { background: linear-gradient(135deg, rgba(229,9,20,0.9), rgba(0,0,0,0.9)); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
   .resource-card h3 { margin-top: 0; font-size: 1.1rem; color: #fff; }
   .resource-card p { font-size: 0.9rem; color: var(--muted); }
-  .resource-card a { color: #fff; text-decoration: underline; }
+  .resource-card a { color: #fff; text-decoration: underline; word-break: break-word; }
   .resource-card:hover { transform: translateY(-3px); transition: 0.3s ease; }
-  footer { text-align: center; padding: 1.25rem; color: var(--muted); font-size: .9rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+  footer { text-align: center; padding: 16px; color: var(--muted); font-size: .9rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+
+  /* Mobile refinements */
+  @media (max-width: 600px) {
+    header { padding: 24px 16px; }
+    header h1 { font-size: clamp(22px, 6vw, 32px); }
+    /* Ensure logo never overflows and stays visually centered */
+    header img { max-width: 80vw; margin: 18px auto 24px; }
+    .wrap { padding: 0 14px 28px; }
+    .section { margin-top: 2rem; }
+    .section h2 { font-size: 1.25rem; margin: 0 auto 0.8rem; }
+    .resources-grid { grid-template-columns: 1fr; }
+    .card { padding: 16px; }
+    .cta { font-size: 1.1rem; }
+  }
 </style>
 </head>
 <body>
