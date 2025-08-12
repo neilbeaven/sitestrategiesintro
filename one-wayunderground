@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Way Underground</title>
+  <meta name="description" content="One Way Underground — Site servicing, utilities, and civil works. Powered by Site Strategies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;}
+    /* Prevent layout shift while fonts load */
+    .font-swap { font-synthesis-weight: none; }
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased">
+  <!-- Sticky Nav -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#home" class="flex items-center gap-3">
+          <img id="logo" src="/logo-oneway-underground.png" alt="One Way Underground" class="h-9 w-auto" />
+          <span class="sr-only">One Way Underground</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+          <a href="#services" class="hover:text-blue-700">Services</a>
+          <a href="#values" class="hover:text-blue-700">Values</a>
+          <a href="#work" class="hover:text-blue-700">Projects</a>
+          <a href="#links" class="hover:text-blue-700">Resources</a>
+          <a href="#contact" class="inline-flex items-center rounded-full bg-blue-700 px-4 py-2 text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300">Start Here</a>
+        </nav>
+        <div class="hidden md:flex items-center gap-3">
+          <!-- Co-brand badge: subtle, keeps OWU primary -->
+          <span class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-700">
+            <span class="opacity-70">with</span> Site Strategies
+          </span>
+        </div>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-300" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M3.75 6.75h16.5v1.5H3.75zm0 4.5h16.5v1.5H3.75zm0 4.5h16.5v1.5H3.75z"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-neutral-200 bg-white">
+      <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 grid gap-3 text-sm font-semibold">
+        <a href="#services" class="hover:text-blue-700">Services</a>
+        <a href="#values" class="hover:text-blue-700">Values</a>
+        <a href="#work" class="hover:text-blue-700">Projects</a>
+        <a href="#links" class="hover:text-blue-700">Resources</a>
+        <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-blue-700 px-4 py-2 text-white hover:bg-blue-800">Start Here</a>
+        <span class="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-700 w-max">with Site Strategies</span>
+      </nav>
+    </div>
+  </header>  <!-- Hero -->  <section id="home" class="relative isolate overflow-hidden bg-[url('https://images.unsplash.com/photo-1517428675065-4ca8e7fdc98c?q=80&w=2000&auto=format&fit=crop')] bg-center bg-cover">
+    <div class="absolute inset-0 bg-neutral-900/70"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="py-20 sm:py-28 lg:py-36">
+        <div class="max-w-2xl text-white">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">
+            <span class="h-2 w-2 rounded-full bg-green-400"></span>
+            Operations partner: <span class="font-bold">Site Strategies</span>
+          </p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+            One Way Underground
+          </h1>
+          <p class="mt-4 text-lg sm:text-xl text-neutral-200 max-w-xl">
+            Site servicing and underground utilities. Safe, efficient, and built to last.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-white font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">Start Here</a>
+            <a href="#work" class="inline-flex items-center justify-center rounded-full bg-white/10 px-6 py-3 text-white font-semibold hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/30">See Projects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Clients / quick stats -->  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+      <div class="rounded-2xl border border-neutral-200 p-6">
+        <p class="text-3xl font-extrabold">15+ yrs</p>
+        <p class="text-sm text-neutral-600">Civil and utilities experience</p>
+      </div>
+      <div class="rounded-2xl border border-neutral-200 p-6">
+        <p class="text-3xl font-extrabold">Zero Harm</p>
+        <p class="text-sm text-neutral-600">Safety-first planning and execution</p>
+      </div>
+      <div class="rounded-2xl border border-neutral-200 p-6">
+        <p class="text-3xl font-extrabold">GTA + Ontario</p>
+        <p class="text-sm text-neutral-600">Serving municipalities and private clients</p>
+      </div>
+    </div>
+  </section>  <!-- Services -->  <section id="services" class="bg-neutral-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Services</h2>
+        <p class="mt-3 text-neutral-700">Full-scope site servicing and underground utilities with tight coordination, paperwork handled, and clear timelines.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- Service cards -->
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-xl font-bold">Water & Sewer</h3>
+          <p class="mt-2 text-sm text-neutral-700">New services, replacements, and repairs. Mainline and laterals, testing, and restoration.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-xl font-bold">Stormwater</h3>
+          <p class="mt-2 text-sm text-neutral-700">Catch basins, manholes, chambers, and culverts. Erosion control and SWM connections.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-xl font-bold">Ductbank & Dry Utilities</h3>
+          <p class="mt-2 text-sm text-neutral-700">Hydro, telecom, and joint-use trenching. Concrete encased ductbanks and chambers.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-xl font-bold">Excavation & Backfill</h3>
+          <p class="mt-2 text-sm text-neutral-700">Bulk excavation, trenching, shoring coordination, and compaction with density testing.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-xl font-bold">Restoration</h3>
+          <p class="mt-2 text-sm text-neutral-700">Granulars, asphalt, concrete, and landscaping to return sites to spec.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 class="text-xl font-bold">Permit & Inspection Support</h3>
+          <p class="mt-2 text-sm text-neutral-700">Traffic control, utility locates, ESA coordination, and inspector ready documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Values -->  <section id="values" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Values</h2>
+        <p class="mt-3 text-neutral-700">Simple principles that shape how we work, on every job.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <p class="text-5xl font-extrabold">01</p>
+          <h3 class="mt-4 text-xl font-bold">Quality</h3>
+          <p class="mt-2 text-sm text-neutral-700">Do it once, do it right, document it. Built to last.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <p class="text-5xl font-extrabold">02</p>
+          <h3 class="mt-4 text-xl font-bold">Reputation</h3>
+          <p class="mt-2 text-sm text-neutral-700">Straight talk and clean sites. We make inspectors smile.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
+          <p class="text-5xl font-extrabold">03</p>
+          <h3 class="mt-4 text-xl font-bold">Accountability</h3>
+          <p class="mt-2 text-sm text-neutral-700">Clear scope, clear updates, and a single point of contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Projects / Gallery -->  <section id="work" class="bg-neutral-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex items-end justify-between gap-6 flex-wrap">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Projects</h2>
+          <p class="mt-3 text-neutral-700">Photo library is in progress. Here’s a sample of typical scopes we deliver.</p>
+        </div>
+        <a href="#contact" class="inline-flex items-center rounded-full bg-neutral-900 px-4 py-2 text-white hover:bg-neutral-800">Get a quote</a>
+      </div>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <div class="h-14 w-14 rounded-xl bg-neutral-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M3 9l9-6 9 6v9a3 3 0 01-3 3H6a3 3 0 01-3-3z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-bold">Subdivision Servicing</h3>
+          <p class="mt-1 text-sm text-neutral-700">Water, sanitary, and storm with inspections and restoration.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <div class="h-14 w-14 rounded-xl bg-neutral-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M4 7h16v10H4z M9 17V7"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-bold">Commercial Tie-ins</h3>
+          <p class="mt-1 text-sm text-neutral-700">Service upgrades, meter chambers, and night work coordination.</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-white p-6">
+          <div class="h-14 w-14 rounded-xl bg-neutral-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7"><path d="M3 12h18v2H3zm0-5h18v2H3zm0 10h18v2H3z"/></svg>
+          </div>
+          <h3 class="mt-4 text-lg font-bold">Joint-Use Ductbanks</h3>
+          <p class="mt-1 text-sm text-neutral-700">Concrete-encased ductbanks, chambers, and utility coordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Helpful Links -->  <section id="links" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Resources for Clients & Partners</h2>
+        <p class="mt-3 text-neutral-700">Ontario-focused guidance and references.</p>
+      </div>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <a href="https://www.ihsa.ca/" target="_blank" class="group rounded-2xl border border-neutral-200 p-6 hover:border-blue-600">
+          <h3 class="text-lg font-bold group-hover:text-blue-700">IHSA</h3>
+          <p class="mt-1 text-sm text-neutral-700">Infrastructure Health & Safety Association — safety resources and training.</p>
+        </a>
+        <a href="https://www.ontario.ca/page/plan-and-prepare-building-project" target="_blank" class="group rounded-2xl border border-neutral-200 p-6 hover:border-blue-600">
+          <h3 class="text-lg font-bold group-hover:text-blue-700">Ontario Building & Permits</h3>
+          <p class="mt-1 text-sm text-neutral-700">Provincial guidance on permits and planning for construction projects.</p>
+        </a>
+        <a href="https://call811.ca/" target="_blank" class="group rounded-2xl border border-neutral-200 p-6 hover:border-blue-600">
+          <h3 class="text-lg font-bold group-hover:text-blue-700">Locate Before You Dig (Ontario One Call)</h3>
+          <p class="mt-1 text-sm text-neutral-700">Request utility locates before excavation.</p>
+        </a>
+      </div>
+    </div>
+  </section>  <!-- Contact -->  <section id="contact" class="bg-neutral-900 text-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold">Start Here</h2>
+          <p class="mt-3 text-neutral-200">Tell us about your job and timelines. We will respond within one business day.</p>
+          <div class="mt-6 space-y-4 text-sm">
+            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M1.5 4.5h21v15h-21zM3 6l9 6 9-6"/></svg><span>quotes@onewayunderground.ca</span></div>
+            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M3 5.25A2.25 2.25 0 015.25 3h2.086c.464 0 .909.184 1.237.513l2.414 2.414c.329.329.773.513 1.237.513h5.526A2.25 2.25 0 0120.75 8.7v9.05A2.25 2.25 0 0118.5 20H5.25A2.25 2.25 0 013 17.75V5.25z"/></svg><span>Newmarket, Ontario</span></div>
+            <a href="https://www.linkedin.com/" target="_blank" class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 hover:bg-white/20">LinkedIn</a>
+          </div>
+        </div>
+        <form class="rounded-2xl bg-white p-6 text-neutral-900 shadow-sm" onsubmit="return sendMail(event)">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm font-semibold">Name</label>
+              <input type="text" name="name" required class="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold">Email</label>
+              <input type="email" name="email" required class="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" />
+            </div>
+            <div class="md:col-span-2">
+              <label class="text-sm font-semibold">Project Location</label>
+              <input type="text" name="location" class="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" />
+            </div>
+            <div class="md:col-span-2">
+              <label class="text-sm font-semibold">Scope & Timelines</label>
+              <textarea name="message" rows="5" required class="mt-1 w-full rounded-lg border border-neutral-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"></textarea>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center justify-between gap-4">
+            <button type="submit" class="inline-flex items-center rounded-full bg-neutral-900 px-5 py-2.5 text-white font-semibold hover:bg-neutral-800">Send</button>
+            <p class="text-xs text-neutral-500">By sending you agree to be contacted about your request.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>  <!-- Footer -->  <footer class="bg-white border-t border-neutral-200">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-neutral-600 flex items-center gap-2">
+        <span>© <span id="year"></span> One Way Underground.</span>
+        <span class="hidden sm:inline">All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-neutral-500">
+        <span class="opacity-70">Operations partner:</span>
+        <span class="font-semibold">Site Strategies</span>
+      </div>
+    </div>
+  </footer>  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mailto helper (no backend needed to get started)
+    function sendMail(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const location = form.location.value.trim();
+      const message = form.message.value.trim();
+      const subject = encodeURIComponent(`Estimate request from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nLocation: ${location}\n\nScope & Timelines:\n${message}`);
+      window.location.href = `mailto:quotes@onewayunderground.ca?subject=${subject}&body=${body}`;
+      return false;
+    }
+  </script></body>
+</html>
