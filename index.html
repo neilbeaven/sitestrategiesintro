@@ -1,69 +1,100 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Site Strategies – Thank You</title>
+<title>Thanks — Next Steps | Site Strategies</title>
 <style>
-  body { font-family: Arial, sans-serif; background-color: #000000; color: #FFFFFF; margin: 0; padding: 0; }
-  header { text-align: center; padding: 2rem; background-color: #000000; }
-  header h1 { color: #E50914; margin-bottom: 0.5rem; }
-  header p { color: #BFBFBF; }
-  .container { max-width: 800px; margin: 2rem auto; padding: 1rem; text-align: center; }
-  .cta-btn { display: block; width: 100%; background-color: #E50914; color: white; text-align: center; padding: 1.2rem; font-size: 1.3rem; font-weight: bold; border: none; border-radius: 8px; margin: 1rem 0; text-decoration: none; }
-  .cta-btn:hover { background-color: #b00710; }
-  .tips { margin-top: 2rem; text-align: left; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; }
-  .tips h2 { color: #E50914; margin-bottom: 0.5rem; }
-  .tips ul { list-style: none; padding: 0; }
-  .tips ul li { margin-bottom: 0.75rem; }
-  .tips ul li a { color: #BFBFBF; text-decoration: underline; font-weight: bold; }
-  .tip-text { display: block; font-size: 0.9rem; color: #BFBFBF; margin-top: 0.2rem; }
-  footer { text-align: center; padding: 1rem; color: #BFBFBF; font-size: 0.9rem; }
+  :root {
+    --bg: #000000;
+    --ink: #FFFFFF;
+    --muted: #BFBFBF;
+    --brand: #E50914;
+    --accent: #BFBFBF;
+    --linkedin: #0077B5;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: var(--bg); color: var(--ink); margin: 0; }
+  header { text-align: center; padding: 2rem 1rem; }
+  header h1 { color: var(--brand); margin-bottom: 20px; font-size: clamp(26px, 4vw, 40px); }
+  header img { width: 450px; height: auto; margin-top: 25px; margin-bottom: 30px; }
+  header p { color: var(--muted); margin-top: 1rem; font-size: 1rem; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 1rem 1rem 2rem; }
+  .section { margin-top: 2.5rem; }
+  .section h2 { border-bottom: 2px solid var(--brand); padding-bottom: 0.4rem; margin-bottom: 1rem; font-size: 1.5rem; }
+  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; }
+  .cta { display: block; width: 100%; text-align: center; text-decoration: none; border-radius: 12px; padding: 1.1rem 1.25rem; font-weight: 800; font-size: 1.2rem; margin: .6rem 0; }
+  .cta-primary { background: var(--brand); color: #fff; }
+  .cta-secondary { background: var(--accent); color: #000; }
+  .cta-linkedin { background: var(--linkedin); color: #fff; }
+  .cta:hover { filter: brightness(1.05); }
+  .note { color: var(--muted); font-size: .95rem; margin-top: .75rem; }
+  .resources-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+  .resource-card { background: linear-gradient(135deg, rgba(229,9,20,0.9), rgba(0,0,0,0.9)); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+  .resource-card h3 { margin-top: 0; font-size: 1.1rem; color: #fff; }
+  .resource-card p { font-size: 0.9rem; color: var(--muted); }
+  .resource-card a { color: #fff; text-decoration: underline; }
+  .resource-card:hover { transform: translateY(-3px); transition: 0.3s ease; }
+  footer { text-align: center; padding: 1.25rem; color: var(--muted); font-size: .9rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
 </style>
 </head>
 <body>
   <header>
-    <h1>Thank You for Completing the Assessment</h1>
-    <p>We’ve received your responses</p>
+    <h1>Site Strategies – Powered by One Way Underground</h1>
+    <img src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5).png%20.png" 
+         alt="One Way Underground Logo">
+    <p>We'll review your responses and reach out with tailored recommendations.</p>
   </header>
 
-  <div class="container">
-    <p>Our team will review your answers and prepare personalized recommendations for you.</p>
-    <p>We will be in touch shortly to discuss the results and next steps.</p>
-    
-    <a href="mailto:neilbeaven1@gmail.com" class="cta-btn">✉️ Contact Us</a>
-    <a href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" class="cta-btn">📅 Book a Call Now</a>
-    <a href="https://www.linkedin.com/in/neilbeaven" class="cta-btn" style="background-color:#BFBFBF; color:#000000;">🔗 Connect with Me on LinkedIn</a>
-
-    <div class="tips">
-      <h2>Helpful Resources for Contractors</h2>
-      <ul>
-        <li>
-          <a href="https://www.ccohs.ca/oshanswers/hsprograms/safetyculture.html" target="_blank">Building a Strong Safety Culture</a>
-          <span class="tip-text">Learn how to foster a workplace where safety is a shared value, not just a requirement.</span>
-        </li>
-        <li>
-          <a href="https://www.constructconnect.com/blog" target="_blank">Construction Industry Trends & Insights</a>
-          <span class="tip-text">Stay updated on market trends, technology, and best practices to stay competitive.</span>
-        </li>
-        <li>
-          <a href="https://www.ontario.ca/page/construction-projects" target="_blank">Ontario Government: Construction Guidelines</a>
-          <span class="tip-text">Understand regulations, permits, and processes specific to Ontario projects.</span>
-        </li>
-        <li>
-          <a href="https://www.procore.com/jobsite" target="_blank">Project Management Tips for Contractors</a>
-          <span class="tip-text">Improve planning, collaboration, and efficiency in your construction projects.</span>
-        </li>
-        <li>
-          <a href="https://www.ihsa.ca" target="_blank">Infrastructure Health and Safety Association</a>
-          <span class="tip-text">Access U.S. safety standards, compliance assistance, and training resources.</span>
-        </li>
-      </ul>
+  <main class="wrap">
+    <!-- Next Steps Section -->
+    <div class="section">
+      <h2>What Happens Next</h2>
+      <div class="card">
+        <p>Choose the best way to get in touch now:</p>
+        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">📅 Book a 15-minute Call</a>
+        <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">🔗 Connect on LinkedIn</a>
+        <a class="cta cta-secondary" href="mailto:neilbeaven1@gmail.com">✉️ Contact us (email)</a>
+        <div class="note">Prefer not to book right now? No problem — we’ll be in touch shortly to review your submission and next steps.</div>
+      </div>
     </div>
-  </div>
+
+    <!-- Helpful Resources Section -->
+    <div class="section">
+      <h2>Helpful Resources for Contractors</h2>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>IHSA Safety Resources</h3>
+          <p>Ontario’s Infrastructure Health & Safety Association guidelines to keep your crews safe.</p>
+          <a href="https://www.ihsa.ca" target="_blank" rel="noopener">Visit IHSA</a>
+        </div>
+        <div class="resource-card">
+          <h3>Procore Project Management</h3>
+          <p>Streamline your construction workflows and manage jobs more efficiently.</p>
+          <a href="https://www.procore.com" target="_blank" rel="noopener">Explore Procore</a>
+        </div>
+        <div class="resource-card">
+          <h3>Ontario Construction News</h3>
+          <p>Stay up to date on the latest construction industry news in Ontario.</p>
+          <a href="https://www.ontarioconstructionnews.com" target="_blank" rel="noopener">Read More</a>
+        </div>
+        <div class="resource-card">
+          <h3>Canadian Construction Association</h3>
+          <p>National advocacy and best practices for Canada’s construction industry.</p>
+          <a href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a>
+        </div>
+        <div class="resource-card">
+          <h3>ConstructConnect</h3>
+          <p>Find project leads and bidding opportunities across Canada.</p>
+          <a href="https://www.constructconnect.com" target="_blank" rel="noopener">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Site Strategies | Powered by One Way Underground</p>
+    © 2025 Site Strategies — Powered by One Way Underground
   </footer>
 </body>
 </html>
