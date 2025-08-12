@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Efficiency Results | Site Strategies</title>
+  <meta name="description" content="Your construction operations efficiency results with next steps and a free 15‑minute optimization call." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000000;          /* black background from brand */
+      --card:#111827;        /* card base */
+      --ink:#e5e7eb;         /* light text */
+      --muted:#9ca3af;       /* muted text */
+      --brand:#E50914;       /* primary red from logo */
+      --accent:#BFBFBF;      /* secondary gray */
+      --warn:#f59e0b;        /* amber */
+      --danger:#ef4444;      /* red (system) */
+      --link:#E50914;        /* use brand red for links */
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;}
+    .wrap{max-width:1100px;margin:auto;padding:28px}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);color:var(--accent);font-size:12px;letter-spacing:.3px}
+    header{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;margin-bottom:18px}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .powered{font-size:12px;color:var(--accent)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:24px}
+    .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    h1{font-size:clamp(28px,3vw,40px);line-height:1.1;margin:10px 0 8px}
+    p{line-height:1.6}
+    .score-pill{display:inline-block;padding:8px 12px;border-radius:999px;font-weight:700}
+    .score-critical{background:rgba(229,9,20,.15);color:#fecaca;border:1px solid rgba(229,9,20,.45)}
+    .score-growth{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.35)}
+    .score-optimized{background:rgba(34,197,94,.15);color:#bbf7d0;border:1px solid rgba(34,197,94,.35)}
+    .cta{display:inline-block;margin-top:14px;padding:14px 18px;border-radius:12px;background:var(--brand);color:#ffffff;font-weight:800;text-decoration:none}
+    .cta:hover{filter:brightness(1.05)}
+    .grid{display:grid;gap:16px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.cols-3{grid-template-columns:1fr}}
+    .mini{font-size:13px;color:var(--muted)}
+    .check{display:flex;gap:10px;align-items:flex-start}
+    .check svg{flex:0 0 18px;margin-top:3px;color:var(--accent)}
+    footer{margin-top:36px;color:var(--accent);font-size:13px}
+    .divider{height:1px;background:rgba(255,255,255,.08);margin:22px 0}
+    .logo{height:40px;object-fit:contain;filter: drop-shadow(0 0 0 rgba(0,0,0,0));}
+    .headerbar{display:flex;align-items:center;gap:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="headerbar">
+        <!-- Optional logo slot: replace src with your hosted logo path when available -->
+        <!-- <img class="logo" src="oneway-underground-logo.png" alt="One Way Underground logo"> -->
+        <div>
+          <div class="badge">Site Strategies <span>•</span> <span class="powered">Powered by One Way Underground</span></div>
+          <div class="brand" aria-label="brand">Project Efficiency Results</div>
+        </div>
+      </div>
+      <div class="mini">Questions? <a href="#contact" style="color:var(--link)">Get in touch</a></div>
+    </header>
+
+    <section class="card hero" id="result">
+      <div>
+        <h1 id="headline">Your results are in.</h1>
+        <p id="summary">We reviewed your answers and mapped them to best‑practice benchmarks for construction operations. Based on your score, here’s where you stand and the fastest way to see gains.</p>
+        <div id="scorePill" class="score-pill score-growth">Room for Growth</div>
+        <div class="divider"></div>
+        <div id="insights" class="grid">
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <p id="tip1">Tighten planning discipline and daily crew alignment to reduce preventable delays.</p>
+          </div>
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <p id="tip2">Standardize change‑order approvals and QA/QC checkpoints.</p>
+          </div>
+        </div>
+        <a id="cta" class="cta" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book your free 15‑minute Optimization Call</a>
+        <div class="mini">We’ll walk through your result profile and give you a 3‑step plan. No obligation.</div>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.02)">
+        <h3 style="margin-top:0">What you’ll get on the call</h3>
+        <ul class="mini" style="padding-left:18px;line-height:1.9">
+          <li>Quick gap assessment against safety, schedule, and cost controls</li>
+          <li>Prioritized fixes you can implement this month</li>
+          <li>Tooling suggestions (lightweight, field‑ready)</li>
+        </ul>
+        <div class="divider"></div>
+        <h4 style="margin:6px 0 8px">Share your results</h4>
+        <a class="mini" id="shareLink" href="#" style="color:var(--link)">Copy results link</a>
+      </div>
+    </section>
+
+    <section class="grid cols-3" style="margin-top:22px">
+      <div class="card">
+        <h3 style="margin-top:0">How we help</h3>
+        <p class="mini">From pre‑con planning through closeout, we install practical systems that crews actually use.</p>
+        <ul class="mini" style="padding-left:18px;line-height:1.9">
+          <li>Playbook: planning → permits → procurement → production</li>
+          <li>Daily huddles & look‑ahead scheduling</li>
+          <li>Scope change controls that don’t slow the job</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Proof</h3>
+        <p class="mini">Clients report fewer avoidable delays and tighter budget control within 60 days.</p>
+        <ul class="mini" style="padding-left:18px;line-height:1.9">
+          <li>On‑time delivery lift within first quarter</li>
+          <li>Reduced rework through QA/QC gates</li>
+          <li>Clearer site communication loops</li>
+        </ul>
+      </div>
+      <div id="contact" class="card">
+        <h3 style="margin-top:0">Talk to us</h3>
+        <p class="mini">Prefer email? Send your availability and project context.</p>
+        <a class="mini" href="mailto:hello@sitestrategies.co" style="color:var(--link)">hello@sitestrategies.co</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Site Strategies — <span class="powered">Powered by One Way Underground</span>
+    </footer>
+  </div>
+
+  <script>
+    // Helper: get URL param
+    function qp(name){
+      const p = new URLSearchParams(window.location.search);
+      return p.get(name);
+    }
+
+    // Accept either segment=critical|growth|optimized OR a numeric score
+    const segParam = (qp('segment')||'').toLowerCase();
+    const scoreParam = parseInt(qp('score'), 10);
+
+    function segmentFromScore(score){
+      if (isNaN(score)) return null;
+      if (score <= 30) return 'critical';
+      if (score <= 60) return 'growth';
+      return 'optimized';
+    }
+
+    const segment = ['critical','growth','optimized'].includes(segParam)
+      ? segParam
+      : segmentFromScore(scoreParam) || 'growth'; // default
+
+    const ui = {
+      headline: document.getElementById('headline'),
+      summary: document.getElementById('summary'),
+      pill: document.getElementById('scorePill'),
+      tip1: document.getElementById('tip1'),
+      tip2: document.getElementById('tip2'),
+      cta: document.getElementById('cta')
+    };
+
+    function applySegment(seg){
+      ui.pill.classList.remove('score-critical','score-growth','score-optimized');
+      if(seg==='critical'){
+        ui.headline.textContent = 'You’re in the Critical Risk Zone';
+        ui.summary.textContent = 'Your answers show serious bottlenecks in planning and controls. Addressing these first will prevent cost and schedule bleed.';
+        ui.pill.textContent = 'Critical Risk Zone';
+        ui.pill.classList.add('score-critical');
+        ui.tip1.textContent = 'Install a repeatable plan → permit → procure pipeline with owner-approved gates.';
+        ui.tip2.textContent = 'Stand up daily huddles and a single source of truth for site instructions.';
+      } else if(seg==='growth'){
+        ui.headline.textContent = 'Solid foundation — room for growth';
+        ui.summary.textContent = 'You’re doing many things right. A few targeted fixes will unlock speed and predictability across jobs.';
+        ui.pill.textContent = 'Room for Growth';
+        ui.pill.classList.add('score-growth');
+        ui.tip1.textContent = 'Tighten change-order approvals and material readiness to reduce avoidable delays.';
+        ui.tip2.textContent = 'Add simple QA/QC checkpoints to cut rework and hold margins.';
+      } else {
+        ui.headline.textContent = 'Optimized — push for scalable systems';
+        ui.summary.textContent = 'You’re running a tight ship. The next step is standardizing what works so you can handle more volume without stress.';
+        ui.pill.textContent = 'Optimized (Keep Scaling)';
+        ui.pill.classList.add('score-optimized');
+        ui.tip1.textContent = 'Codify your playbook and automate handoffs across crews and subs.';
+        ui.tip2.textContent = 'Instrument leading indicators (permits, materials, RFIs) to protect schedules.';
+      }
+    }
+
+    applySegment(segment);
+
+    // Share link builder
+    const share = document.getElementById('shareLink');
+    share.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const url = new URL(window.location.href);
+      navigator.clipboard.writeText(url.toString()).then(()=>{
+        share.textContent = 'Copied!';
+        setTimeout(()=> share.textContent='Copy results link', 1600);
+      });
+    });
+
+    // Year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
