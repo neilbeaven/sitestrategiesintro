@@ -5,35 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thanks — Next Steps | Site Strategies</title>
   <meta name="description" content="Thanks for completing the self-assessment. Choose a next step and grab a few contractor resources—then we’ll follow up with tailored recommendations." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thanks — Next Steps | Site Strategies" />
+  <meta property="og:description" content="Pick a next step and browse helpful resources while we review your self-assessment." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/thanks" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <style>
     :root{
       --bg:#000; --ink:#fff; --muted:#BFBFBF; --brand:#E50914; --accent:#BFBFBF; --linkedin:#0077B5;
+      --ring:#ffffff80;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.5;background:var(--bg);color:var(--ink);}
-    header{text-align:center;padding:2rem 1rem}
-    header h1{color:var(--brand);margin:0 0 20px;font-size:clamp(26px,4vw,40px)}
-    header p{color:var(--muted);margin:.25rem 0 0;font-size:1rem}
-    .logo-container{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:1rem}
-    .logo-container img{height:80px;width:auto;max-width:250px}
-    .wrap{max-width:900px;margin:0 auto;padding:0 16px 32px}
-    .section{margin-top:2.5rem}
-    .section h2{border-bottom:2px solid var(--brand);padding-bottom:.4rem;margin:0 auto 1rem;font-size:1.5rem;max-width:900px}
-    .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1.25rem;margin-bottom:1.25rem}
-    .cta{display:block;width:100%;text-align:center;text-decoration:none;border-radius:12px;padding:1.1rem 1.25rem;font-weight:800;font-size:1.2rem;margin:.6rem 0}
-    .cta-primary{background:var(--brand);color:#fff}
-    .cta-secondary{background:var(--accent);color:#000}
-    .cta-linkedin{background:var(--linkedin);color:#fff}
-    .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
-    .resources-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .resource-card{background:linear-gradient(135deg,rgba(229,9,20,.9),rgba(0,0,0,.9));padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,.1)}
-    .resource-card h3{margin:.25rem 0 .25rem;font-size:1.1rem;color:#fff}
-    .resource-card p{margin:.25rem 0 .75rem;font-size:.95rem;color:var(--muted)}
-    .resource-card a{color:#fff;text-decoration:underline;text-underline-offset:2px}
-    iframe.pdf-frame{width:100%;height:600px;border:none;background:#fff}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.5; background:var(--bg); color:var(--ink);
+    }
+    header{ text-align:center; padding:2rem 1rem}
+    header h1{ color:var(--brand); margin:0 0 20px; font-size:clamp(26px,4vw,40px)}
+    header p{ color:var(--muted); margin:.25rem 0 0; font-size:1rem}
+    .logo-container { display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:1rem; }
+    .logo-container img { height:80px; width:auto; max-width:250px; }
+    .wrap{ max-width:900px; margin:0 auto; padding:0 16px 32px}
+    .section{ margin-top:2.5rem}
+    .section h2{ border-bottom:2px solid var(--brand); padding-bottom:.4rem; margin:0 auto 1rem; font-size:1.5rem; max-width:900px}
+    .card{ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:1.25rem; margin-bottom:1.25rem}
+    .cta{ display:block; width:100%; text-align:center; text-decoration:none; border-radius:12px; padding:1.1rem 1.25rem; font-weight:800; font-size:1.2rem; margin:.6rem 0; outline:0}
+    .cta-primary{ background:var(--brand); color:#fff}
+    .cta-secondary{ background:var(--accent); color:#000}
+    .cta-linkedin{ background:var(--linkedin); color:#fff}
+    .note{ color:var(--muted); font-size:.95rem; margin-top:.75rem}
+    .resources-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+    .resource-card{ background:linear-gradient(135deg, rgba(229,9,20,.9), rgba(0,0,0,.9)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,.1); box-shadow:0 2px 6px rgba(0,0,0,.4)}
+    .resource-card h3{ margin:.25rem 0 .25rem; font-size:1.1rem; color:#fff}
+    .resource-card p{ margin:.25rem 0 .75rem; font-size:.95rem; color:var(--muted)}
+    .resource-card a{ color:#fff; text-decoration:underline; text-underline-offset:2px; word-break:break-word}
+    footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
+    iframe.pdf-frame { width:100%; height:600px; border:none; background:#fff; }
     @media (max-width:600px){
-      .logo-container img{height:70px;max-width:200px}
-      iframe.pdf-frame{height:400px}
+      .logo-container img { height:70px; max-width:200px; }
+      iframe.pdf-frame { height:400px; }
     }
   </style>
 </head>
@@ -53,35 +65,58 @@
       <h2 id="next-steps">Next Steps</h2>
       <div class="card">
         <p>Choose the best way to get in touch now:</p>
-        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank">📅 Book a 15-minute Call</a>
-        <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank">🔗 Connect on LinkedIn</a>
+        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener noreferrer">📅 Book a 15-minute Call</a>
+        <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener noreferrer">🔗 Connect on LinkedIn</a>
         <a class="cta cta-secondary" href="mailto:neilbeaven1@gmail.com">✉️ Email us</a>
+        <p class="note">Prefer not to book right now? No problem — we’ll be in touch shortly to review your submission and next steps.</p>
       </div>
     </section>
 
-    <!-- Presentation -->
+    <!-- Presentation (simple iframe) -->
     <section class="section" aria-labelledby="presentation">
       <h2 id="presentation">Site Strategies — Presentation</h2>
       <div class="deck-actions" style="display:flex;gap:.6rem;margin-bottom:1rem;">
-        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;" href="assets/SiteStrategiesOverview.pdf" target="_blank">Open in new tab</a>
+        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
         <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;background:var(--brand);color:#fff;" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
       </div>
-
-      <iframe id="pdfFrame" src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
-
-      <p class="note">If the embed doesn’t appear, <a href="assets/SiteStrategiesOverview.pdf" target="_blank">open the PDF</a> or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.</p>
+      <iframe src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
+      <p class="note">If the embed doesn’t appear (common on Android), <a href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">open the PDF</a> or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.</p>
     </section>
 
     <!-- Helpful Resources -->
     <section class="section" aria-labelledby="resources">
       <h2 id="resources">Helpful Resources for Contractors</h2>
       <div class="resources-grid">
-        <article class="resource-card"><h3>One Way Underground</h3><p>Site servicing, utilities, and civil works.</p><a href="https://neilbeaven.github.io/Business/" target="_blank">Visit One Way Underground</a></article>
-        <article class="resource-card"><h3>Ontario One Call</h3><p>Request underground utility locates before digging.</p><a href="https://ontarioonecall.ca" target="_blank">Visit Ontario One Call</a></article>
-        <article class="resource-card"><h3>Infrastructure Ontario</h3><p>Building essential public assets across Ontario.</p><a href="https://www.infrastructureontario.ca" target="_blank">Explore Infrastructure Ontario</a></article>
-        <article class="resource-card"><h3>Metrolinx</h3><p>Transit projects shaping the Greater Toronto Area.</p><a href="https://www.metrolinx.com" target="_blank">Visit Metrolinx</a></article>
-        <article class="resource-card"><h3>Canadian Construction Association</h3><p>Advocacy and resources for construction professionals.</p><a href="https://www.cca-acc.com" target="_blank">Visit CCA</a></article>
-        <article class="resource-card"><h3>Ontario Road Builders' Association</h3><p>Advancing safe, sustainable road construction.</p><a href="https://orba.org" target="_blank">Visit ORBA</a></article>
+        <article class="resource-card">
+          <h3>One Way Underground</h3>
+          <p>Site servicing, utilities, and civil works.</p>
+          <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener noreferrer">Visit One Way Underground</a>
+        </article>
+        <article class="resource-card">
+          <h3>Ontario One Call</h3>
+          <p>Request underground utility locates before digging.</p>
+          <a href="https://ontarioonecall.ca" target="_blank" rel="noopener noreferrer">Visit Ontario One Call</a>
+        </article>
+        <article class="resource-card">
+          <h3>Infrastructure Ontario</h3>
+          <p>Building essential public assets across Ontario.</p>
+          <a href="https://www.infrastructureontario.ca" target="_blank" rel="noopener noreferrer">Explore Infrastructure Ontario</a>
+        </article>
+        <article class="resource-card">
+          <h3>Metrolinx</h3>
+          <p>Transit projects shaping the Greater Toronto Area.</p>
+          <a href="https://www.metrolinx.com" target="_blank" rel="noopener noreferrer">Visit Metrolinx</a>
+        </article>
+        <article class="resource-card">
+          <h3>Canadian Construction Association</h3>
+          <p>Advocacy and resources for construction professionals.</p>
+          <a href="https://www.cca-acc.com" target="_blank" rel="noopener noreferrer">Visit CCA</a>
+        </article>
+        <article class="resource-card">
+          <h3>Ontario Road Builders' Association</h3>
+          <p>Advancing safe, sustainable road construction.</p>
+          <a href="https://orba.org" target="_blank" rel="noopener noreferrer">Visit ORBA</a>
+        </article>
       </div>
     </section>
   </main>
@@ -89,15 +124,5 @@
   <footer>
     © 2025 Site Strategies — Powered by One Way Underground
   </footer>
-
-  <script>
-    (function(){
-      var isAndroid = /Android/i.test(navigator.userAgent);
-      if(isAndroid){
-        var pdfPath = encodeURIComponent(window.location.origin + '/assets/SiteStrategiesOverview.pdf');
-        document.getElementById('pdfFrame').src = 'https://docs.google.com/gview?embedded=true&url=' + pdfPath;
-      }
-    })();
-  </script>
 </body>
 </html>
