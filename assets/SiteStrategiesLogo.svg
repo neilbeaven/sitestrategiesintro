@@ -1,0 +1,13 @@
+<svg width="500" height="150" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="150" fill="#000"/>
+
+  <!-- Icon: Stylized construction blueprint with diagonal lines -->
+  <rect x="30" y="40" width="60" height="60" fill="none" stroke="#E50914" stroke-width="6"/>
+  <line x1="30" y1="40" x2="90" y2="100" stroke="#E50914" stroke-width="4"/>
+  <line x1="90" y1="40" x2="30" y2="100" stroke="#E50914" stroke-width="4"/>
+
+  <!-- Text -->
+  <text x="120" y="75" font-family="Montserrat, sans-serif" font-size="40" font-weight="bold" fill="#FFFFFF">SITE</text>
+  <text x="120" y="115" font-family="Montserrat, sans-serif" font-size="40" font-weight="bold" fill="#BFBFBF">STRATEGIES</text>
+</svg>
