@@ -18,21 +18,15 @@
       --ring:#ffffff80;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height:1.5; background:var(--bg); color:var(--ink);
-      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased;
     }
     header{ text-align:center; padding:2rem 1rem}
     header h1{ color:var(--brand); margin:0 0 20px; font-size:clamp(26px,4vw,40px)}
-    header img{ display:block; height:auto; }
     header p{ color:var(--muted); margin:.25rem 0 0; font-size:1rem}
-
-    /* Dual logos */
     .logo-container { display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:1rem; }
     .logo-container img { height:80px; width:auto; max-width:250px; }
-
     .wrap{ max-width:900px; margin:0 auto; padding:0 16px 32px}
     .section{ margin-top:2.5rem}
     .section h2{ border-bottom:2px solid var(--brand); padding-bottom:.4rem; margin:0 auto 1rem; font-size:1.5rem; max-width:900px}
@@ -41,40 +35,17 @@
     .cta-primary{ background:var(--brand); color:#fff}
     .cta-secondary{ background:var(--accent); color:#000}
     .cta-linkedin{ background:var(--linkedin); color:#fff}
-    .cta:hover{ filter:brightness(1.05)}
-    .cta:focus-visible{ box-shadow:0 0 0 3px var(--ring); outline:0 }
     .note{ color:var(--muted); font-size:.95rem; margin-top:.75rem}
-
     .resources-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
     .resource-card{ background:linear-gradient(135deg, rgba(229,9,20,.9), rgba(0,0,0,.9)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,.1); box-shadow:0 2px 6px rgba(0,0,0,.4)}
     .resource-card h3{ margin:.25rem 0 .25rem; font-size:1.1rem; color:#fff}
     .resource-card p{ margin:.25rem 0 .75rem; font-size:.95rem; color:var(--muted)}
     .resource-card a{ color:#fff; text-decoration:underline; text-underline-offset:2px; word-break:break-word}
-    .resource-card:hover{ transform:translateY(-3px); transition:transform .3s ease}
-
-    /* PDF.js viewer styles */
-    .pdf-viewer { padding:0; overflow:hidden; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.1); border-radius:14px; }
-    #pdfCanvas { width:100%; height:auto; display:block; }
-    .pdf-controls { display:flex; gap:.6rem; justify-content:center; align-items:center; padding:.75rem; flex-wrap:wrap; }
-    .pdf-btn { padding:.5rem .8rem; border:1px solid currentColor; border-radius:.5rem; background:transparent; color:var(--ink); cursor:pointer; }
-    .pdf-btn[disabled] { opacity:.5; cursor:not-allowed; }
-
-    .error { color:#ffb3b3; }
-
     footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
-
+    iframe.pdf-frame { width:100%; height:600px; border:none; background:#fff; }
     @media (max-width:600px){
       .logo-container img { height:70px; max-width:200px; }
-      .wrap{ padding:0 14px 28px}
-      .section{ margin-top:2rem}
-      .section h2{ font-size:1.25rem; margin:0 auto .8rem}
-      .resources-grid{ grid-template-columns:1fr}
-      .card{ padding:16px}
-      .cta{ font-size:1.1rem}
-    }
-    @media (prefers-reduced-motion:reduce){
-      .resource-card:hover{ transform:none }
-      .cta:hover{ filter:none }
+      iframe.pdf-frame { height:400px; }
     }
   </style>
 </head>
@@ -101,32 +72,15 @@
       </div>
     </section>
 
-    <!-- Presentation (PDF.js v3) -->
+    <!-- Presentation (simple iframe) -->
     <section class="section" aria-labelledby="presentation">
       <h2 id="presentation">Site Strategies — Presentation</h2>
       <div class="deck-actions" style="display:flex;gap:.6rem;margin-bottom:1rem;">
         <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
         <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;background:var(--brand);color:#fff;" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
       </div>
-
-      <div id="pdfStatus" class="note">Loading presentation…</div>
-
-      <div id="pdfViewer" class="pdf-viewer" style="display:none;">
-        <canvas id="pdfCanvas"></canvas>
-        <div class="pdf-controls">
-          <button id="prevPage" class="pdf-btn">‹ Prev</button>
-          <span class="note">Page <span id="pageNum">1</span>/<span id="pageCount">?</span></span>
-          <button id="nextPage" class="pdf-btn">Next ›</button>
-        </div>
-      </div>
-
-      <p id="pdfError" class="note error" style="display:none;">
-        Couldn’t render the PDF here.
-        <a id="openDirect" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in a new tab</a>
-        or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.
-        <br />
-        Alt fallback: <a id="openGview" href="#" target="_blank" rel="noopener">Google Viewer</a>.
-      </p>
+      <iframe src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
+      <p class="note">If the embed doesn’t appear (common on Android), <a href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">open the PDF</a> or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.</p>
     </section>
 
     <!-- Helpful Resources -->
@@ -170,94 +124,5 @@
   <footer>
     © 2025 Site Strategies — Powered by One Way Underground
   </footer>
-
-  <!-- PDF.js v3.11.174 (classic worker) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    (function () {
-      const relPDF  = 'assets/SiteStrategiesOverview.pdf';
-      const pdfURL  = new URL(relPDF, window.location.href).href;
-
-      const statusEl  = document.getElementById('pdfStatus');
-      const viewerEl  = document.getElementById('pdfViewer');
-      const errorEl   = document.getElementById('pdfError');
-      const gviewLink = document.getElementById('openGview');
-      const canvas    = document.getElementById('pdfCanvas');
-      const ctx       = canvas.getContext('2d');
-      const pageNumEl   = document.getElementById('pageNum');
-      const pageCountEl = document.getElementById('pageCount');
-      const prevBtn     = document.getElementById('prevPage');
-      const nextBtn     = document.getElementById('nextPage');
-
-      // Google Viewer fallback link
-      gviewLink.href = 'https://docs.google.com/gview?embedded=1&url=' + encodeURIComponent(pdfURL);
-
-      // Quick HEAD check (catches 404s)
-      fetch(pdfURL, { method: 'HEAD' })
-        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); })
-        .then(startPDF)
-        .catch(err => fail('Could not find the PDF at ' + relPDF + ' — ' + err.message));
-
-      function fail(msg){
-        console.error(msg);
-        statusEl.style.display = 'none';
-        errorEl.style.display  = 'block';
-      }
-
-      function startPDF(){
-        try {
-          if (!window['pdfjsLib']) throw new Error('pdf.js failed to load');
-
-          // Classic worker (v3)
-          pdfjsLib.GlobalWorkerOptions.workerSrc =
-            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-          let pdfDoc = null, pageNum = 1, isRendering = false, pendingPage = null;
-
-          function renderPage(num) {
-            isRendering = true;
-            pdfDoc.getPage(num).then(function(page) {
-              const base = page.getViewport({ scale: 1 });
-              const containerWidth = canvas.parentElement.clientWidth || window.innerWidth;
-
-              // Keep DPR conservative for Android memory
-              const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-              const scale = (containerWidth * dpr) / base.width;
-              const viewport = page.getViewport({ scale });
-
-              canvas.width  = Math.floor(viewport.width);
-              canvas.height = Math.floor(viewport.height);
-
-              page.render({ canvasContext: ctx, viewport }).promise.then(function () {
-                isRendering = false;
-                prevBtn.disabled = (pageNum <= 1);
-                nextBtn.disabled = (pageNum >= pdfDoc.numPages);
-                if (pendingPage !== null) { const n = pendingPage; pendingPage = null; renderPage(n); }
-              });
-            }).catch(e => fail('Render error: ' + e.message));
-            pageNumEl.textContent = num;
-          }
-
-          function queueRenderPage(num) { if (isRendering) pendingPage = num; else renderPage(num); }
-          function showPrev() { if (pageNum <= 1) return; pageNum--; queueRenderPage(pageNum); }
-          function showNext() { if (pageNum >= pdfDoc.numPages) return; pageNum++; queueRenderPage(pageNum); }
-
-          pdfjsLib.getDocument(pdfURL).promise.then(function(pdf) {
-            pdfDoc = pdf;
-            pageCountEl.textContent = pdf.numPages;
-            statusEl.style.display = 'none';
-            viewerEl.style.display = 'block';
-            renderPage(pageNum);
-          }).catch(e => fail('Load error: ' + e.message));
-
-          prevBtn.addEventListener('click', showPrev);
-          nextBtn.addEventListener('click', showNext);
-          window.addEventListener('resize', () => queueRenderPage(pageNum));
-        } catch (e) {
-          fail(e.message || 'Unknown PDF init error');
-        }
-      }
-    })();
-  </script>
 </body>
 </html>
