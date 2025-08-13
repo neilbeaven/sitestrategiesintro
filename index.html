@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thanks — Next Steps | Site Strategies</title>
-  <meta name="description" content="Thanks for completing the self‑assessment. Choose a next step and grab a few contractor resources—then we’ll follow up with tailored recommendations." />
+  <meta name="description" content="Thanks for completing the self-assessment. Choose a next step and grab a few contractor resources—then we’ll follow up with tailored recommendations." />
   <!-- Open Graph -->
   <meta property="og:title" content="Thanks — Next Steps | Site Strategies" />
-  <meta property="og:description" content="Pick a next step and browse helpful resources while we review your self‑assessment." />
+  <meta property="og:description" content="Pick a next step and browse helpful resources while we review your self-assessment." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://your-domain.example/thanks" />
   <meta property="og:image" content="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" />
@@ -45,6 +45,13 @@
     .resource-card p{ margin:.25rem 0 .75rem; font-size:.95rem; color:var(--muted)}
     .resource-card a{ color:#fff; text-decoration:underline; text-underline-offset:2px; word-break:break-word}
     .resource-card:hover{ transform:translateY(-3px); transition:transform .3s ease}
+    .pdf-frame {
+      width: 100%;
+      height: min(80vh, 900px);
+      border: 0;
+      border-radius: 1rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,.3);
+    }
     footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
     @media (max-width:600px){
       header{ padding:24px 16px}
@@ -80,11 +87,31 @@
       <h2 id="next-steps">Next Steps</h2>
       <div class="card">
         <p>Choose the best way to get in touch now:</p>
-        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener noreferrer" aria-label="Book a 15 minute call on Calendly">📅 Book a 15‑minute Call</a>
+        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener noreferrer" aria-label="Book a 15 minute call on Calendly">📅 Book a 15-minute Call</a>
         <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener noreferrer" aria-label="Connect with Neil on LinkedIn">🔗 Connect on LinkedIn</a>
         <a class="cta cta-secondary" href="mailto:neilbeaven1@gmail.com" aria-label="Email us">✉️ Email us</a>
         <p class="note">Prefer not to book right now? No problem — we’ll be in touch shortly to review your submission and next steps.</p>
       </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" aria-labelledby="presentation">
+      <h2 id="presentation">Site Strategies — Presentation</h2>
+      <div class="deck-actions" style="display:flex;gap:.6rem;margin-bottom:1rem;">
+        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;" href="/assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;background:var(--brand);color:#fff;" href="/assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
+      </div>
+      <object
+        data="/assets/SiteStrategiesOverview.pdf#view=FitH"
+        type="application/pdf"
+        class="pdf-frame"
+        aria-label="Site Strategies Presentation">
+        <p>
+          Your browser can’t display PDFs inline.
+          <a href="/assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open the PDF</a>
+          or <a href="/assets/SiteStrategiesOverview.pdf" download>download it</a>.
+        </p>
+      </object>
     </section>
 
     <!-- Helpful Resources Section -->
@@ -92,41 +119,40 @@
       <h2 id="resources">Helpful Resources for Contractors</h2>
       <div class="resources-grid">
         <article class="resource-card">
-  <h3>One Way Underground</h3>
-  <p>Site servicing, utilities, and civil works.</p>
-  <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener noreferrer">Visit One Way Underground</a>
-</article>
+          <h3>One Way Underground</h3>
+          <p>Site servicing, utilities, and civil works.</p>
+          <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener noreferrer">Visit One Way Underground</a>
+        </article>
 
-<article class="resource-card">
-  <h3>Ontario One Call</h3>
-  <p>Request underground utility locates before digging.</p>
-  <a href="https://ontarioonecall.ca" target="_blank" rel="noopener noreferrer">Visit Ontario One Call</a>
-</article>
+        <article class="resource-card">
+          <h3>Ontario One Call</h3>
+          <p>Request underground utility locates before digging.</p>
+          <a href="https://ontarioonecall.ca" target="_blank" rel="noopener noreferrer">Visit Ontario One Call</a>
+        </article>
 
-<article class="resource-card">
-  <h3>Infrastructure Ontario</h3>
-  <p>Building essential public assets across Ontario.</p>
-  <a href="https://www.infrastructureontario.ca" target="_blank" rel="noopener noreferrer">Explore Infrastructure Ontario</a>
-</article>
+        <article class="resource-card">
+          <h3>Infrastructure Ontario</h3>
+          <p>Building essential public assets across Ontario.</p>
+          <a href="https://www.infrastructureontario.ca" target="_blank" rel="noopener noreferrer">Explore Infrastructure Ontario</a>
+        </article>
 
-<article class="resource-card">
-  <h3>Metrolinx</h3>
-  <p>Transit projects shaping the Greater Toronto Area.</p>
-  <a href="https://www.metrolinx.com" target="_blank" rel="noopener noreferrer">Visit Metrolinx</a>
-</article>
+        <article class="resource-card">
+          <h3>Metrolinx</h3>
+          <p>Transit projects shaping the Greater Toronto Area.</p>
+          <a href="https://www.metrolinx.com" target="_blank" rel="noopener noreferrer">Visit Metrolinx</a>
+        </article>
 
-<article class="resource-card">
-  <h3>Canadian Construction Association</h3>
-  <p>Advocacy and resources for construction professionals.</p>
-  <a href="https://www.cca-acc.com" target="_blank" rel="noopener noreferrer">Visit CCA</a>
-</article>
+        <article class="resource-card">
+          <h3>Canadian Construction Association</h3>
+          <p>Advocacy and resources for construction professionals.</p>
+          <a href="https://www.cca-acc.com" target="_blank" rel="noopener noreferrer">Visit CCA</a>
+        </article>
 
-<article class="resource-card">
-  <h3>Ontario Road Builders' Association</h3>
-  <p>Advancing safe, sustainable road construction.</p>
-  <a href="https://orba.org" target="_blank" rel="noopener noreferrer">Visit ORBA</a>
-</article>
-
+        <article class="resource-card">
+          <h3>Ontario Road Builders' Association</h3>
+          <p>Advancing safe, sustainable road construction.</p>
+          <a href="https://orba.org" target="_blank" rel="noopener noreferrer">Visit ORBA</a>
+        </article>
       </div>
     </section>
   </main>
