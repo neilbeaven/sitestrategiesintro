@@ -1,116 +1,128 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Thanks — Next Steps | Site Strategies</title>
-<style>
-  :root {
-    --bg: #000000;
-    --ink: #FFFFFF;
-    --muted: #BFBFBF;
-    --brand: #E50914;
-    --accent: #BFBFBF;
-    --linkedin: #0077B5;
-  }
-  * { box-sizing: border-box; }
-  body { font-family: Arial, sans-serif; background: var(--bg); color: var(--ink); margin: 0; }
-  header { text-align: center; padding: 2rem 1rem; }
-  header h1 { color: var(--brand); margin-bottom: 20px; font-size: clamp(26px, 4vw, 40px); }
-  /* Make logo fluid and centered on all screens, with sensible max */
-  header img { display:block; margin: 25px auto 30px; width: 100%; max-width: 450px; height: auto; }
-  header p { color: var(--muted); margin-top: 0.25rem; font-size: 1rem; }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 0 16px 32px; }
-  .section { margin-top: 2.5rem; }
-  .section h2 { border-bottom: 2px solid var(--brand); padding-bottom: 0.4rem; margin: 0 auto 1rem; font-size: 1.5rem; max-width: 900px; }
-  .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.25rem; }
-  .cta { display: block; width: 100%; text-align: center; text-decoration: none; border-radius: 12px; padding: 1.1rem 1.25rem; font-weight: 800; font-size: 1.2rem; margin: .6rem 0; }
-  .cta-primary { background: var(--brand); color: #fff; }
-  .cta-secondary { background: var(--accent); color: #000; }
-  .cta-linkedin { background: var(--linkedin); color: #fff; }
-  .cta:hover { filter: brightness(1.05); }
-  .note { color: var(--muted); font-size: .95rem; margin-top: .75rem; }
-  .resources-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-  .resource-card { background: linear-gradient(135deg, rgba(229,9,20,0.9), rgba(0,0,0,0.9)); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
-  .resource-card h3 { margin-top: 0; font-size: 1.1rem; color: #fff; }
-  .resource-card p { font-size: 0.9rem; color: var(--muted); }
-  .resource-card a { color: #fff; text-decoration: underline; word-break: break-word; }
-  .resource-card:hover { transform: translateY(-3px); transition: 0.3s ease; }
-  footer { text-align: center; padding: 16px; color: var(--muted); font-size: .9rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
-
-  /* Mobile refinements */
-  @media (max-width: 600px) {
-    header { padding: 24px 16px; }
-    header h1 { font-size: clamp(22px, 6vw, 32px); }
-    /* Ensure logo never overflows and stays visually centered */
-    header img { max-width: 80vw; margin: 18px auto 24px; }
-    .wrap { padding: 0 14px 28px; }
-    .section { margin-top: 2rem; }
-    .section h2 { font-size: 1.25rem; margin: 0 auto 0.8rem; }
-    .resources-grid { grid-template-columns: 1fr; }
-    .card { padding: 16px; }
-    .cta { font-size: 1.1rem; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks — Next Steps | Site Strategies</title>
+  <meta name="description" content="Thanks for completing the self‑assessment. Choose a next step and grab a few contractor resources—then we’ll follow up with tailored recommendations." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thanks — Next Steps | Site Strategies" />
+  <meta property="og:description" content="Pick a next step and browse helpful resources while we review your self‑assessment." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.example/thanks" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root{
+      --bg:#000; --ink:#fff; --muted:#BFBFBF; --brand:#E50914; --accent:#BFBFBF; --linkedin:#0077B5;
+      --ring:#ffffff80;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.5; background:var(--bg); color:var(--ink);
+      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased;
+    }
+    header{ text-align:center; padding:2rem 1rem}
+    header h1{ color:var(--brand); margin:0 0 20px; font-size:clamp(26px,4vw,40px)}
+    header img{ display:block; margin:25px auto 30px; width:100%; max-width:450px; height:auto; }
+    header p{ color:var(--muted); margin:.25rem 0 0; font-size:1rem}
+    .wrap{ max-width:900px; margin:0 auto; padding:0 16px 32px}
+    .section{ margin-top:2.5rem}
+    .section h2{ border-bottom:2px solid var(--brand); padding-bottom:.4rem; margin:0 auto 1rem; font-size:1.5rem; max-width:900px}
+    .card{ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:1.25rem; margin-bottom:1.25rem}
+    .cta{ display:block; width:100%; text-align:center; text-decoration:none; border-radius:12px; padding:1.1rem 1.25rem; font-weight:800; font-size:1.2rem; margin:.6rem 0; outline:0}
+    .cta-primary{ background:var(--brand); color:#fff}
+    .cta-secondary{ background:var(--accent); color:#000}
+    .cta-linkedin{ background:var(--linkedin); color:#fff}
+    .cta:hover{ filter:brightness(1.05)}
+    .cta:focus-visible{ box-shadow:0 0 0 3px var(--ring); outline:0 }
+    .note{ color:var(--muted); font-size:.95rem; margin-top:.75rem}
+    .resources-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+    .resource-card{ background:linear-gradient(135deg, rgba(229,9,20,.9), rgba(0,0,0,.9)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,.1); box-shadow:0 2px 6px rgba(0,0,0,.4)}
+    .resource-card h3{ margin:.25rem 0 .25rem; font-size:1.1rem; color:#fff}
+    .resource-card p{ margin:.25rem 0 .75rem; font-size:.95rem; color:var(--muted)}
+    .resource-card a{ color:#fff; text-decoration:underline; text-underline-offset:2px; word-break:break-word}
+    .resource-card:hover{ transform:translateY(-3px); transition:transform .3s ease}
+    footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
+    @media (max-width:600px){
+      header{ padding:24px 16px}
+      header h1{ font-size:clamp(22px,6vw,32px)}
+      header img{ max-width:80vw; margin:18px auto 24px}
+      .wrap{ padding:0 14px 28px}
+      .section{ margin-top:2rem}
+      .section h2{ font-size:1.25rem; margin:0 auto .8rem}
+      .resources-grid{ grid-template-columns:1fr}
+      .card{ padding:16px}
+      .cta{ font-size:1.1rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .resource-card:hover{ transform:none }
+      .cta:hover{ filter:none }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Site Strategies – Powered by One Way Underground</h1>
-    <img src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" 
-         alt="One Way Underground Logo">
+    <img
+      src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png"
+      alt="One Way Underground logo"
+      loading="lazy"
+      width="450" height="160" />
     <p>We'll review your responses and reach out with tailored recommendations.</p>
   </header>
 
   <main class="wrap">
     <!-- Next Steps Section -->
-    <div class="section">
-      <h2>What Happens Next</h2>
+    <section class="section" aria-labelledby="next-steps">
+      <h2 id="next-steps">Next Steps</h2>
       <div class="card">
         <p>Choose the best way to get in touch now:</p>
-        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">📅 Book a 15-minute Call</a>
-        <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">🔗 Connect on LinkedIn</a>
-        <a class="cta cta-secondary" href="mailto:neilbeaven1@gmail.com">✉️ Contact us (email)</a>
-        <div class="note">Prefer not to book right now? No problem — we’ll be in touch shortly to review your submission and next steps.</div>
+        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener noreferrer" aria-label="Book a 15 minute call on Calendly">📅 Book a 15‑minute Call</a>
+        <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener noreferrer" aria-label="Connect with Neil on LinkedIn">🔗 Connect on LinkedIn</a>
+        <a class="cta cta-secondary" href="mailto:neilbeaven1@gmail.com" aria-label="Email us">✉️ Email us</a>
+        <p class="note">Prefer not to book right now? No problem — we’ll be in touch shortly to review your submission and next steps.</p>
       </div>
-    </div>
+    </section>
 
     <!-- Helpful Resources Section -->
-    <div class="section">
-      <h2>Helpful Resources for Contractors</h2>
+    <section class="section" aria-labelledby="resources">
+      <h2 id="resources">Helpful Resources for Contractors</h2>
       <div class="resources-grid">
-        <div class="resource-card">
+        <article class="resource-card">
           <h3>IHSA Safety Resources</h3>
           <p>Ontario’s Infrastructure Health & Safety Association guidelines to keep your crews safe.</p>
-          <a href="https://www.ihsa.ca" target="_blank" rel="noopener">Visit IHSA</a>
-        </div>
-        <div class="resource-card">
+          <a href="https://www.ihsa.ca" target="_blank" rel="noopener noreferrer">Visit IHSA</a>
+        </article>
+        <article class="resource-card">
           <h3>Procore Project Management</h3>
           <p>Streamline your construction workflows and manage jobs more efficiently.</p>
-          <a href="https://www.procore.com" target="_blank" rel="noopener">Explore Procore</a>
-        </div>
-        <div class="resource-card">
+          <a href="https://www.procore.com" target="_blank" rel="noopener noreferrer">Explore Procore</a>
+        </article>
+        <article class="resource-card">
           <h3>Ontario Construction News</h3>
           <p>Stay up to date on the latest construction industry news in Ontario.</p>
-          <a href="https://www.ontarioconstructionnews.com" target="_blank" rel="noopener">Read More</a>
-        </div>
-        <div class="resource-card">
+          <a href="https://www.ontarioconstructionnews.com" target="_blank" rel="noopener noreferrer">Read More</a>
+        </article>
+        <article class="resource-card">
           <h3>Canadian Construction Association</h3>
           <p>National advocacy and best practices for Canada’s construction industry.</p>
-          <a href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a>
-        </div>
-        <div class="resource-card">
+          <a href="https://www.cca-acc.com" target="_blank" rel="noopener noreferrer">Visit CCA</a>
+        </article>
+        <article class="resource-card">
           <h3>ConstructConnect</h3>
           <p>Find project leads and bidding opportunities across Canada.</p>
-          <a href="https://www.constructconnect.com" target="_blank" rel="noopener">Get Started</a>
-        </div>
-           <div class="resource-card">
-          <h3>One-Way Underground</h3>
+          <a href="https://www.constructconnect.com" target="_blank" rel="noopener noreferrer">Get Started</a>
+        </article>
+        <article class="resource-card">
+          <h3>One Way Underground</h3>
           <p>Pride in all of our work done right.</p>
-          <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener">OWU</a>
-     
-        </div>
-    </div>
+          <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener noreferrer">Visit OWU</a>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>
