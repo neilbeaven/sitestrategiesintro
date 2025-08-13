@@ -29,6 +29,7 @@
     header img{ display:block; height:auto; }
     header p{ color:var(--muted); margin:.25rem 0 0; font-size:1rem}
 
+    /* Dual logos */
     .logo-container {
       display: flex;
       justify-content: center;
@@ -72,7 +73,7 @@
     footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
 
     @media (max-width:600px){
-      /* Logos stay side-by-side; only size down */
+      /* Logos remain side-by-side; only scale down */
       .logo-container img { height: 70px; max-width: 200px; }
       .wrap{ padding:0 14px 28px}
       .section{ margin-top:2rem}
@@ -90,7 +91,7 @@
 <body>
   <header>
     <div class="logo-container">
-      <!-- Site Strategies Logo -->
+      <!-- Site Strategies Logo (trimmed SVG) -->
       <img src="assets/SiteStrategiesLogo.svg" alt="Site Strategies Logo" loading="lazy" />
       <!-- One Way Underground Logo -->
       <img src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" alt="One Way Underground Logo" loading="lazy" />
@@ -112,12 +113,14 @@
       </div>
     </section>
 
-    <!-- Presentation (PDF.js) -->
+    <!-- Presentation (PDF.js hardened) -->
     <section class="section" aria-labelledby="presentation">
       <h2 id="presentation">Site Strategies — Presentation</h2>
       <div class="deck-actions" style="display:flex;gap:.6rem;margin-bottom:1rem;">
-        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
-        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;background:var(--brand);color:#fff;" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
+        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;"
+           href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;background:var(--brand);color:#fff;"
+           href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
       </div>
 
       <div id="pdfViewer" class="pdf-viewer">
@@ -129,9 +132,8 @@
         </div>
       </div>
 
-      <p class="note" style="text-align:center;">
-        Trouble viewing? <a href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open the PDF</a>
-        or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.
+      <p id="pdfError" class="note" style="display:none;color:#ffb3b3;margin-top:.75rem;">
+        Couldn’t render the PDF here. You can <a href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">open it in a new tab</a> or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.
       </p>
     </section>
 
@@ -181,29 +183,45 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.3.136/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     (function () {
-      const url = 'assets/SiteStrategiesOverview.pdf';
+      // Absolute URL avoids Android oddities with relative paths
+      const pdfURL = new URL('assets/SiteStrategiesOverview.pdf', window.location.href).href;
+
+      // Set worker BEFORE any getDocument calls (important for mobile)
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.3.136/pdf.worker.min.js';
+
+      // Elements
       const canvas = document.getElementById('pdfCanvas');
       const ctx = canvas.getContext('2d');
       const pageNumEl = document.getElementById('pageNum');
       const pageCountEl = document.getElementById('pageCount');
       const prevBtn = document.getElementById('prevPage');
       const nextBtn = document.getElementById('nextPage');
+      const errEl = document.getElementById('pdfError');
 
+      // State
       let pdfDoc = null, pageNum = 1, isRendering = false, pendingPage = null;
 
-      // Worker for PDF.js (match the CDN version)
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.3.136/pdf.worker.min.js';
+      function showError(err) {
+        console.error('PDF render error:', err);
+        errEl.style.display = 'block';
+      }
 
       function renderPage(num) {
         isRendering = true;
         pdfDoc.getPage(num).then(function(page) {
           const unscaled = page.getViewport({ scale: 1 });
-          const containerWidth = canvas.parentElement.clientWidth;
-          const scale = containerWidth / unscaled.width;
+          const container = canvas.parentElement; // #pdfViewer
+          const containerWidth = container.clientWidth || window.innerWidth;
+
+          // Cap DPR for memory-constrained Android devices
+          const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+          const scale = (containerWidth * dpr) / unscaled.width;
           const viewport = page.getViewport({ scale });
 
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
+          // Device pixels for crispness
+          canvas.width = Math.floor(viewport.width);
+          canvas.height = Math.floor(viewport.height);
 
           page.render({ canvasContext: ctx, viewport }).promise.then(function() {
             isRendering = false;
@@ -214,23 +232,26 @@
               renderPage(next);
             }
           });
-        });
+        }).catch(showError);
         pageNumEl.textContent = num;
       }
 
       function queueRenderPage(num) {
-        if (isRendering) { pendingPage = num; } else { renderPage(num); }
+        if (isRendering) pendingPage = num;
+        else renderPage(num);
       }
 
       function showPrev() { if (pageNum <= 1) return; pageNum--; queueRenderPage(pageNum); }
       function showNext() { if (pageNum >= pdfDoc.numPages) return; pageNum++; queueRenderPage(pageNum); }
 
-      pdfjsLib.getDocument(url).promise.then(function(pdf) {
+      // Load the PDF
+      pdfjsLib.getDocument(pdfURL).promise.then(function(pdf) {
         pdfDoc = pdf;
         pageCountEl.textContent = pdf.numPages;
         renderPage(pageNum);
-      });
+      }).catch(showError);
 
+      // Controls + responsive rerender
       prevBtn.addEventListener('click', showPrev);
       nextBtn.addEventListener('click', showNext);
       window.addEventListener('resize', () => queueRenderPage(pageNum));
