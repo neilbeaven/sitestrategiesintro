@@ -101,7 +101,7 @@
       </div>
     </section>
 
-    <!-- Presentation (PDF.js with diagnostics + fallbacks) -->
+    <!-- Presentation (PDF.js v3) -->
     <section class="section" aria-labelledby="presentation">
       <h2 id="presentation">Site Strategies — Presentation</h2>
       <div class="deck-actions" style="display:flex;gap:.6rem;margin-bottom:1rem;">
@@ -171,12 +171,12 @@
     © 2025 Site Strategies — Powered by One Way Underground
   </footer>
 
-  <!-- PDF.js (CDN) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.3.136/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- PDF.js v3.11.174 (classic worker) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
     (function () {
-      const relPDF = 'assets/SiteStrategiesOverview.pdf';
-      const pdfURL = new URL(relPDF, window.location.href).href;
+      const relPDF  = 'assets/SiteStrategiesOverview.pdf';
+      const pdfURL  = new URL(relPDF, window.location.href).href;
 
       const statusEl  = document.getElementById('pdfStatus');
       const viewerEl  = document.getElementById('pdfViewer');
@@ -189,52 +189,50 @@
       const prevBtn     = document.getElementById('prevPage');
       const nextBtn     = document.getElementById('nextPage');
 
-      // Build Google Viewer fallback link
+      // Google Viewer fallback link
       gviewLink.href = 'https://docs.google.com/gview?embedded=1&url=' + encodeURIComponent(pdfURL);
 
-      // 0) Quick HEAD check to catch path mistakes (404s)
+      // Quick HEAD check (catches 404s)
       fetch(pdfURL, { method: 'HEAD' })
-        .then(r => {
-          if (!r.ok) throw new Error('PDF not found (HTTP ' + r.status + ')');
-          startPDF();
-        })
-        .catch(err => fail('Could not find the PDF at: ' + relPDF + ' — ' + err.message));
+        .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); })
+        .then(startPDF)
+        .catch(err => fail('Could not find the PDF at ' + relPDF + ' — ' + err.message));
 
       function fail(msg){
         console.error(msg);
         statusEl.style.display = 'none';
-        errorEl.style.display = 'block';
+        errorEl.style.display  = 'block';
       }
 
       function startPDF(){
         try {
-          if (!window.pdfjsLib) throw new Error('pdf.js failed to load');
-          // 1) Set worker BEFORE getDocument (mobile critical)
-          pdfjsLib.GlobalWorkerOptions.workerSrc =
-            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.3.136/pdf.worker.min.js';
+          if (!window['pdfjsLib']) throw new Error('pdf.js failed to load');
 
-          // 2) Load and render with safe DPR (Android memory)
+          // Classic worker (v3)
+          pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
           let pdfDoc = null, pageNum = 1, isRendering = false, pendingPage = null;
 
           function renderPage(num) {
             isRendering = true;
             pdfDoc.getPage(num).then(function(page) {
-              const unscaled = page.getViewport({ scale: 1 });
-              const container = canvas.parentElement;
-              const containerWidth = container.clientWidth || window.innerWidth;
+              const base = page.getViewport({ scale: 1 });
+              const containerWidth = canvas.parentElement.clientWidth || window.innerWidth;
 
+              // Keep DPR conservative for Android memory
               const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-              const scale = (containerWidth * dpr) / unscaled.width;
+              const scale = (containerWidth * dpr) / base.width;
               const viewport = page.getViewport({ scale });
 
-              canvas.width = Math.floor(viewport.width);
+              canvas.width  = Math.floor(viewport.width);
               canvas.height = Math.floor(viewport.height);
 
               page.render({ canvasContext: ctx, viewport }).promise.then(function () {
                 isRendering = false;
                 prevBtn.disabled = (pageNum <= 1);
                 nextBtn.disabled = (pageNum >= pdfDoc.numPages);
-                if (pendingPage !== null) { const next = pendingPage; pendingPage = null; renderPage(next); }
+                if (pendingPage !== null) { const n = pendingPage; pendingPage = null; renderPage(n); }
               });
             }).catch(e => fail('Render error: ' + e.message));
             pageNumEl.textContent = num;
