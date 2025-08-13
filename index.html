@@ -26,8 +26,21 @@
     }
     header{ text-align:center; padding:2rem 1rem}
     header h1{ color:var(--brand); margin:0 0 20px; font-size:clamp(26px,4vw,40px)}
-    header img{ display:block; margin:25px auto 30px; width:100%; max-width:450px; height:auto; }
+    header img{ display:block; height:auto; }
     header p{ color:var(--muted); margin:.25rem 0 0; font-size:1rem}
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .logo-container img {
+      height: 80px; /* equal height */
+      width: auto;
+      max-width: 250px;
+    }
     .wrap{ max-width:900px; margin:0 auto; padding:0 16px 32px}
     .section{ margin-top:2.5rem}
     .section h2{ border-bottom:2px solid var(--brand); padding-bottom:.4rem; margin:0 auto 1rem; font-size:1.5rem; max-width:900px}
@@ -56,7 +69,8 @@
     @media (max-width:600px){
       header{ padding:24px 16px}
       header h1{ font-size:clamp(22px,6vw,32px)}
-      header img{ max-width:80vw; margin:18px auto 24px}
+      .logo-container { flex-direction: column; gap: 10px; }
+      .logo-container img { height: 70px; max-width: 200px; }
       .wrap{ padding:0 14px 28px}
       .section{ margin-top:2rem}
       .section h2{ font-size:1.25rem; margin:0 auto .8rem}
@@ -72,12 +86,19 @@
 </head>
 <body>
   <header>
+    <div class="logo-container">
+      <!-- Site Strategies Logo -->
+      <img
+        src="assets/SiteStrategiesLogo.svg"
+        alt="Site Strategies Logo"
+        loading="lazy" />
+      <!-- One Way Underground Logo -->
+      <img
+        src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png"
+        alt="One Way Underground Logo"
+        loading="lazy" />
+    </div>
     <h1>Site Strategies – Powered by One Way Underground</h1>
-    <img
-      src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png"
-      alt="One Way Underground logo"
-      loading="lazy"
-      width="450" height="160" />
     <p>We'll review your responses and reach out with tailored recommendations.</p>
   </header>
 
