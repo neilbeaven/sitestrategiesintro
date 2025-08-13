@@ -37,7 +37,7 @@
       margin-bottom: 1rem;
     }
     .logo-container img {
-      height: 80px; /* equal height */
+      height: 80px;
       width: auto;
       max-width: 250px;
     }
@@ -67,9 +67,7 @@
     }
     footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
     @media (max-width:600px){
-      header{ padding:24px 16px}
-      header h1{ font-size:clamp(22px,6vw,32px)}
-      .logo-container { flex-direction: column; gap: 10px; }
+      /* Removed flex-direction change for .logo-container so logos stay side-by-side */
       .logo-container img { height: 70px; max-width: 200px; }
       .wrap{ padding:0 14px 28px}
       .section{ margin-top:2rem}
@@ -87,23 +85,14 @@
 <body>
   <header>
     <div class="logo-container">
-      <!-- Site Strategies Logo -->
-      <img
-        src="assets/SiteStrategiesLogo.svg"
-        alt="Site Strategies Logo"
-        loading="lazy" />
-      <!-- One Way Underground Logo -->
-      <img
-        src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png"
-        alt="One Way Underground Logo"
-        loading="lazy" />
+      <img src="assets/SiteStrategiesLogo.svg" alt="Site Strategies Logo" loading="lazy" />
+      <img src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" alt="One Way Underground Logo" loading="lazy" />
     </div>
     <h1>Site Strategies – Powered by One Way Underground</h1>
     <p>We'll review your responses and reach out with tailored recommendations.</p>
   </header>
 
   <main class="wrap">
-    <!-- Next Steps Section -->
     <section class="section" aria-labelledby="next-steps">
       <h2 id="next-steps">Next Steps</h2>
       <div class="card">
@@ -115,25 +104,16 @@
       </div>
     </section>
 
-    <!-- Presentation Section -->
     <section class="section" aria-labelledby="presentation">
       <h2 id="presentation">Site Strategies — Presentation</h2>
       <div class="deck-actions" style="display:flex;gap:.6rem;margin-bottom:1rem;">
         <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
         <a class="btn" style="padding:.6rem .9rem;border:1px solid currentColor;border-radius:.5rem;text-decoration:none;background:var(--brand);color:#fff;" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
       </div>
-      <iframe
-        src="assets/SiteStrategiesOverview.pdf#view=FitH"
-        class="pdf-frame"
-        title="Site Strategies Presentation">
-      </iframe>
-      <p class="note">
-        Can’t see the embed? <a href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open the PDF</a>
-        or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.
-      </p>
+      <iframe src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
+      <p class="note">Can’t see the embed? <a href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open the PDF</a> or <a href="assets/SiteStrategiesOverview.pdf" download>download it</a>.</p>
     </section>
 
-    <!-- Helpful Resources Section -->
     <section class="section" aria-labelledby="resources">
       <h2 id="resources">Helpful Resources for Contractors</h2>
       <div class="resources-grid">
@@ -142,31 +122,26 @@
           <p>Site servicing, utilities, and civil works.</p>
           <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener noreferrer">Visit One Way Underground</a>
         </article>
-
         <article class="resource-card">
           <h3>Ontario One Call</h3>
           <p>Request underground utility locates before digging.</p>
           <a href="https://ontarioonecall.ca" target="_blank" rel="noopener noreferrer">Visit Ontario One Call</a>
         </article>
-
         <article class="resource-card">
           <h3>Infrastructure Ontario</h3>
           <p>Building essential public assets across Ontario.</p>
           <a href="https://www.infrastructureontario.ca" target="_blank" rel="noopener noreferrer">Explore Infrastructure Ontario</a>
         </article>
-
         <article class="resource-card">
           <h3>Metrolinx</h3>
           <p>Transit projects shaping the Greater Toronto Area.</p>
           <a href="https://www.metrolinx.com" target="_blank" rel="noopener noreferrer">Visit Metrolinx</a>
         </article>
-
         <article class="resource-card">
           <h3>Canadian Construction Association</h3>
           <p>Advocacy and resources for construction professionals.</p>
           <a href="https://www.cca-acc.com" target="_blank" rel="noopener noreferrer">Visit CCA</a>
         </article>
-
         <article class="resource-card">
           <h3>Ontario Road Builders' Association</h3>
           <p>Advancing safe, sustainable road construction.</p>
