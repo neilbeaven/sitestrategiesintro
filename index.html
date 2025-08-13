@@ -14,7 +14,6 @@
   <meta property="og:title" content="Site Strategies — Next Steps" />
   <meta property="og:description" content="Powered by One Way Underground. Book a 30-minute intro and grab helpful contractor resources." />
   <meta property="og:type" content="website" />
-  <!-- If your site is a project page: -->
   <meta property="og:url" content="https://neilbeaven.github.io/sitestrategiesintro/" />
   <meta property="og:image" content="https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png?v=2" />
   <meta property="og:image:width" content="512" />
@@ -48,9 +47,11 @@
       width:100%; aspect-ratio: 5 / 2; /* consistent boxes across devices */
     }
     .logo-wrap img{
-      max-height:80px; max-width:100%; height:auto; width:auto; display:block;
-      object-fit:contain;
+      max-width:100%; height:auto; width:auto; display:block; object-fit:contain;
     }
+    /* Base desktop sizes after +50% */
+    .logo-owu { max-height: 120px; }
+    .logo-ss  { max-height: 144px; } /* +20% more than OWU */
 
     .wrap{ max-width:900px; margin:0 auto; padding:0 16px 32px}
     .section{ margin-top:2.5rem}
@@ -80,7 +81,9 @@
 
     @media (max-width:600px){
       .logo-wrap{ aspect-ratio: 5 / 3; } /* taller boxes for small screens */
-      .logo-wrap img{ max-height:70px }
+      /* Mobile sizes after +50% (70px -> 105px) and +20% for SS (105px -> 126px) */
+      .logo-owu { max-height: 105px; }
+      .logo-ss  { max-height: 126px; }
       iframe.pdf-frame{ height:400px }
     }
   </style>
@@ -90,10 +93,12 @@
     <!-- Equal-width wrappers ensure perfect visual centering on mobile -->
     <div class="logo-bar">
       <div class="logo-wrap">
-        <img src="assets/SiteStrategiesLogo.png" alt="Site Strategies Logo" loading="lazy" />
+        <!-- Site Strategies logo: +50% then +20% -->
+        <img class="logo-ss" src="assets/SiteStrategiesLogo.png" alt="Site Strategies Logo" loading="lazy" />
       </div>
       <div class="logo-wrap">
-        <img src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" alt="One Way Underground Logo" loading="lazy" />
+        <!-- OWU logo: +50% -->
+        <img class="logo-owu" src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" alt="One Way Underground Logo" loading="lazy" />
       </div>
     </div>
 
