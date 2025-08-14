@@ -7,7 +7,7 @@
   <meta name="description" content="Helping Ontario contractors win more jobs, avoid delays, and boost profitability. Practical, on-site consulting powered by nearly 20 years of experience. Powered by One Way Underground." />
   <meta name="theme-color" content="#0B0B0B" />
   <style>
-    :root { --bg:#0B0B0B; --ink:#FFFFFF; --muted:#BFBFBF; --brand:#E50914; --panel:#151515; --stroke:#2A2A2A; --linkedin:#0077B5; }
+    :root { --bg:#0B0B0B; --ink:#FFFFFF; --muted:#C8C8C8; --brand:#E50914; --panel:#1A1A1A; --stroke:#3A3A3A; --linkedin:#0077B5; }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
@@ -18,7 +18,7 @@
     header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
     header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand svg,.brand img{width:36px;height:36px;border-radius:6px;display:block}
+    .brand svg,.brand img{width:clamp(32px,3.8vw,56px);height:clamp(32px,3.8vw,56px);border-radius:8px;display:block}
     nav a{margin-left:18px;color:var(--muted);font-weight:600}
     nav a:hover{color:var(--ink)}
     .hero{padding:clamp(40px,8vw,96px) 0;background:radial-gradient(1200px 600px at 80% -10%, rgba(229,9,20,.12), transparent),radial-gradient(900px 500px at -10% 10%, rgba(255,255,255,.06), transparent)}
@@ -27,20 +27,20 @@
     h1{font-size:clamp(28px,4.6vw,56px);line-height:1.06;margin:0 0 14px}
     .sub{color:var(--muted);font-size:clamp(15px,1.6vw,18px)}
     .cta-row{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
-    .hero .card{background:var(--panel);border:1px solid var(--stroke);padding:16px;border-radius:14px}
-    .powered{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;margin-top:12px}
+    .hero .card{background:var(--panel);border:1px solid var(--stroke);padding:16px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4)}
+    .powered{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:14px;margin-top:12px}
     section{padding:clamp(44px,7vw,96px) 0;border-top:1px solid var(--stroke)}
     h2{font-size:clamp(22px,3vw,36px);margin:0 0 14px}
     p.lead{color:var(--muted);font-size:18px;margin:0 0 22px}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .tile{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px}
+    .tile{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4);background-image:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,0))}
     .tile h3{margin:8px 0 8px;font-size:18px}
     .tile p{color:var(--muted);margin:0}
     .icon{width:28px;height:28px}
     .who{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-    .mapbox{height:300px;border-radius:14px;border:1px solid var(--stroke);background:repeating-linear-gradient(135deg,#111 0 10px,#141414 10px 20px);display:grid;place-items:center;color:var(--muted)}
+    .mapbox{height:300px;border-radius:14px;border:1px solid var(--stroke);background:repeating-linear-gradient(135deg,#141414 0 12px,#111 12px 24px);display:grid;place-items:center;color:var(--muted);box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4)}
     .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
-    .step{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px;position:relative}
+    .step{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px;position:relative;box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4)}
     .step::before{counter-increment:step;content:counter(step);position:absolute;top:-12px;left:-12px;width:36px;height:36px;border-radius:10px;background:var(--brand);display:grid;place-items:center;font-weight:800}
     blockquote{margin:18px 0 0;padding-left:14px;border-left:3px solid var(--stroke);color:var(--muted);font-style:italic}
                         .cta-banner{background:linear-gradient(90deg,#1a1a1a,#111);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
@@ -65,9 +65,11 @@
   .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
   .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
   @media (max-width:780px){.pdf-frame{height:420px}}
-  .powered img{height:36px;width:36px;filter:grayscale(100%);opacity:.9;border-radius:6px}
+  .powered img{height:clamp(32px,3.4vw,48px);width:clamp(32px,3.4vw,48px);filter:none;opacity:1;border-radius:8px}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   @media (max-width:780px){.grid-2{grid-template-columns:1fr}}
+  .coverage{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;width:100%;text-align:center;padding:8px}  
+  .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid var(--stroke);background:#f3f3f3;color:#111;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 6px 16px rgba(0,0,0,.25)}
   </style>
 </head>
 <body>
@@ -85,7 +87,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div>
-        <a class="btn secondary" href="#contact">Book a call</a>
+        <a class="btn secondary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call</a>
       </div>
     </div>
   </header>
@@ -152,7 +154,7 @@
   <section id="who">
     <div class="container who">
       <div>
-        <h2>Serving Ontario's 121,000 small and mid-sized contractors</h2>
+        <h2>Supporting small and mid‑sized contractors across Ontario</h2>
         <p class="lead">If you run a 5 to 50-person crew, we help you run leaner, safer, and more profitable projects. Simple as that.</p>
         <ul>
           <li>Site servicing and utilities</li>
@@ -161,7 +163,7 @@
           <li>General contractors</li>
         </ul>
       </div>
-      <div class="mapbox" aria-hidden="true">Ontario focus</div>
+      <div class="mapbox" aria-hidden="true"><div class="coverage"><span class="chip">GTA core</span><span class="chip">Golden Horseshoe</span><span class="chip">Province‑wide by arrangement</span></div></div>
     </div>
   </section>
 
@@ -178,9 +180,9 @@
 
   <section id="proof">
     <div class="container">
-      <h2>Proof and credibility</h2>
+      <h2>About &amp; credibility</h2>
       <p class="lead">Nearly 20 years in construction management across major civil and transit projects.</p>
-      <blockquote>“Neil brings calm control to complex jobs. He fixes the real problems and crews respect him.”</blockquote>
+      <div class="tile"><h3 style="margin-top:0">Neil Beaven, Founder</h3><p class="lead">Nearly 20 years in civil and transit projects — construction manager and project lead turned field‑first consultant.</p><ul><li><strong>Field‑first:</strong> sleeves rolled up; artifacts crews can use today.</li><li><strong>Fast:</strong> 48–72 hour turnaround on reports, boards, and plans.</li><li><strong>Accountable:</strong> clear owners, dates, and follow‑through.</li><li><strong>Backed by One Way Underground:</strong> a trusted partner network.</li></ul></div>
       <h3 id="presentation">Overview &amp; Services (Presentation)</h3>
       <iframe id="pdfEmbed" src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
       <div id="pdfMobileLinks" class="mobile-pdf-actions">
@@ -340,15 +342,15 @@
         <p class="lead" style="margin:0">Start with a free 30 minute call. Leave with three quick wins.</p>
       </div>
       <div>
-        <a class="btn" href="#contact">Book your call</a>
+        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book your call</a>
       </div>
     </div>
   </section>
 
   <section id="contact">
     <div class="container">
-      <h2>Book a call</h2>
-      <p class="lead">Use the form to draft an email in your mail app. Choose the recipient and hit send.</p>
+      <h2>More questions? Send us a message</h2>
+      <p class="lead">Use the form to drop us a note. We’ll get back to you shortly.</p>
       <form class="tile" onsubmit="emailDraft(event)" style="max-width:720px">
         <label for="name">Your name</label>
         <input id="name" name="name" required style="width:100%;margin:6px 0 10px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff" />
@@ -356,7 +358,7 @@
         <input id="email" name="email" type="email" required style="width:100%;margin:6px 0 10px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff" />
         <label for="msg">What do you need help with</label>
         <textarea id="msg" name="message" rows="4" style="width:100%;margin:6px 0 12px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff"></textarea>
-        <button class="btn" type="submit">Open email draft</button>
+        <button class="btn" type="submit">Send message</button>
       </form>
     </div>
   </section>
@@ -390,7 +392,7 @@
       const name = encodeURIComponent(document.getElementById('name').value.trim());
       const email = encodeURIComponent(document.getElementById('email').value.trim());
       const msg = encodeURIComponent(document.getElementById('msg').value.trim());
-      const subject = encodeURIComponent('Site Strategies: Consultation Request');
+      const subject = encodeURIComponent('Site Strategies: Message');
       const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}
 Email: ${decodeURIComponent(email)}
 
