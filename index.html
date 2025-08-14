@@ -42,9 +42,9 @@
     .btn.secondary{background:transparent;color:var(--ink)}
     .btn:hover{filter:brightness(1.05);transform:translateY(-1px);transition:160ms ease}
     header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
-    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand svg,.brand img{width:clamp(40px,6vw,88px);height:clamp(40px,6vw,88px);border-radius:10px;display:block}
+    .brand svg,.brand img{width:clamp(48px,7vw,112px);height:clamp(48px,7vw,112px);border-radius:12px;display:block}
     nav a{margin-left:18px;color:var(--muted);font-weight:600;position:relative} 
     nav a.active{color:var(--ink)}
     nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--brand);border-radius:2px}
@@ -56,7 +56,7 @@
     .sub{color:var(--muted);font-size:clamp(15px,1.6vw,18px)}
     .cta-row{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
     .hero .card{background:var(--panel);border:1px solid var(--stroke);padding:16px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4)}
-    .powered{display:inline-flex;align-items:center;gap:12px;color:var(--muted);font-size:16px;margin-top:14px}
+    .powered{display:inline-flex;align-items:center;gap:14px;color:var(--muted);font-size:18px;margin-top:16px}
     section{padding:clamp(44px,7vw,96px) 0;border-top:1px solid var(--stroke)}
     h2{font-size:clamp(22px,3vw,36px);margin:0 0 14px}
     p.lead{color:var(--muted);font-size:18px;margin:0 0 22px}
@@ -93,11 +93,12 @@
   .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
   .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
   @media (max-width:780px){.pdf-frame{height:420px}}
-  .powered img{height:clamp(36px,5.5vw,80px);width:clamp(36px,5.5vw,80px);filter:none;opacity:1;border-radius:10px}
+  .powered img{height:clamp(44px,6.5vw,112px);width:clamp(44px,6.5vw,112px);filter:none;opacity:1;border-radius:14px;background:#fff;padding:6px;border:1px solid rgba(0,0,0,.5);box-shadow:0 1px 0 rgba(255,255,255,.25) inset, 0 6px 18px rgba(0,0,0,.5)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   @media (max-width:780px){.grid-2{grid-template-columns:1fr}}
   .coverage{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;width:100%;text-align:center;padding:8px}  
   .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid var(--stroke);background:#f3f3f3;color:#111;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 6px 16px rgba(0,0,0,.25)}
+  @media (min-width:1200px){ .brand img{width:112px;height:112px} .powered img{width:112px;height:112px} }
   </style>
 </head>
 <body>
