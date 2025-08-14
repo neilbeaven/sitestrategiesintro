@@ -483,20 +483,31 @@
       }
       createObserver();
       window.addEventListener('resize', ()=>{ const newH = setHeaderOffset(); if (Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); } });
-      // Shrink header on scroll to reduce crowding
+      // Shrink header on scroll with hysteresis to avoid flicker near the top
+      // Enter compact at > ENTER_COMPACT, exit at < EXIT_COMPACT
       let compact = false;
-      function updateCompact(){
-        const shouldCompact = window.scrollY > 10;
-        if (shouldCompact !== compact){
-          compact = shouldCompact;
-          const headerEl = document.querySelector('header.site');
-          if (headerEl) headerEl.classList.toggle('compact', compact);
-          headerH = setHeaderOffset();
-          createObserver();
-        }
+      const ENTER_COMPACT = 80;  // px
+      const EXIT_COMPACT  = 20;  // px
+      let ticking = false;
+      function applyCompact(next){
+        if (next === compact) return;
+        compact = next;
+        const headerEl = document.querySelector('header.site');
+        if (headerEl) headerEl.classList.toggle('compact', compact);
+        const newH = setHeaderOffset();
+        if (Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); }
       }
-      updateCompact();
-      window.addEventListener('scroll', updateCompact, { passive:true });
+      function onScroll(){
+        if (ticking) return; ticking = true;
+        requestAnimationFrame(()=>{
+          const y = window.scrollY || document.documentElement.scrollTop || 0;
+          if (!compact && y > ENTER_COMPACT) applyCompact(true);
+          else if (compact && y < EXIT_COMPACT) applyCompact(false);
+          ticking = false;
+        });
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive:true });
     })();
     function emailDraft(e){
       e.preventDefault();
