@@ -1,138 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thanks — Next Steps | Site Strategies</title>
-  <meta name="description" content="Thanks for completing the self-assessment. Choose a next step and grab a few contractor resources—then we’ll follow up with tailored recommendations." />
-
-  <!-- Favicons / icons -->
-  <link rel="icon" href="assets/SiteStrategiesLogo.png" sizes="512x512" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/SiteStrategiesLogo.png" />
-
-  <!-- Open Graph (make sure these absolute URLs match your real Pages path) -->
-  <meta property="og:title" content="Site Strategies — Next Steps" />
-  <meta property="og:description" content="Powered by One Way Underground. Book a 30-minute intro and grab helpful contractor resources." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://neilbeaven.github.io/sitestrategiesintro/" />
-  <meta property="og:image" content="https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png?v=2" />
-  <meta property="og:image:width" content="512" />
-  <meta property="og:image:height" content="512" />
-  <meta property="og:image:alt" content="Site Strategies logo" />
-
-  <!-- Twitter (X) -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Site Strategies — Next Steps" />
-  <meta name="twitter:description" content="Powered by One Way Underground. Book a 30-minute intro and grab helpful contractor resources." />
-  <meta name="twitter:image" content="https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png?v=2" />
-
+  <title>Site Strategies | Consulting That Gets Results</title>
+  <meta name="description" content="Helping Ontario contractors win more jobs, avoid delays, and boost profitability. Practical, on-site consulting powered by nearly 20 years of experience. Powered by One Way Underground." />
+  <meta name="theme-color" content="#0B0B0B" />
   <style>
-    :root{
-      --bg:#000; --ink:#fff; --muted:#BFBFBF; --brand:#E50914; --accent:#BFBFBF; --linkedin:#0077B5;
-    }
+    :root { --bg:#0B0B0B; --ink:#FFFFFF; --muted:#BFBFBF; --brand:#E50914; --panel:#151515; --stroke:#2A2A2A; --linkedin:#0077B5; }
     *{box-sizing:border-box}
-    body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height:1.5; background:var(--bg); color:var(--ink); }
-    header{ text-align:center; padding:2rem 1rem}
-    header h1{ color:var(--brand); margin:0 0 20px; font-size:clamp(26px,4vw,40px)}
-    header p{ color:var(--muted); margin:.25rem 0 0; font-size:1rem}
-
-    /* Equal-width wrappers keep logos visually centered even if images have extra transparent padding */
-    .logo-bar{
-      display:grid; grid-template-columns:repeat(2, minmax(140px, 240px));
-      justify-content:center; align-items:center; gap:16px; margin:0 auto 12px;
-    }
-    .logo-wrap{
-      display:flex; justify-content:center; align-items:center;
-      width:100%; aspect-ratio: 5 / 2; /* consistent boxes across devices */
-    }
-    .logo-wrap img{
-      max-width:100%; height:auto; width:auto; display:block; object-fit:contain;
-    }
-    /* Base desktop sizes after +50% */
-    .logo-owu { max-height: 120px; }
-    .logo-ss  { max-height: 144px; } /* +20% more than OWU */
-
-    .wrap{ max-width:900px; margin:0 auto; padding:0 16px 32px}
-    .section{ margin-top:2.5rem}
-    .section h2{ border-bottom:2px solid var(--brand); padding-bottom:.4rem; margin:0 auto 1rem; font-size:1.5rem; max-width:900px}
-    .card{ background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:1.25rem; margin-bottom:1.25rem}
-    .cta{ display:block; width:100%; text-align:center; text-decoration:none; border-radius:12px; padding:1.1rem 1.25rem; font-weight:800; font-size:1.2rem; margin:.6rem 0}
-    .cta-primary{ background:var(--brand); color:#fff}
-    .cta-secondary{ background:var(--accent); color:#000}
-    .cta-linkedin{ background:#0077B5; color:#fff}
-    .note{ color:var(--muted); font-size:.95rem; margin-top:.75rem}
-
-    .resources-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
-    .resource-card{ background:linear-gradient(135deg, rgba(229,9,20,.9), rgba(0,0,0,.9)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,.1)}
-    .resource-card h3{ margin:.25rem 0 .25rem; font-size:1.1rem; color:#fff}
-    .resource-card p{ margin:.25rem 0 .75rem; font-size:.95rem; color:var(--muted)}
-    .resource-card a{ color:#fff; text-decoration:underline; text-underline-offset:2px}
-
-    /* PDF area (desktop embed, mobile links via JS below) */
-    iframe.pdf-frame{ width:100%; height:600px; border:none; background:#fff; }
-    .mobile-pdf-actions{ display:none; gap:.6rem; margin:.75rem 0 0; }
-    .mobile-pdf-actions a{
-      display:inline-block; padding:.6rem .9rem; border:1px solid currentColor; border-radius:.5rem; text-decoration:none;
-    }
-    .mobile-pdf-actions a.primary{ background:var(--brand); color:#fff; border-color:var(--brand); }
-
-    footer{ text-align:center; padding:16px; color:var(--muted); font-size:.9rem; margin-top:2rem; border-top:1px solid rgba(255,255,255,.1)}
-
-    @media (max-width:600px){
-      .logo-wrap{ aspect-ratio: 5 / 3; } /* taller boxes for small screens */
-      /* Mobile sizes after +50% (70px -> 105px) and +20% for SS (105px -> 126px) */
-      .logo-owu { max-height: 105px; }
-      .logo-ss  { max-height: 126px; }
-      iframe.pdf-frame{ height:400px }
-    }
+    html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:0 auto}
+    .btn{display:inline-block;padding:14px 18px;border-radius:10px;border:1px solid var(--stroke);background:var(--brand);color:#fff;font-weight:700;letter-spacing:.3px}
+    .btn.secondary{background:transparent;color:var(--ink)}
+    .btn:hover{filter:brightness(1.05);transform:translateY(-1px);transition:160ms ease}
+    header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .brand svg,.brand img{width:36px;height:36px;border-radius:6px;display:block}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600}
+    nav a:hover{color:var(--ink)}
+    .hero{padding:clamp(40px,8vw,96px) 0;background:radial-gradient(1200px 600px at 80% -10%, rgba(229,9,20,.12), transparent),radial-gradient(900px 500px at -10% 10%, rgba(255,255,255,.06), transparent)}
+    .hero .inner{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+    .kicker{color:var(--brand);font-weight:800;letter-spacing:.5px;text-transform:uppercase;font-size:12px;margin-bottom:10px}
+    h1{font-size:clamp(28px,4.6vw,56px);line-height:1.06;margin:0 0 14px}
+    .sub{color:var(--muted);font-size:clamp(15px,1.6vw,18px)}
+    .cta-row{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .hero .card{background:var(--panel);border:1px solid var(--stroke);padding:16px;border-radius:14px}
+    .powered{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:13px;margin-top:12px}
+    section{padding:clamp(44px,7vw,96px) 0;border-top:1px solid var(--stroke)}
+    h2{font-size:clamp(22px,3vw,36px);margin:0 0 14px}
+    p.lead{color:var(--muted);font-size:18px;margin:0 0 22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .tile{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px}
+    .tile h3{margin:8px 0 8px;font-size:18px}
+    .tile p{color:var(--muted);margin:0}
+    .icon{width:28px;height:28px}
+    .who{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    .mapbox{height:300px;border-radius:14px;border:1px solid var(--stroke);background:repeating-linear-gradient(135deg,#111 0 10px,#141414 10px 20px);display:grid;place-items:center;color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+    .step{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px;position:relative}
+    .step::before{counter-increment:step;content:counter(step);position:absolute;top:-12px;left:-12px;width:36px;height:36px;border-radius:10px;background:var(--brand);display:grid;place-items:center;font-weight:800}
+    blockquote{margin:18px 0 0;padding-left:14px;border-left:3px solid var(--stroke);color:var(--muted);font-style:italic}
+                        .cta-banner{background:linear-gradient(90deg,#1a1a1a,#111);border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke)}
+    .cta-banner .row{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:26px 0}
+    footer{padding:26px 0;color:var(--muted);font-size:13px}
+    @media (max-width:980px){.hero .inner,.who{grid-template-columns:1fr}}
+    @media (max-width:780px){.grid-3,.steps{grid-template-columns:1fr}nav{display:none}.cta-banner .row{flex-direction:column;align-items:flex-start}}
+  .tile ul{margin:8px 0 0 18px;color:var(--muted)}
+    .tile ul li{margin:4px 0}
+  .btn.linkedin{background:var(--linkedin)}
+  .btn.light{background:#BFBFBF;color:#000;border-color:#BFBFBF}
+  .resources-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+  .resource-card{ background:linear-gradient(135deg, rgba(229,9,20,.9), rgba(0,0,0,.9)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,.1)}
+  .resource-card h3{ margin:.25rem 0 .25rem; font-size:1.1rem; color:#fff}
+  .resource-card p{ margin:.25rem 0 .75rem; font-size:.95rem; color:var(--muted)}
+  .resource-card a{ color:#fff; text-decoration:underline; text-underline-offset:2px}
+  #services .grid-3{align-items:stretch}
+  #services .tile{display:flex;flex-direction:column;height:100%}
+  #services .tile p:last-of-type{margin-top:auto}
+  @media (min-width:781px){#services .tile{min-height:380px}}
+  .pdf-frame{width:100%;height:600px;border:none;background:#fff;border-radius:12px}
+  .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
+  .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
+  @media (max-width:780px){.pdf-frame{height:420px}}
+  .powered img{height:36px;width:36px;filter:grayscale(100%);opacity:.9;border-radius:6px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:780px){.grid-2{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <header>
-    <!-- Equal-width wrappers ensure perfect visual centering on mobile -->
-    <div class="logo-bar">
-      <div class="logo-wrap">
-        <!-- Site Strategies logo: +50% then +20% -->
-        <img class="logo-ss" src="assets/SiteStrategiesLogo.png" alt="Site Strategies Logo" loading="lazy" />
-      </div>
-      <div class="logo-wrap">
-        <!-- OWU logo: +50% -->
-        <img class="logo-owu" src="https://raw.githubusercontent.com/neilbeaven/sitestrategiesintro/refs/heads/main/ONE%201%20WAY%20UNDERGROUND%20Revised%20(5)%20.png.png" alt="One Way Underground Logo" loading="lazy" />
+  <header class="site">
+    <div class="container wrap">
+      <a class="brand" href="#top" aria-label="Site Strategies">
+        <img src="assets/SiteStrategiesLogo.png" alt="Site Strategies logo" />
+        <strong>Site Strategies</strong>
+      </a>
+      <nav>
+        <a href="#what">What we do</a>
+        <a href="#who">Who we help</a>
+        <a href="#services">Services</a>
+        <a href="#proof">Proof</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div>
+        <a class="btn secondary" href="#contact">Book a call</a>
       </div>
     </div>
-
-    <h1>Site Strategies – Powered by One Way Underground</h1>
-    <p>We'll review your responses and reach out with tailored recommendations.</p>
   </header>
 
-  <main class="wrap">
-    <!-- Next Steps -->
-    <section class="section" aria-labelledby="next-steps">
-      <h2 id="next-steps">Next Steps</h2>
-      <div class="card">
-        <p>Choose the best way to get in touch now:</p>
-        <a class="cta cta-primary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">📅 Book a 30-minute Call</a>
-        <a class="cta cta-linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">🔗 Connect on LinkedIn</a>
-        <a class="cta cta-secondary" href="mailto:neilbeaven1@gmail.com">✉️ Email us</a>
-        <p class="note">Prefer not to book right now? No problem — we’ll be in touch shortly to review your submission and next steps.</p>
+  <section class="hero" id="top">
+    <div class="container inner">
+      <div>
+        <div class="kicker">Ontario Construction Consulting</div>
+        <h1>Helping contractors win more jobs, avoid delays, and boost profitability</h1>
+        <p class="sub">Practical, on-site consulting powered by nearly 20 years of field leadership.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">📅 Book a 30-minute Call</a>
+          <a class="btn linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">🔗 Connect on LinkedIn</a>
+          <a class="btn light" href="mailto:neilbeaven1@gmail.com">✉️ Email us</a>
+        </div>
+        <div class="powered"><span>Powered by</span><img src="assets/OneWayUndergroundLogo.png" alt="One Way Underground logo" /></div>
       </div>
-    </section>
+      <div class="card" aria-hidden="true">
+        <!-- Decorative, no external image -->
+        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;border-radius:10px">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#101010"/><stop offset="1" stop-color="#171717"/>
+            </linearGradient>
+          </defs>
+          <rect width="800" height="500" fill="url(#g)"/>
+          <g stroke="#2A2A2A" stroke-width="2">
+            <path d="M60 420h680M60 360h680M60 300h680"/>
+          </g>
+          <g fill="#E50914">
+            <rect x="80" y="340" width="120" height="40" rx="8"/>
+            <rect x="220" y="280" width="180" height="40" rx="8"/>
+            <rect x="420" y="220" width="220" height="40" rx="8"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
 
-    <!-- Presentation: embed on desktop, links only on mobile -->
-    <section class="section" aria-labelledby="presentation">
-      <h2 id="presentation">Site Strategies — Presentation</h2>
+  <section id="what">
+    <div class="container">
+      <h2>Consulting that doesn't suck</h2>
+      <p class="lead">No theory. We fix what slows you down and costs you money. Clear plans. Clean handoffs. Real accountability.</p>
+      <div class="grid-3">
+        <article class="tile">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+          <h3>On‑site performance audits</h3>
+          <p>We find bottlenecks before they become cost and schedule hits. You get a simple punch list that crews can follow.</p>
+        </article>
+        <article class="tile">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          <h3>Project readiness plans</h3>
+          <p>Materials, crews, permits, access, safety. Everything aligned for day one. Less rework. Cleaner handoffs.</p>
+        </article>
+        <article class="tile">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2.5 7-7-4.5L5 20l2.5-7L2 9h7z"/></svg>
+          <h3>Field‑tested solutions</h3>
+          <p>Templates and playbooks that work in the real world. Use them as is or make them your own.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="container who">
+      <div>
+        <h2>Serving Ontario's 121,000 small and mid-sized contractors</h2>
+        <p class="lead">If you run a 5 to 50-person crew, we help you run leaner, safer, and more profitable projects. Simple as that.</p>
+        <ul>
+          <li>Site servicing and utilities</li>
+          <li>Roads and civil</li>
+          <li>Rail and transit support</li>
+          <li>General contractors</li>
+        </ul>
+      </div>
+      <div class="mapbox" aria-hidden="true">Ontario focus</div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step"><h3>Free strategy call</h3><p class="lead">We listen. You show the blockers. We line up quick wins.</p></div>
+        <div class="step"><h3>Custom action plan</h3><p class="lead">You get a 30, 60, 90-day plan with owners, timelines, and clear outcomes.</p></div>
+        <div class="step"><h3>Execution and support</h3><p class="lead">We help you roll it out. We stay close until results show up.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <div class="container">
+      <h2>Proof and credibility</h2>
+      <p class="lead">Nearly 20 years in construction management across major civil and transit projects.</p>
+      <blockquote>“Neil brings calm control to complex jobs. He fixes the real problems and crews respect him.”</blockquote>
+      <h3 id="presentation">Overview &amp; Services (Presentation)</h3>
       <iframe id="pdfEmbed" src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
       <div id="pdfMobileLinks" class="mobile-pdf-actions">
-        <a class="primary" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
-        <a href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
+        <a id="pdfOpenLink" class="btn" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
+        <a id="pdfDownloadLink" class="btn secondary" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
       </div>
       <p class="note">On phones, the presentation opens in a new tab or downloads; on desktop it’s embedded above.</p>
-    </section>
+      
+    </div>
+  </section>
 
-    <!-- Helpful Resources -->
-    <section class="section" aria-labelledby="resources">
-      <h2 id="resources">Helpful Resources for Contractors</h2>
+  <section id="services">
+    <div class="container">
+      <h2 id="services">Direct services we deliver</h2>
+      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output.</p>
+      <div class="grid-3">
+        <article class="tile">
+          <h3>Site Readiness Review</h3>
+          <p>Promise: day one goes smoothly.</p>
+          <ul>
+            <li>Punch list with owners and dates</li>
+            <li>2-week fix plan</li>
+            <li>Photo notes for quick action</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~0.5 to 2% of project value from avoided delays and rework; often 1 to 3 days recovered on startup.</p>
+        </article>
+        <article class="tile">
+          <h3>Logistics and Access Plan</h3>
+          <p>Promise: crews and materials flow without choke points.</p>
+          <ul>
+            <li>Site layout diagram</li>
+            <li>Delivery and egress routes</li>
+            <li>Laydown and staging map</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~1 to 3% on direct labor and equipment from less idle time and double handling.</p>
+        </article>
+        <article class="tile">
+          <h3>Daily Production & Material Flow System</h3>
+          <p>Promise: predictable output and on-time materials.</p>
+          <ul>
+            <li>Simple live procurement tracker</li>
+            <li>Call-ahead cadence and late-risk board at the trailer</li>
+            <li>Daily goals sheet and end-of-day huddle script</li>
+            <li>Whiteboard or simple digital production log</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~1 to 5% via 5 to 15% productivity lift, fewer stoppages, and reduced standby charges.</p>
+        </article>
+        <article class="tile">
+          <h3>Schedule Recovery Sprint</h3>
+          <p>Promise: claw back lost days fast.</p>
+          <ul>
+            <li>2 to 4 week lookahead</li>
+            <li>Crew-by-crew plan</li>
+            <li>Constraint removal list</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~2 to 6% on labor and equipment or 5 to 15 days recovered on a 6-month job.</p>
+        </article>
+        <article class="tile">
+          <h3>Subcontractor Onboarding</h3>
+          <p>Promise: clean handoffs and fewer scope gaps.</p>
+          <ul>
+            <li>Start-up package</li>
+            <li>Kickoff checklist</li>
+            <li>RFI and decisions lane rules</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~0.5 to 2% through reduced rework, back charges, and disputes.</p>
+        </article>
+        <article class="tile">
+          <h3>Field Safety Package</h3>
+          <p>Promise: fewer stoppages and tighter documentation.</p>
+          <ul>
+            <li>Task-based SWPs</li>
+            <li>Toolbox talk calendar</li>
+            <li>Simple inspection forms fit to the work</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~0.5 to 3% from avoided stand-downs, administrative penalties, and lost time.</p>
+        </article>
+        <article class="tile">
+          <h3>Traffic and Pedestrian Management</h3>
+          <p>Promise: compliant, safe interfaces that keep work moving.</p>
+          <ul>
+            <li>TCP sketches</li>
+            <li>Signage list</li>
+            <li>Staging and changeover sequence</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~0.5 to 2% from fewer shutdowns, fewer near misses, and less rework at interfaces.</p>
+        </article>
+        <article class="tile">
+          <h3>Utility Locate and Permit Coordination</h3>
+          <p>Promise: fewer hits and fewer permit surprises.</p>
+          <ul>
+            <li>Ontario One Call log</li>
+            <li>Permit matrix</li>
+            <li>Constraint board in the trailer</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~1 to 5% through avoided damages, downtime, and emergency responses.</p>
+        </article>
+        <article class="tile">
+          <h3>Incident Investigation and Response</h3>
+          <p>Promise: contain impact fast and prevent repeat events.</p>
+          <ul>
+            <li>Rapid site response and stabilization support</li>
+            <li>24 to 48-hour factual report with root cause and corrective actions</li>
+            <li>Toolbox follow-up; guidance on WSIB and MOL notifications as needed</li>
+          </ul>
+          <p><strong>Potential cost savings:</strong> ~0.5 to 4% depending on severity, via reduced downtime, cleaner documentation, and prevention of repeat incidents.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="container">
+      <h2>Program & leadership support</h2>
+      <p class="lead">Higher‑level help that reinforces what happens on site.</p>
+      <div class="grid-2">
+        <article class="tile">
+          <h3>Write and tune SOPs</h3>
+          <ul>
+            <li>Task‑based, field‑tested steps</li>
+            <li>Photos/diagrams where useful</li>
+            <li>Rollout brief for crews</li>
+          </ul>
+        </article>
+        <article class="tile">
+          <h3>Program reviews</h3>
+          <ul>
+            <li>Operations & safety program diagnostics</li>
+            <li>Gap list with owners/dates</li>
+            <li>Ready‑to‑file updates</li>
+          </ul>
+        </article>
+        <article class="tile">
+          <h3>Crew incentives that work</h3>
+          <ul>
+            <li>Simple, measurable targets</li>
+            <li>Fair bonus mechanics</li>
+            <li>Weekly dashboard for crews</li>
+          </ul>
+        </article>
+        <article class="tile">
+          <h3>Safety documentation review</h3>
+          <ul>
+            <li>SWPs, FLHAs, toolbox talk cadence</li>
+            <li>Close gaps to OPSS/MOL expectations</li>
+            <li>Audit‑ready templates</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container row">
+      <div>
+        <h3 style="margin:0 0 8px;font-size:22px">Get your projects running like a well-oiled machine</h3>
+        <p class="lead" style="margin:0">Start with a free 30 minute call. Leave with three quick wins.</p>
+      </div>
+      <div>
+        <a class="btn" href="#contact">Book your call</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Book a call</h2>
+      <p class="lead">Use the form to draft an email in your mail app. Choose the recipient and hit send.</p>
+      <form class="tile" onsubmit="emailDraft(event)" style="max-width:720px">
+        <label for="name">Your name</label>
+        <input id="name" name="name" required style="width:100%;margin:6px 0 10px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff" />
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" required style="width:100%;margin:6px 0 10px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff" />
+        <label for="msg">What do you need help with</label>
+        <textarea id="msg" name="message" rows="4" style="width:100%;margin:6px 0 12px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff"></textarea>
+        <button class="btn" type="submit">Open email draft</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="resources">
+    <div class="container">
+      <h2>Helpful Resources for Contractors</h2>
       <div class="resources-grid">
         <article class="resource-card"><h3>One Way Underground</h3><p>Site servicing, utilities, and civil works.</p><a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener">Visit One Way Underground</a></article>
         <article class="resource-card"><h3>Ontario One Call</h3><p>Request underground utility locates before digging.</p><a href="https://ontarioonecall.ca" target="_blank" rel="noopener">Visit Ontario One Call</a></article>
@@ -141,24 +372,42 @@
         <article class="resource-card"><h3>Canadian Construction Association</h3><p>Advocacy and resources for construction professionals.</p><a href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a></article>
         <article class="resource-card"><h3>Ontario Road Builders' Association</h3><p>Advancing safe, sustainable road construction.</p><a href="https://orba.org" target="_blank" rel="noopener">Visit ORBA</a></article>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <footer>
-    © 2025 Site Strategies — Powered by One Way Underground
+    <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Site Strategies. All rights reserved.</div>
+      <div><a href="#top">Back to top</a></div>
+    </div>
   </footer>
 
   <script>
-    // On phones, hide embed and show "Open/Download" buttons
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}}});});
+    function emailDraft(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const msg = encodeURIComponent(document.getElementById('msg').value.trim());
+      const subject = encodeURIComponent('Site Strategies: Consultation Request');
+      const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}
+Email: ${decodeURIComponent(email)}
+
+Message:
+${decodeURIComponent(msg)}`);
+      // No placeholder recipient — user chooses who to send to in their mail app
+      window.location.href = `mailto:neilbeaven1@gmail.com?subject=${subject}&body=${body}`;
+    }
+    // On phones, hide the embed and show open/download buttons
     (function(){
       var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var isAndroid = /Android/i.test(ua);
-      var isIOS = /iPhone|iPad|iPod/i.test(ua);
-      if (isAndroid || isIOS) {
-        var iframe = document.getElementById('pdfEmbed');
-        var links = document.getElementById('pdfMobileLinks');
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+      var iframe = document.getElementById('pdfEmbed');
+      var linksBox = document.getElementById('pdfMobileLinks');
+      if (isMobile) {
         if (iframe) iframe.style.display = 'none';
-        if (links) links.style.display = 'flex';
+        if (linksBox) linksBox.style.display = 'flex';
       }
     })();
   </script>
