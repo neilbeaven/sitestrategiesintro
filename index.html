@@ -111,6 +111,9 @@
   .deck[open] .deck-summary::after{transform:rotate(180deg)}
   .deck-body{padding:16px 18px 18px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,0)); border-bottom-left-radius:14px;border-bottom-right-radius:14px}
   .inline-link{text-decoration:underline;text-underline-offset:2px;color:#fff}
+  /* Mobile deck container hidden by default */
+  #pdfMobileOnly{display:none}
+  .deck-desc-mobile{display:none}
   .quiz-ribbon{display:none;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 12px;margin:0 0 12px;border-radius:12px;border:1px solid var(--stroke);background:linear-gradient(180deg, rgba(229,9,20,.10), rgba(255,255,255,.04));box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 10px 20px rgba(0,0,0,.45)}
   .quiz-ribbon .actions{display:flex;gap:10px;flex-wrap:wrap}
   .quiz-ribbon .btn.light{background:#BFBFBF;color:#000;border-color:#BFBFBF}
@@ -121,7 +124,7 @@
   .btn.tiny{padding:8px 10px;font-size:13px;border-radius:8px}
   header.site.compact .wrap{padding:10px 0}
   header.site.compact .brand img{width:clamp(32px,4.5vw,64px);height:clamp(32px,4.5vw,64px);border-radius:10px}
-  @media (max-width:780px){ #deck{display:none} #pdfMobileOnly{display:block} #pdfMobileOnly .mobile-pdf-actions{display:flex} }
+  @media (max-width:780px){ #deck{display:none} #pdfMobileOnly{display:block} #pdfMobileOnly .mobile-pdf-actions{display:flex} .deck-desc{display:none} .deck-desc-mobile{display:block} }
   </style>
 </head>
 <body>
@@ -239,16 +242,17 @@
       <h2>About &amp; credibility</h2>
       <p class="lead">Nearly 20 years in construction management across major civil and transit projects.</p>
       <div class="tile"><h3 style="margin-top:0">Neil Beaven, Founder</h3><p class="lead">Nearly 20 years in civil and transit projects — construction manager and project lead turned field‑first consultant.</p><ul><li><strong>Field‑first:</strong> sleeves rolled up; artifacts crews can use today.</li><li><strong>Fast:</strong> 48–72 hour turnaround on reports, boards, and plans.</li><li><strong>Accountable:</strong> clear owners, dates, and follow‑through.</li><li><strong>Backed by One Way Underground:</strong> a trusted partner network.</li></ul></div>
-      <h3 id="presentation">Overview &amp; Services (Presentation)</h3>
-      <p class="note deck-desc">A concise 10‑page overview: who we help, our nine field services, simple examples, and how we work. Useful to share with owners and supers.</p>
+      <h3 id="presentation">Overview (10‑page presentation)</h3>
+      <p class="note deck-desc">A concise 10‑page overview: what we do, who we help, field examples, and how we start. Handy to share with owners and supers.</p>
       <div id="pdfMobileOnly" class="tile">
+        <p class="note deck-desc-mobile">A concise 10‑page overview: what we do, who we help, field examples, and how we start. Handy to share with owners and supers.</p>
         <div class="mobile-pdf-actions">
           <a class="btn" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
           <a class="btn secondary" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
         </div>
       </div>
       <details id="deck" class="deck">
-        <summary class="deck-summary"><span>📄 View presentation (10 pages)</span><div class="deck-actions"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div></summary>
+        <summary class="deck-summary"><span>📄 View overview (10 pages)</span><div class="deck-actions"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div></summary>
         <div class="deck-body">
           <div id="pdfMount"></div>
           <div class="mobile-pdf-actions" id="pdfMobileLinks">
