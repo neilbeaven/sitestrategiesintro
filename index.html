@@ -33,7 +33,7 @@
   }
   </script>
   <style>
-    :root { --bg:#0B0B0B; --ink:#FFFFFF; --muted:#C8C8C8; --brand:#E50914; --panel:#1A1A1A; --stroke:#3A3A3A; --linkedin:#0077B5; }
+    :root { --bg:#0B0B0B; --ink:#FFFFFF; --muted:#C8C8C8; --brand:#E50914; --panel:#1A1A1A; --stroke:#3A3A3A; --linkedin:#0077B5; --header-h:96px; }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
@@ -57,7 +57,7 @@
     .cta-row{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
     .hero .card{background:var(--panel);border:1px solid var(--stroke);padding:16px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4)}
     .powered{display:inline-flex;align-items:center;gap:14px;color:var(--muted);font-size:18px;margin-top:16px}
-    section{padding:clamp(44px,7vw,96px) 0;border-top:1px solid var(--stroke)}
+    section{padding:clamp(44px,7vw,96px) 0;border-top:1px solid var(--stroke);scroll-margin-top:calc(var(--header-h) + 8px)}
     h2{font-size:clamp(22px,3vw,36px);margin:0 0 14px}
     p.lead{color:var(--muted);font-size:18px;margin:0 0 22px}
     .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -226,7 +226,7 @@
 
   <section id="services">
     <div class="container">
-      <h2 id="services">Direct services we deliver</h2>
+      <h2>Direct services we deliver</h2>
       <p class="lead">Hands-on, on-site packages to improve flow, safety, and output.</p>
       <div class="grid-3">
         <article class="tile">
@@ -424,10 +424,26 @@
       const ids = ['#what','#who','#how','#proof','#services','#programs','#contact'];
       const sections = ids.map(id => document.querySelector(id)).filter(Boolean);
       const activate = (id)=>{links.forEach(l=>l.classList.remove('active')); const a = map.get(id); if (a) a.classList.add('active');};
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(entry=>{ if (entry.isIntersecting){ activate('#'+entry.target.id); } });
-      },{ root:null, rootMargin:'-64px 0px -60% 0px', threshold:0.25 });
-      sections.forEach(s=>io.observe(s));
+      function setHeaderOffset(){
+        const header = document.querySelector('header.site');
+        const h = Math.ceil((header && header.offsetHeight) ? header.offsetHeight : 80);
+        document.documentElement.style.setProperty('--header-h', h + 'px');
+        return h;
+      }
+      let headerH = setHeaderOffset();
+      let io;
+      function createObserver(){
+        if (io) io.disconnect();
+        io = new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{ if (entry.isIntersecting){ activate('#'+entry.target.id); } });
+        },{ root:null, rootMargin:`-${headerH + 8}px 0px -60% 0px`, threshold:0.25 });
+        sections.forEach(s=>io.observe(s));
+      }
+      createObserver();
+      window.addEventListener('resize', ()=>{
+        const newH = setHeaderOffset();
+        if (Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); }
+      });
     })();
     function emailDraft(e){
       e.preventDefault();
