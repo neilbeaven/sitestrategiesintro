@@ -100,11 +100,16 @@
   .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid var(--stroke);background:#f3f3f3;color:#111;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 6px 16px rgba(0,0,0,.25)}
   @media (min-width:1200px){ .brand img{width:112px;height:112px} .powered img{width:112px;height:112px} }
   @media (max-width:780px){ .powered img{ width:88px; height:88px; } }
-  .deck{border:1px solid var(--stroke);border-radius:14px;background:var(--panel);box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4);margin-top:8px}
-  .deck-summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .deck{border:1.5px solid var(--stroke);border-radius:14px;background:linear-gradient(180deg,#1d1d1d,#151515);box-shadow:0 1px 0 rgba(255,255,255,.08) inset, 0 14px 28px rgba(0,0,0,.55);margin-top:12px}
+  .deck-summary{cursor:pointer;list-style:none;padding:16px 18px 16px 46px;font-weight:800;font-size:18px;display:flex;align-items:center;gap:10px;border-radius:14px;position:relative;transition:background .18s ease, box-shadow .18s ease}
+  .deck-summary:hover{background:rgba(255,255,255,.05)}
   .deck-summary::marker{content:""}
-  .deck[open] .deck-summary{border-bottom:1px solid var(--stroke)}
-  .deck-body{padding:14px 16px}
+  .deck-summary::before{content:"";position:absolute;left:18px;top:50%;transform:translateY(-50%);width:10px;height:26px;border-radius:999px;background:var(--brand);box-shadow:0 0 0 2px rgba(229,9,20,.25)}
+  .deck-summary::after{content:"▾";margin-left:auto;font-size:18px;opacity:.8;transition:transform .2s ease}
+  .deck-summary::marker{content:""}
+  .deck[open] .deck-summary{border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.04)}
+  .deck[open] .deck-summary::after{transform:rotate(180deg)}
+  .deck-body{padding:16px 18px 18px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,0)); border-bottom-left-radius:14px;border-bottom-right-radius:14px}
   .inline-link{text-decoration:underline;text-underline-offset:2px;color:#fff}
   </style>
 </head>
