@@ -100,6 +100,12 @@
   .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid var(--stroke);background:#f3f3f3;color:#111;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 6px 16px rgba(0,0,0,.25)}
   @media (min-width:1200px){ .brand img{width:112px;height:112px} .powered img{width:112px;height:112px} }
   @media (max-width:780px){ .powered img{ width:88px; height:88px; } }
+  .deck{border:1px solid var(--stroke);border-radius:14px;background:var(--panel);box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4);margin-top:8px}
+  .deck-summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;display:flex;align-items:center;gap:10px}
+  .deck-summary::marker{content:""}
+  .deck[open] .deck-summary{border-bottom:1px solid var(--stroke)}
+  .deck-body{padding:14px 16px}
+  .inline-link{text-decoration:underline;text-underline-offset:2px;color:#fff}
   </style>
 </head>
 <body>
@@ -112,8 +118,8 @@
       <nav>
         <a href="#what">What we do</a>
         <a href="#who">Who we help</a>
-        <a href="#services">Services</a>
         <a href="#proof">Proof</a>
+        <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </nav>
       <div>
@@ -214,12 +220,17 @@
       <p class="lead">Nearly 20 years in construction management across major civil and transit projects.</p>
       <div class="tile"><h3 style="margin-top:0">Neil Beaven, Founder</h3><p class="lead">Nearly 20 years in civil and transit projects — construction manager and project lead turned field‑first consultant.</p><ul><li><strong>Field‑first:</strong> sleeves rolled up; artifacts crews can use today.</li><li><strong>Fast:</strong> 48–72 hour turnaround on reports, boards, and plans.</li><li><strong>Accountable:</strong> clear owners, dates, and follow‑through.</li><li><strong>Backed by One Way Underground:</strong> a trusted partner network.</li></ul></div>
       <h3 id="presentation">Overview &amp; Services (Presentation)</h3>
-      <iframe id="pdfEmbed" src="assets/SiteStrategiesOverview.pdf#view=FitH" class="pdf-frame" title="Site Strategies Presentation"></iframe>
-      <div id="pdfMobileLinks" class="mobile-pdf-actions">
-        <a id="pdfOpenLink" class="btn" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
-        <a id="pdfDownloadLink" class="btn secondary" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
-      </div>
-      <p class="note">On phones, the presentation opens in a new tab or downloads; on desktop it’s embedded above.</p>
+      <details id="deck" class="deck">
+        <summary class="deck-summary">📄 View presentation (10 pages)</summary>
+        <div class="deck-body">
+          <div id="pdfMount"></div>
+          <div class="mobile-pdf-actions" id="pdfMobileLinks">
+            <a class="btn" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
+            <a class="btn secondary" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
+          </div>
+          <p class="note">On phones, the deck opens in a new tab or downloads. On desktop, it will embed here.</p>
+        </div>
+      </details>
       
     </div>
   </section>
@@ -227,7 +238,7 @@
   <section id="services">
     <div class="container">
       <h2>Direct services we deliver</h2>
-      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output.</p>
+      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output. <a class="inline-link" href="#presentation" onclick="openDeck(event)">View deck (10 pages)</a></p>
       <div class="grid-3">
         <article class="tile">
           <h3>Site Readiness Review</h3>
@@ -459,16 +470,29 @@ ${decodeURIComponent(msg)}`);
       // No placeholder recipient — user chooses who to send to in their mail app
       window.location.href = `mailto:neilbeaven1@gmail.com?subject=${subject}&body=${body}`;
     }
-    // On phones, hide the embed and show open/download buttons
+    // Collapsed PDF deck: lazy-load iframe and mobile fallback
     (function(){
-      var ua = navigator.userAgent || navigator.vendor || window.opera;
-      var isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
-      var iframe = document.getElementById('pdfEmbed');
-      var linksBox = document.getElementById('pdfMobileLinks');
-      if (isMobile) {
-        if (iframe) iframe.style.display = 'none';
-        if (linksBox) linksBox.style.display = 'flex';
+      const deck = document.getElementById('deck');
+      const pdfMount = document.getElementById('pdfMount');
+      const pdfPath = 'assets/SiteStrategiesOverview.pdf#view=FitH';
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
+      function mountIframe(){
+        if (isMobile || !pdfMount || pdfMount.firstChild) return; // mobile uses links; or already mounted
+        const iframe = document.createElement('iframe');
+        iframe.className = 'pdf-frame';
+        iframe.title = 'Site Strategies Presentation';
+        iframe.setAttribute('loading','lazy');
+        iframe.src = pdfPath;
+        pdfMount.appendChild(iframe);
       }
+      if (deck){
+        deck.addEventListener('toggle', ()=>{ if (deck.open) mountIframe(); });
+      }
+      // Optional: open if URL has #presentation
+      if (location.hash === '#presentation' && deck && !deck.open){ deck.open = true; setTimeout(mountIframe, 0); }
+      // Expose helper for inline link near Services
+      window.openDeck = function(e){ if(e) e.preventDefault(); if(deck && !deck.open){ deck.open = true; } const el = document.getElementById('presentation'); if (el) el.scrollIntoView({behavior:'smooth', block:'start'}); setTimeout(mountIframe, 50); };
     })();
   </script>
 </body>
