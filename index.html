@@ -142,10 +142,9 @@
   header .actions{flex:0 0 auto}
   @media (max-width:1080px){ nav a{margin-left:12px;font-size:15px} header .actions .btn{padding:10px 12px;font-size:14px} }
   @media (max-width:780px){ header.site .wrap{padding:10px 0} .brand strong{display:none} }
-  .desktop-prompt{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:60;display:none;align-items:center;gap:12px;max-width:min(740px,94%);padding:12px 14px;border-radius:14px;border:1px solid var(--stroke);background:linear-gradient(180deg,#1d1d1d,#151515);box-shadow:0 14px 28px rgba(0,0,0,.55)}
-  .desktop-prompt .actions{margin-left:auto;display:flex;gap:10px}
-  .desktop-prompt p{margin:0;color:var(--muted)}
-  @media (min-width:781px){ .desktop-prompt{ display:none !important } }
+        
+  .btn .short{display:none}
+  @media (max-width:460px){ .btn .full{display:none} .btn .short{display:inline} header .actions .btn{padding:8px 10px;font-size:13px} .brand img{width:36px;height:36px} }
   </style>
   <!-- Performance: preconnects --><!-- Canonical -->
   <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" /></head>
@@ -166,7 +165,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="actions">
-        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
+        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener"><span class="full">Book a call today</span><span class="short">Book a call</span></a>
       </div>
     </div>
   </header>
@@ -536,40 +535,6 @@ ${decodeURIComponent(msg)}`);
         proofGrid.classList.add('single');
       }
   });
-    // Mobile: optional prompt to switch to a wider desktop-style layout
-  (function(){
-    const ua = navigator.userAgent || navigator.vendor || window.opera || '';
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(ua);
-    const key = 'ss_force_desktop';
-    const keyNo = 'ss_no_desktop_prompt';
-    const meta = document.querySelector('meta[name="viewport"]');
-    const promptEl = document.getElementById('desktopPrompt');
-    const yes = document.getElementById('desktopYes');
-    const no = document.getElementById('desktopNo');
-    function setDesktop(on){
-      if(!meta) return;
-      meta.setAttribute('content', on ? 'width=1200, initial-scale=1' : 'width=device-width, initial-scale=1');
-      localStorage.setItem(key, on ? '1' : '0');
-      window.dispatchEvent(new Event('resize')); // recalc header offsets/observers
-    }
-    // Apply stored preference
-    if(localStorage.getItem(key)==='1') setDesktop(true);
-    // Show prompt for mobile users once
-    if(isMobile && localStorage.getItem(key)!=='1' && !localStorage.getItem(keyNo) && promptEl){
-      promptEl.style.display='flex';
-    }
-    if(yes) yes.addEventListener('click', function(){ setDesktop(true); if(promptEl) promptEl.style.display='none'; });
-    if(no)  no.addEventListener('click', function(){ localStorage.setItem(keyNo,'1'); if(promptEl) promptEl.style.display='none'; });
-  })();
   </script>
-
-  <!-- Desktop-layout prompt (mobile only) -->
-  <div id="desktopPrompt" class="desktop-prompt" role="dialog" aria-live="polite" aria-label="Desktop layout option">
-    <p>Prefer a wider view on your phone? Switch to the desktop layout.</p>
-    <div class="actions">
-      <button id="desktopYes" class="btn">Use desktop layout</button>
-      <button id="desktopNo" class="btn secondary">Stay in mobile</button>
-    </div>
-  </div>
 </body>
 </html>
