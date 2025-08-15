@@ -37,14 +37,15 @@
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
     .container{width:min(1120px,92%);margin:0 auto}
-    .btn{display:inline-block;padding:14px 18px;border-radius:10px;border:1px solid var(--stroke);background:var(--brand);color:#fff;font-weight:700;letter-spacing:.3px}
-    .btn.secondary{background:transparent;color:var(--ink)}
-    .btn:hover{filter:brightness(1.05);transform:translateY(-1px);transition:160ms ease}
+    .btn{display:inline-block;padding:14px 18px;border-radius:12px;border:1.5px solid #b50b13;background:linear-gradient(180deg,#E50914,#C40812);color:#fff;font-weight:800;letter-spacing:.3px;box-shadow:0 6px 18px rgba(229,9,20,.35), inset 0 1px 0 rgba(255,255,255,.15);transition:transform .16s ease, box-shadow .16s ease, filter .16s ease}
+    .btn.secondary{background:transparent;color:var(--ink);border:1.5px solid var(--stroke);box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
     header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
-    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;transition:padding .2s ease}
+    header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;transition:padding .2s ease}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .brand svg,.brand img{width:clamp(48px,7vw,112px);height:clamp(48px,7vw,112px);border-radius:12px;display:block;transition:width .2s ease,height .2s ease,border-radius .2s ease}
-    nav a{margin-left:18px;color:var(--muted);font-weight:600;position:relative} 
+    .brand svg,.brand img{width:clamp(40px,5vw,72px);height:clamp(40px,5vw,72px);border-radius:12px;display:block;transition:width .2s ease,height .2s ease,border-radius .2s ease}
+    header.site .wrap nav{flex:1;display:flex;justify-content:center;align-items:center;flex-wrap:nowrap;min-width:0}
+    nav a{margin-left:14px;color:var(--muted);font-weight:700;letter-spacing:.2px;position:relative;white-space:nowrap} 
     nav a.active{color:var(--ink)}
     nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:var(--brand);border-radius:2px}
     nav a:hover{color:var(--ink)}
@@ -80,7 +81,10 @@
   .tile ul{margin:8px 0 0 18px;color:var(--muted)}
     .tile ul li{margin:4px 0}
   .btn.linkedin{background:var(--linkedin)}
-  .btn.light{background:#BFBFBF;color:#000;border-color:#BFBFBF}
+  .btn.linkedin{background:var(--linkedin);border-color:#005c8e;box-shadow:0 6px 18px rgba(0,119,181,.35), inset 0 1px 0 rgba(255,255,255,.12)}
+  .btn.light{background:#BFBFBF;color:#000;border-color:#BFBFBF;box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 6px 16px rgba(0,0,0,.25)}
+  .btn:active{transform:translateY(0);box-shadow:0 2px 10px rgba(0,0,0,.4) inset}
+  .btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
   .resources-grid{ display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
   .resource-card{ background:linear-gradient(135deg, rgba(229,9,20,.9), rgba(0,0,0,.9)); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,.1)}
   .resource-card h3{ margin:.25rem 0 .25rem; font-size:1.1rem; color:#fff}
@@ -134,6 +138,8 @@
   section.alt{background:linear-gradient(180deg,#121212,#0e0e0e)}
   .section-kicker{color:var(--brand);font-weight:800;letter-spacing:.4px;text-transform:uppercase;font-size:12px;margin-bottom:6px}
   .svc-num{position:absolute;top:10px;right:10px;background:#f3f3f3;color:#111;border:1px solid var(--stroke);border-radius:8px;padding:3px 8px;font:700 12px/1.2 system-ui;box-shadow:0 1px 0 rgba(255,255,255,.25) inset}
+  header .actions .btn{padding:10px 14px;border-radius:10px}
+  @media (max-width:1080px){ nav a{margin-left:12px;font-size:15px} header .actions .btn{padding:10px 12px;font-size:14px} }
   </style>
   <!-- Performance: preconnects --><!-- Canonical -->
   <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" /></head>
@@ -145,16 +151,16 @@
         <strong>Site Strategies</strong>
       </a>
       <nav>
-        <a href="#what">What we do<\/a>
-        <a href="#who">Who we help<\/a>
-        <a href="#services">Services<\/a>
-        <a href="#programs">Programs<\/a>
-        <a href="#how">How it works<\/a>
-        <a href="#proof">Proof<\/a>
-        <a href="#contact">Contact<\/a>
-      <\/nav>
-      <div>
-        <a class="btn secondary" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a 30-minute Straight‑Talk Call</a>
+        <a href="#what">What we do</a>
+        <a href="#who">Who we help</a>
+        <a href="#services">Services</a>
+        <a href="#programs">Programs</a>
+        <a href="#how">How it works</a>
+        <a href="#proof">Proof</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="actions">
+        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
       </div>
     </div>
   </header>
@@ -170,6 +176,7 @@
         <p class="sub">No jargon. No clutter. Just simple systems that raise output and lower friction.</p>
         <div class="cta-row">
           <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">📅 Book a 30-minute Straight‑Talk Call</a>
+          <a class="btn light" href="https://tally.so/r/nrZ7qN" target="_blank" rel="noopener">Run the 2‑minute site check</a>
           <a class="btn linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">🔗 Connect on LinkedIn</a>
           <a class="btn light" href="mailto:neilbeaven1@gmail.com">✉️ Email us</a>
         </div>
@@ -223,6 +230,18 @@
             <rect x="528" y="314" width="14" height="22" rx="4" fill="#E50914"/>
           </g>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz" class="cta-banner">
+    <div class="container row">
+      <div>
+        <h3 style="margin:0 0 8px;font-size:22px">Is your project running at peak efficiency?</h3>
+        <p class="lead" style="margin:0">6 quick questions. About 2 minutes. We’ll review and follow up with 2–3 specific suggestions you can use this week.</p>
+      </div>
+      <div>
+        <a class="btn" href="https://tally.so/r/nrZ7qN" target="_blank" rel="noopener">Take the 6‑question self‑check</a>
       </div>
     </div>
   </section>
@@ -362,18 +381,6 @@
           <p class="note">On phones, the deck opens in a new tab or downloads; on desktop it’s embedded above.</p>
         </div>
       </details>
-    </div>
-  </section>
-
-  <section class="cta-banner">
-    <div class="container row">
-      <div>
-        <h3 style="margin:0 0 8px;font-size:22px">Get your projects running like a well-oiled machine</h3>
-        <p class="lead" style="margin:0">Start with a free 30‑minute Straight‑Talk Call. We’ll outline your best next steps.</p>
-      </div>
-      <div>
-        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book your Straight‑Talk Call</a>
-      </div>
     </div>
   </section>
 
