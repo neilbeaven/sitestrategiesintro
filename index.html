@@ -95,6 +95,8 @@
   @media (max-width:780px){.pdf-frame{height:420px}}
   .powered img{height:clamp(44px,6.5vw,112px);width:clamp(44px,6.5vw,112px);filter:none;opacity:1;border-radius:14px;background:#fff;padding:4px;border:1px solid rgba(0,0,0,.45);box-shadow:0 1px 0 rgba(255,255,255,.22) inset, 0 6px 16px rgba(0,0,0,.45)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  /* If the proof grid only has one tile, use a single column to avoid empty space */
+  #proof .grid-2.single{grid-template-columns:1fr}
   @media (max-width:780px){.grid-2{grid-template-columns:1fr}}
   .coverage{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;width:100%;text-align:center;padding:8px}  
   .chip{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;border:1px solid var(--stroke);background:#f3f3f3;color:#111;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 1px 0 rgba(255,255,255,.35) inset, 0 6px 16px rgba(0,0,0,.25)}
@@ -125,6 +127,9 @@
   header.site.compact .wrap{padding:10px 0}
   header.site.compact .brand img{width:clamp(32px,4.5vw,64px);height:clamp(32px,4.5vw,64px);border-radius:10px}
   @media (max-width:780px){ #deck{display:none} #pdfMobileOnly{display:block} #pdfMobileOnly .mobile-pdf-actions{display:flex} .deck-desc{display:none} .deck-desc-mobile{display:block} }
+  #proof .tile + .tile{margin-top:18px}
+  #programs{padding-top:calc(clamp(44px,7vw,96px) + 12px)}
+  #services .cta-row{justify-content:center}
   </style>
   <!-- Performance: preconnects --><!-- Canonical -->
   <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" /></head>
@@ -138,8 +143,9 @@
       <nav>
         <a href="#what">What we do</a>
         <a href="#who">Who we help</a>
-        <a href="#proof">Proof</a>
         <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#proof">Proof</a>
         <a href="#contact">Contact</a>
       </nav>
       <div>
@@ -152,7 +158,7 @@
     <div class="container inner">
       <div>
         <div id="quizNote" class="quiz-note" aria-live="polite" style="display:none">
-          Thanks for completing the self‑check — you’re in the right place. <a class="inline-link" href="#services">Start at Services</a> or <a class="inline-link" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">book a 30‑minute Straight‑Talk Call</a>.
+          Thanks for completing the self‑check  -  you’re in the right place. <a class="inline-link" href="#services">Start at Services</a> or <a class="inline-link" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">book a 30‑minute Straight‑Talk Call</a>.
         </div>
         <div class="kicker">Simple systems. Better days on site.</div>
         <h1>Make the crew’s day easier, every day.</h1>
@@ -173,14 +179,43 @@
               <stop offset="0" stop-color="#101010"/><stop offset="1" stop-color="#171717"/>
             </linearGradient>
           </defs>
+          <!-- Background -->
           <rect width="800" height="500" fill="url(#g)"/>
-          <g stroke="#2A2A2A" stroke-width="2">
-            <path d="M60 420h680M60 360h680M60 300h680"/>
+
+          <!-- Three column headers (pills) -->
+          <g>
+            <rect x="95" y="70" rx="12" ry="12" width="170" height="30" fill="#F0F0F0"/>
+            <circle cx="112" cy="85" r="6" fill="#E50914"/>
+            <rect x="315" y="70" rx="12" ry="12" width="170" height="30" fill="#F0F0F0"/>
+            <circle cx="332" cy="85" r="6" fill="#E50914"/>
+            <rect x="535" y="70" rx="12" ry="12" width="170" height="30" fill="#F0F0F0"/>
+            <circle cx="552" cy="85" r="6" fill="#E50914"/>
           </g>
-          <g fill="#E50914">
-            <rect x="80" y="340" width="120" height="40" rx="8"/>
-            <rect x="220" y="280" width="180" height="40" rx="8"/>
-            <rect x="420" y="220" width="220" height="40" rx="8"/>
+
+          <!-- Column cards (kanban-style, flat) -->
+          <g stroke="#2A2A2A" stroke-width="2">
+            <!-- Column 1 -->
+            <rect x="80" y="120" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="88" y="134" width="14" height="22" rx="4" fill="#BFBFBF"/>
+            <rect x="80" y="180" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="80" y="240" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="88" y="254" width="14" height="22" rx="4" fill="#E50914"/>
+            <rect x="80" y="300" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+
+            <!-- Column 2 -->
+            <rect x="300" y="120" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="300" y="180" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="308" y="194" width="14" height="22" rx="4" fill="#BFBFBF"/>
+            <rect x="300" y="240" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="300" y="300" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+
+            <!-- Column 3 -->
+            <rect x="520" y="120" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="528" y="134" width="14" height="22" rx="4" fill="#BFBFBF"/>
+            <rect x="520" y="180" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="520" y="240" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="520" y="300" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
+            <rect x="528" y="314" width="14" height="22" rx="4" fill="#E50914"/>
           </g>
         </svg>
       </div>
@@ -227,22 +262,59 @@
     </div>
   </section>
 
+  <section id="services">
+    <div class="container">
+      <h2>Direct services we deliver</h2>
+      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output. Not sure where to start? The Straight‑Talk Call highlights 2–3 of these plays for your job.</p>
+      <div class="grid-3">
+        <article class="tile"><h3>Daily production board and huddle</h3><p>Simple visual targets, variances, and next-day prep that crews actually use.</p><p class="micro">Potential cost savings: 2–10% depending on job.</p></article>
+        <article class="tile"><h3>Two‑week lookahead and procurement</h3><p>Line up materials, subs, permits, and access so work doesn’t stall.</p><p class="micro">Potential cost savings: 3–12% depending on job.</p></article>
+        <article class="tile"><h3>Task planning sheets and crew briefs</h3><p>Clear method, hazards, interfaces, and done‑looks‑like for each task.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
+        <article class="tile"><h3>Pre‑job readiness pack</h3><p>Permits, locates, access, utilities, and traffic all squared away before day one.</p><p class="micro">Potential cost savings: 4–15% depending on job.</p></article>
+        <article class="tile"><h3>Safety documentation tune‑up</h3><p>JHAs, FLHAs, toolbox talks, and close‑out logs that match the work on site.</p><p class="micro">Potential cost savings: 2–6% depending on job.</p></article>
+        <article class="tile"><h3>Incident investigation and response</h3><p>Calm fact‑finding, clear actions, and plain‑language reporting.
+        </p><p class="micro">Potential cost savings: case‑by‑case.</p></article>
+        <article class="tile"><h3>Utility locates and permit orchestration</h3><p>Coordinate One Call, utilities, and agencies so field work can proceed.</p><p class="micro">Potential cost savings: 2–10% depending on job.</p></article>
+        <article class="tile"><h3>Work area and interface mapping</h3><p>Traffic layouts, laydown, and interface maps that reduce clashes.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
+        <article class="tile"><h3>Onboarding and role clarity</h3><p>Simple briefings and checklists so new hands and subs plug in fast.</p><p class="micro">Potential cost savings: 1–6% depending on job.</p></article>
+      </div>
+      <div class="cta-row" style="margin-top:16px">
+        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a 30-minute Straight‑Talk Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="container">
+      <h2>Programs and leadership support</h2>
+      <p class="lead">Ongoing help that builds habit and culture — for forepersons, supers, and small contractor teams.</p>
+      <div class="grid-2">
+        <article class="tile"><h3>Foreperson and lead‑hand development</h3><p>Practical coaching: daily targets, clean handoffs, quick variance calls.</p></article>
+        <article class="tile"><h3>Straight‑Talk support retainer</h3><p>On‑call help for tricky issues: planning, permits, client comms, and incidents.</p></article>
+        <article class="tile"><h3>Changed conditions and commercial clarity</h3><p>I spot changed conditions early and lay out the facts (scope, time, cost) so decisions happen fast and the project stays whole. Often a material impact on cash and margin.</p></article>
+        <article class="tile"><h3>Safety and culture routines</h3><p>Short, repeatable practices that actually stick: stretch‑and‑flex, near‑miss reviews, quick refreshers.</p></article>
+      </div>
+    </div>
+  </section>
+
   <section id="how">
     <div class="container">
       <h2>How it works</h2>
       <div class="steps">
-        <div class="step"><h3>Free Straight‑Talk Call<\/h3><p class="lead">We listen. You show the blockers. We line up quick wins.</p></div>
-        <div class="step"><h3>Custom action plan</h3><p class="lead">You get a 30, 60, 90-day plan with owners, timelines, and clear outcomes.</p></div>
-        <div class="step"><h3>Execution and support</h3><p class="lead">We help you roll it out. We stay close until results show up.</p></div>
+        <div class="step"><h3>1. Free Straight‑Talk Call</h3><p>30 minutes to understand the work and outline the best next steps.</p></div>
+        <div class="step"><h3>2. On‑site walkthrough and quick hits</h3><p>Spot bottlenecks, align near‑term plan, and capture actions while we’re there.</p></div>
+        <div class="step"><h3>3. Simple plan and follow‑through</h3><p>Owners, dates, and visuals. We turn boards, briefs, and lookaheads around in 48–72 hours.</p></div>
       </div>
     </div>
   </section>
 
   <section id="proof">
     <div class="container">
-      <h2>About &amp; credibility</h2>
-      <p class="lead">Nearly 20 years in construction management across major civil and transit projects.</p>
-      <div class="tile"><h3 style="margin-top:0">Neil Beaven, Founder</h3><p class="lead">Nearly 20 years in civil and transit projects — construction manager and project lead turned field‑first consultant.</p><ul><li><strong>Field‑first:</strong> sleeves rolled up; artifacts crews can use today.</li><li><strong>Fast:</strong> 48–72 hour turnaround on reports, boards, and plans.</li><li><strong>Accountable:</strong> clear owners, dates, and follow‑through.</li><li><strong>Backed by One Way Underground:</strong> a trusted partner network.</li></ul></div>
+      <h2>About and credibility</h2>
+      <div class="grid-2">
+        <div class="tile"><h3 style="margin-top:0">Neil Beaven, Founder</h3><p class="lead">Experienced Superintendent and founder of Site Strategies, with nearly 20 years on Ontario civil and transit jobs. I help small and mid‑sized contractors run steadier, safer, more profitable sites.</p><ul><li><strong>Changed conditions, handled properly:</strong> I read the situation fast, set out clear facts (scope, time, cost) and get decisions made.</li><li><strong>Production and flow:</strong> simple daily routines, clean handoffs, and practical visuals that crews actually follow.</li><li><strong>Straight communication:</strong> calm with clients, contract admins and owner reps, especially when relationships are tense.</li><li><strong>Hands‑on delivery:</strong> punch lists, lookaheads, boards and brief write‑ups turned around in 48–72 hours.</li></ul></div>
+      </div>
+
       <h3 id="presentation">Overview (10‑page presentation)</h3>
       <p class="note deck-desc">A concise 10‑page overview: what we do, who we help, field examples, and how we start. Handy to share with owners and supers.</p>
       <div id="pdfMobileOnly" class="tile">
@@ -256,155 +328,13 @@
         <summary class="deck-summary"><span>📄 View overview (10 pages)</span><div class="deck-actions"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div></summary>
         <div class="deck-body">
           <div id="pdfMount"></div>
-          <div class="mobile-pdf-actions" id="pdfMobileLinks">
+          <div id="pdfMobileLinks" class="mobile-pdf-actions">
             <a class="btn" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
             <a class="btn secondary" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
           </div>
-          <p class="note">On phones, the deck opens in a new tab or downloads. On desktop, it will embed here.</p>
+          <p class="note">On phones, the deck opens in a new tab or downloads; on desktop it’s embedded above.</p>
         </div>
       </details>
-      
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2>Direct services we deliver</h2>
-      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output. Not sure where to start? The Straight‑Talk Call highlights 2–3 of these plays for your job.</p>
-      <div class="grid-3">
-        <article class="tile">
-          <h3>Site Readiness Review</h3>
-          <p>Promise: day one goes smoothly.</p>
-          <ul>
-            <li>Punch list with owners and dates</li>
-            <li>2-week fix plan</li>
-            <li>Photo notes for quick action</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~0.5 to 2% of project value from avoided delays and rework; often 1 to 3 days recovered on startup.</p>
-        </article>
-        <article class="tile">
-          <h3>Logistics and Access Plan</h3>
-          <p>Promise: crews and materials flow without choke points.</p>
-          <ul>
-            <li>Site layout diagram</li>
-            <li>Delivery and egress routes</li>
-            <li>Laydown and staging map</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~1 to 3% on direct labor and equipment from less idle time and double handling.</p>
-        </article>
-        <article class="tile">
-          <h3>Daily Production & Material Flow System</h3>
-          <p>Promise: predictable output and on-time materials.</p>
-          <ul>
-            <li>Simple live procurement tracker</li>
-            <li>Call-ahead cadence and late-risk board at the trailer</li>
-            <li>Daily goals sheet and end-of-day huddle script</li>
-            <li>Whiteboard or simple digital production log</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~1 to 5% via 5 to 15% productivity lift, fewer stoppages, and reduced standby charges.</p>
-        </article>
-        <article class="tile">
-          <h3>Schedule Recovery Sprint</h3>
-          <p>Promise: claw back lost days fast.</p>
-          <ul>
-            <li>2 to 4 week lookahead</li>
-            <li>Crew-by-crew plan</li>
-            <li>Constraint removal list</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~2 to 6% on labor and equipment or 5 to 15 days recovered on a 6-month job.</p>
-        </article>
-        <article class="tile">
-          <h3>Subcontractor Onboarding</h3>
-          <p>Promise: clean handoffs and fewer scope gaps.</p>
-          <ul>
-            <li>Start-up package</li>
-            <li>Kickoff checklist</li>
-            <li>RFI and decisions lane rules</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~0.5 to 2% through reduced rework, back charges, and disputes.</p>
-        </article>
-        <article class="tile">
-          <h3>Field Safety Package</h3>
-          <p>Promise: fewer stoppages and tighter documentation.</p>
-          <ul>
-            <li>Task-based SWPs</li>
-            <li>Toolbox talk calendar</li>
-            <li>Simple inspection forms fit to the work</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~0.5 to 3% from avoided stand-downs, administrative penalties, and lost time.</p>
-        </article>
-        <article class="tile">
-          <h3>Traffic and Pedestrian Management</h3>
-          <p>Promise: compliant, safe interfaces that keep work moving.</p>
-          <ul>
-            <li>TCP sketches</li>
-            <li>Signage list</li>
-            <li>Staging and changeover sequence</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~0.5 to 2% from fewer shutdowns, fewer near misses, and less rework at interfaces.</p>
-        </article>
-        <article class="tile">
-          <h3>Utility Locate and Permit Coordination</h3>
-          <p>Promise: fewer hits and fewer permit surprises.</p>
-          <ul>
-            <li>Ontario One Call log</li>
-            <li>Permit matrix</li>
-            <li>Constraint board in the trailer</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~1 to 5% through avoided damages, downtime, and emergency responses.</p>
-        </article>
-        <article class="tile">
-          <h3>Incident Investigation and Response</h3>
-          <p>Promise: contain impact fast and prevent repeat events.</p>
-          <ul>
-            <li>Rapid site response and stabilization support</li>
-            <li>24 to 48-hour factual report with root cause and corrective actions</li>
-            <li>Toolbox follow-up; guidance on WSIB and MOL notifications as needed</li>
-          </ul>
-          <p><strong>Potential cost savings:</strong> ~0.5 to 4% depending on severity, via reduced downtime, cleaner documentation, and prevention of repeat incidents.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="programs">
-    <div class="container">
-      <h2>Program & leadership support</h2>
-      <p class="lead">Higher‑level help that reinforces what happens on site.</p>
-      <div class="grid-2">
-        <article class="tile">
-          <h3>Write and tune SOPs</h3>
-          <ul>
-            <li>Task‑based, field‑tested steps</li>
-            <li>Photos/diagrams where useful</li>
-            <li>Rollout brief for crews</li>
-          </ul>
-        </article>
-        <article class="tile">
-          <h3>Program reviews</h3>
-          <ul>
-            <li>Operations & safety program diagnostics</li>
-            <li>Gap list with owners/dates</li>
-            <li>Ready‑to‑file updates</li>
-          </ul>
-        </article>
-        <article class="tile">
-          <h3>Crew incentives that work</h3>
-          <ul>
-            <li>Simple, measurable targets</li>
-            <li>Fair bonus mechanics</li>
-            <li>Weekly dashboard for crews</li>
-          </ul>
-        </article>
-        <article class="tile">
-          <h3>Safety documentation review</h3>
-          <ul>
-            <li>SWPs, FLHAs, toolbox talk cadence</li>
-            <li>Close gaps to OPSS/MOL expectations</li>
-            <li>Audit‑ready templates</li>
-          </ul>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -464,7 +394,7 @@
     (function(){
       const links = Array.from(document.querySelectorAll('header nav a'));
       const map = new Map(links.map(l => [l.getAttribute('href'), l]));
-      const ids = ['#what','#who','#how','#proof','#services','#programs','#contact'];
+      const ids = ['#what','#who','#services','#how','#proof','#programs','#contact'];
       const sections = ids.map(id => document.querySelector(id)).filter(Boolean);
       const activate = (id)=>{links.forEach(l=>l.classList.remove('active')); const a = map.get(id); if (a) a.classList.add('active');};
       function setHeaderOffset(){
@@ -521,7 +451,7 @@ Email: ${decodeURIComponent(email)}
 
 Message:
 ${decodeURIComponent(msg)}`);
-      // No placeholder recipient — user chooses who to send to in their mail app
+      // No placeholder recipient  -  user chooses who to send to in their mail app
       window.location.href = `mailto:neilbeaven1@gmail.com?subject=${subject}&body=${body}`;
     }
     // Collapsed PDF deck: lazy-load iframe and mobile fallback
@@ -561,6 +491,13 @@ ${decodeURIComponent(msg)}`);
       const fromForms = /(forms\.gle|typeform\.com|surveymonkey\.com|jotform\.com)/.test(ref);
       if (hinted || fromForms) { note.style.display = 'block'; }
     })();
+    // If About & credibility grid has only one tile, collapse to one column
+  document.addEventListener('DOMContentLoaded', function(){
+      var proofGrid = document.querySelector('#proof .grid-2');
+      if (proofGrid && proofGrid.children && proofGrid.children.length === 1){
+        proofGrid.classList.add('single');
+      }
+  });
   </script>
 </body>
 </html>
