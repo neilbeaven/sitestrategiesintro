@@ -112,6 +112,9 @@
   .deck-summary:hover{background:rgba(255,255,255,.05)}
   .deck-summary::marker{content:""}
   .deck-summary::before{content:"";position:absolute;left:18px;top:50%;transform:translateY(-50%);width:10px;height:26px;border-radius:999px;background:var(--brand);box-shadow:0 0 0 2px rgba(229,9,20,.25)}
+  /* gentle attention cue on desktop */
+  @keyframes deckpulse{0%{box-shadow:0 0 0 2px rgba(229,9,20,.25)}60%{box-shadow:0 0 0 12px rgba(229,9,20,0)}100%{box-shadow:0 0 0 2px rgba(229,9,20,.25)}}
+  @media (min-width:781px){ .deck-summary:not(:hover):not(:focus-visible)::before{animation:deckpulse 2.6s ease-out 2} }
   .deck-summary::after{content:"▾";margin-left:auto;font-size:18px;opacity:.8;transition:transform .2s ease}
   .deck-summary::marker{content:""}
   .deck[open] .deck-summary{border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.04)}
@@ -137,7 +140,7 @@
   #services .cta-row{justify-content:center}
   section.alt{background:linear-gradient(180deg,#121212,#0e0e0e)}
   .section-kicker{color:var(--brand);font-weight:800;letter-spacing:.4px;text-transform:uppercase;font-size:12px;margin-bottom:6px}
-  .svc-num{position:absolute;top:10px;right:10px;background:#f3f3f3;color:#111;border:1px solid var(--stroke);border-radius:8px;padding:3px 8px;font:700 12px/1.2 system-ui;box-shadow:0 1px 0 rgba(255,255,255,.25) inset}
+  .svc-num{position:absolute;top:10px;right:10px;background:#f3f3f3;color:#111;border:1px solid var(--stroke);border-radius:10px;padding:6px 12px;font:700 12px/1.1 system-ui;box-shadow:0 1px 0 rgba(255,255,255,.25) inset}
   header .actions .btn{padding:10px 14px;border-radius:10px;white-space:nowrap}
   header .actions{flex:0 0 auto}
   @media (max-width:1080px){ nav a{margin-left:12px;font-size:15px} header .actions .btn{padding:10px 12px;font-size:14px} }
@@ -157,6 +160,13 @@
       radial-gradient(140% 100% at 85% -10%, rgba(229,9,20,.12), transparent),
       radial-gradient(110% 80% at 0% 0%, rgba(255,255,255,.06), transparent),
       linear-gradient(180deg,#141414,#101010)}
+  .deck-summary .hint{font-style:normal;color:var(--muted);font-weight:700;font-size:14px;margin-left:8px}
+  @media (max-width:780px){ .deck-summary .hint{display:none} }
+  /* Improve spacing so badge and titles never crowd */
+  #services .tile{padding-top:32px}
+  #services .tile h3{margin-top:12px;padding-right:58px}
+  @media (min-width:781px){ #services .tile{padding-top:30px} }
+  @media (max-width:780px){ #services .tile{padding-top:36px} }
   </style>
   <!-- Performance: preconnects --><!-- Canonical -->
   <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" /><!-- ss-revision: 2025-08-15-03 -->
@@ -355,7 +365,7 @@
         </div>
       </div>
       <details id="deck" class="deck">
-        <summary class="deck-summary"><span>📄 View overview (10 pages)</span><div class="deck-actions"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div></summary>
+        <summary class="deck-summary"><span>📄 View overview (10 pages) <em class="hint">(click to expand)</em></span><div class="deck-actions"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div></summary>
         <div class="deck-body">
           <div id="pdfMount"></div>
           <div id="pdfMobileLinks" class="mobile-pdf-actions">
