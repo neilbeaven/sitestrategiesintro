@@ -145,9 +145,22 @@
         
   .btn .short{display:none}
   @media (max-width:460px){ .btn .full{display:none} .btn .short{display:inline} header .actions .btn{padding:8px 10px;font-size:13px} .brand img{width:36px;height:36px} }
+  .hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:none;padding:8px;cursor:pointer}
+  .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+  .mobile-drawer{position:fixed;left:0;right:0;top:56px;transform:translateY(-120%);transition:transform .2s ease;z-index:70;background:linear-gradient(180deg,#141414,#0f0f0f);border-bottom:1px solid var(--stroke);padding:12px 16px;display:flex;flex-direction:column;gap:10px}
+  .mobile-drawer a{color:#fff;font-weight:700;padding:10px 6px;border-radius:10px}
+  .mobile-drawer .btn{align-self:flex-start}
+  .mobile-drawer.open{transform:translateY(0)}
+  body.nav-open{overflow:hidden}
+  @media (max-width:780px){ header.site .wrap nav{display:none} header .actions .btn{display:none} .hamburger{display:inline-flex} .brand strong{display:none} }
+  .hero-art{min-height:260px;border-radius:14px;background:
+      radial-gradient(140% 100% at 85% -10%, rgba(229,9,20,.12), transparent),
+      radial-gradient(110% 80% at 0% 0%, rgba(255,255,255,.06), transparent),
+      linear-gradient(180deg,#141414,#101010)}
   </style>
   <!-- Performance: preconnects --><!-- Canonical -->
-  <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" /></head>
+  <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" /><!-- ss-revision: 2025-08-15-03 -->
+</head>
 <body>
   <header class="site">
     <div class="container wrap">
@@ -166,9 +179,24 @@
       </nav>
       <div class="actions">
         <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener"><span class="full">Book a call today</span><span class="short">Book a call</span></a>
+        <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile drawer menu -->
+  <nav id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+    <a href="#what">What we do</a>
+    <a href="#who">Who we help</a>
+    <a href="#services">Services</a>
+    <a href="#programs">Programs</a>
+    <a href="#how">How it works</a>
+    <a href="#proof">Proof</a>
+    <a href="#contact">Contact</a>
+    <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
+  </nav>
 
   <section class="hero" id="top">
     <div class="container inner">
@@ -188,54 +216,7 @@
         <p class="micro">Typically you’ll leave with: a 2‑week action sketch · one bottleneck to unblock · a simple daily production check.</p>
         <div class="powered"><span>Powered by</span><a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener" aria-label="One Way Underground (opens in new tab)"><img src="assets/OneWayUndergroundLogo.png" alt="One Way Underground logo" decoding="async" /></a></div>
       </div>
-      <div class="card" aria-hidden="true">
-        <!-- Decorative, no external image -->
-        <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;border-radius:10px">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1">
-              <stop offset="0" stop-color="#101010"/><stop offset="1" stop-color="#171717"/>
-            </linearGradient>
-          </defs>
-          <!-- Background -->
-          <rect width="800" height="500" fill="url(#g)"/>
-
-          <!-- Three column headers (pills) -->
-          <g>
-            <rect x="95" y="70" rx="12" ry="12" width="170" height="30" fill="#F0F0F0"/>
-            <circle cx="112" cy="85" r="6" fill="#E50914"/>
-            <rect x="315" y="70" rx="12" ry="12" width="170" height="30" fill="#F0F0F0"/>
-            <circle cx="332" cy="85" r="6" fill="#E50914"/>
-            <rect x="535" y="70" rx="12" ry="12" width="170" height="30" fill="#F0F0F0"/>
-            <circle cx="552" cy="85" r="6" fill="#E50914"/>
-          </g>
-
-          <!-- Column cards (kanban-style, flat) -->
-          <g stroke="#2A2A2A" stroke-width="2">
-            <!-- Column 1 -->
-            <rect x="80" y="120" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="88" y="134" width="14" height="22" rx="4" fill="#BFBFBF"/>
-            <rect x="80" y="180" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="80" y="240" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="88" y="254" width="14" height="22" rx="4" fill="#E50914"/>
-            <rect x="80" y="300" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-
-            <!-- Column 2 -->
-            <rect x="300" y="120" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="300" y="180" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="308" y="194" width="14" height="22" rx="4" fill="#BFBFBF"/>
-            <rect x="300" y="240" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="300" y="300" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-
-            <!-- Column 3 -->
-            <rect x="520" y="120" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="528" y="134" width="14" height="22" rx="4" fill="#BFBFBF"/>
-            <rect x="520" y="180" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="520" y="240" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="520" y="300" rx="10" ry="10" width="200" height="50" fill="#1E1E1E"/>
-            <rect x="528" y="314" width="14" height="22" rx="4" fill="#E50914"/>
-          </g>
-        </svg>
-      </div>
+      <div class="card hero-art" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -535,6 +516,20 @@ ${decodeURIComponent(msg)}`);
         proofGrid.classList.add('single');
       }
   });
+    // Mobile drawer toggle
+  (function(){
+    var btn = document.getElementById('menuToggle');
+    var drawer = document.getElementById('mobileDrawer');
+    var headerEl = document.querySelector('header.site');
+    function setTop(){ if(drawer && headerEl){ drawer.style.top = headerEl.offsetHeight + 'px'; } }
+    function close(){ if(!drawer) return; drawer.classList.remove('open'); document.body.classList.remove('nav-open'); if(btn) btn.setAttribute('aria-expanded','false'); }
+    function open(){ if(!drawer) return; setTop(); drawer.classList.add('open'); document.body.classList.add('nav-open'); if(btn) btn.setAttribute('aria-expanded','true'); }
+    if(btn && drawer){
+      btn.addEventListener('click', function(){ drawer.classList.contains('open') ? close() : open(); });
+      window.addEventListener('resize', setTop);
+      drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+    }
+  })();
   </script>
 </body>
 </html>
