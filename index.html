@@ -30,8 +30,8 @@
   .btn.linkedin{background:var(--linkedin);border-color:#005c8e;box-shadow:0 6px 18px rgba(0,119,181,.35),inset 0 1px 0 rgba(255,255,255,.12)}
   .btn.light{background:#BFBFBF;color:#000;border-color:#BFBFBF;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 6px 16px rgba(0,0,0,.25)}
   .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}.btn:active{transform:translateY(0);box-shadow:0 2px 10px rgba(0,0,0,.4) inset}.btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
-  .btn .full{display:inline}
-  .btn .short{display:none}
+.btn .full{display:inline}
+.btn .short{display:none}
   header.site{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;transition:padding .2s ease}
   .brand{display:flex;align-items:center;gap:12px;font-weight:800}
@@ -73,6 +73,14 @@
   .cta-banner .row{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:26px 0}
   footer{padding:26px 0;color:var(--muted);font-size:13px}
   .tile ul{margin:8px 0 0 18px;color:var(--muted)}.tile ul li{margin:4px 0}
+  .resources-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .resource-card{background:linear-gradient(135deg,rgba(229,9,20,.9),rgba(0,0,0,.9));padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,.1)}
+  .resource-card h3{margin:.25rem 0;font-size:1.1rem;color:#fff}.resource-card p{margin:.25rem 0 .75rem;font-size:.95rem;color:var(--muted)}.resource-card a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+  #services .grid-3{align-items:stretch}#services .tile{display:flex;flex-direction:column;height:100%;position:relative;padding-top:32px}#services .tile p:last-of-type{margin-top:auto}#services .tile h3{margin-top:12px;padding-right:58px}
+  #services .cta-row{justify-content:center}
+  .pdf-frame{width:100%;height:600px;border:none;background:#fff;border-radius:12px}
+  .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
+  .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   #proof .grid-2.single{grid-template-columns:1fr}
   .coverage{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;width:100%;text-align:center;padding:8px}
@@ -93,6 +101,7 @@
   .quiz-note{color:var(--muted);font-size:14px;margin:0 0 10px}
   .deck-actions{display:flex;gap:8px;margin-left:auto}.btn.tiny{padding:8px 10px;font-size:13px;border-radius:8px}
   header.site.compact .wrap{padding:10px 0}header.site.compact .brand img{width:clamp(32px,4.5vw,64px);height:clamp(32px,4.5vw,64px);border-radius:10px}
+  .svc-num{position:absolute;top:10px;right:10px;background:#f3f3f3;color:#111;border:1px solid var(--stroke);border-radius:10px;padding:6px 12px;font:700 12px/1.1 system-ui;box-shadow:0 1px 0 rgba(255,255,255,.25) inset}
   header .actions{flex:0 0 auto}header .actions .btn{padding:10px 14px;border-radius:10px;white-space:nowrap}
   .hero-graphic{padding:0}.hero-svg{display:block;width:100%;height:auto;border-radius:12px}
   /* Center sections & CTAs already in place */
@@ -113,15 +122,15 @@
   }
   @media (max-width:980px){.hero .inner,.who{grid-template-columns:1fr}}
   @media (max-width:780px){
-    .grid-3,.steps,.grid-2{grid-template-columns:1fr}
+    .grid-3,.steps{grid-template-columns:1fr}
     .cta-banner .row{flex-direction:column;align-items:flex-start}
     #deck{display:none}#pdfMobileOnly{display:block}#pdfMobileOnly .mobile-pdf-actions{display:flex}
     .deck-desc{display:none}.deck-desc-mobile{display:block}
     .tile{padding:16px}.tile h3{font-size:17px;line-height:1.2}.tile p{font-size:15px}
-    .grid-3,.steps{gap:14px}.cta-row{gap:10px}
+    .svc-num{top:8px;right:8px;padding:5px 10px}.grid-3,.steps{gap:14px}.cta-row{gap:10px}
     header.site .wrap{padding:10px 0}.brand strong{display:none}.powered{font-size:16px}
-    .btn .full{display:none}.btn .short{display:inline}
   }
+  @media (max-width:460px){.btn .full{display:none}.btn .short{display:inline}header .actions .btn{padding:8px 10px;font-size:13px}.brand img{width:36px;height:36px}}
   </style>
   <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" />
 </head>
@@ -135,11 +144,10 @@
       <nav aria-label="Primary">
         <a href="#what">What we do</a><a href="#who">Who we help</a><a href="#services">Services</a><a href="#programs">Programs</a><a href="#how">How it works</a><a href="#proof">Proof</a><a href="#contact">Contact</a>
       </nav>
-      <div class="actions">
-        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">
-          <span class="full">Book a call today</span>
-          <span class="short">Book a call</span>
-        </a>
+      <div class="actions"><a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">
+  <span class="full">Book a call today</span>
+  <span class="short">Book a call</span>
+</a>
         <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -150,56 +158,41 @@
     <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero" id="top">
     <div class="container inner">
       <div>
-        <div class="kicker">Close the field-office gap.</div>
-        <h1>Consulting that doesn't suck</h1>
-        <p class="sub">Straight talk, clean plans, no wasted time.</p>
-        <p class="sub">We turn daily site activity into plain, actionable reporting so decisions happen fast, changes are controlled, and work keeps moving.</p>
-
+        <div id="quizNote" class="quiz-note" aria-live="polite" style="display:none">Thanks for completing the self-check - you’re in the right place. <a class="inline-link" href="#services">Start at Services</a> or <a class="inline-link" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">book a call today</a>.</div>
+<div class="kicker">Close the field-office gap.</div>
+<h1>Give owners clean facts, and crews clear direction.</h1>
+<p class="sub">We turn daily site activity into plain, actionable reporting, so decisions happen fast, changes are controlled, and work keeps moving.</p>
         <div class="cta-row">
           <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
           <a class="btn light" href="https://tally.so/r/nrZ7qN" target="_blank" rel="noopener">Run the 2-minute site check</a>
           <a class="btn linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">Connect on LinkedIn</a>
           <a class="btn light" href="mailto:neilbeaven1@gmail.com">Email us</a>
         </div>
-        <p class="micro">Typically you leave with: a 2-week action sketch, one bottleneck to unblock, a simple daily production check.</p>
-
-        <div class="powered">
-          <span>Powered by</span>
-          <a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener" aria-label="One Way Underground (opens in new tab)">
-            <img src="assets/OneWayUndergroundLogo.png" alt="One Way Underground logo" width="112" height="112" loading="lazy" />
-          </a>
-        </div>
-        <p class="micro" style="margin-top:6px">
-          Site Strategies provides the consulting service. One Way Underground provides operational support. Together, we back contractors with field-tested strength.
-        </p>
+        <p class="micro">Typically you’ll leave with: a 2-week action sketch · one bottleneck to unblock · a simple daily production check.</p>
+        <div class="powered"><span>Powered by</span><a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener" aria-label="One Way Underground (opens in new tab)"><img src="assets/OneWayUndergroundLogo.png" alt="One Way Underground logo" width="112" height="112" loading="lazy" /></a></div>
       </div>
-
       <div class="card hero-graphic" aria-hidden="true" style="padding:0">
-        <!-- decorative graphic preserved -->
         <svg class="hero-svg" viewBox="0 0 800 420" role="img" aria-label="Decorative flow graphic"><defs><linearGradient id="bggrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#141414"/><stop offset="100%" stop-color="#101010"/></linearGradient><radialGradient id="glow" cx="85%" cy="0%" r="65%"><stop offset="0%" stop-color="rgba(229,9,20,0.25)"/><stop offset="100%" stop-color="rgba(229,9,20,0)"/></radialGradient><pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1f1f1f"/></pattern></defs><rect width="800" height="420" fill="url(#bggrad)"/><rect width="800" height="420" fill="url(#grid)" opacity="0.45"/><rect width="800" height="420" fill="url(#glow)"/><g opacity="0.8" stroke="#2a2a2a" stroke-width="2"><rect x="40" y="70" width="720" height="36" rx="10" fill="#151515"/><rect x="40" y="140" width="720" height="36" rx="10" fill="#151515"/><rect x="40" y="210" width="720" height="36" rx="10" fill="#151515"/><rect x="40" y="280" width="720" height="36" rx="10" fill="#151515"/></g><g><rect x="70" y="78" width="130" height="20" rx="10" fill="#f3f3f3"/><rect x="220" y="78" width="90" height="20" rx="10" fill="#f3f3f3"/><rect x="340" y="78" width="160" height="20" rx="10" fill="#f3f3f3"/><rect x="70" y="148" width="110" height="20" rx="10" fill="#f3f3f3"/><rect x="200" y="148" width="150" height="20" rx="10" fill="#f3f3f3"/><rect x="370" y="148" width="95" height="20" rx="10" fill="#f3f3f3"/><rect x="70" y="218" width="170" height="20" rx="10" fill="#f3f3f3"/><rect x="260" y="218" width="110" height="20" rx="10" fill="#f3f3f3"/><rect x="390" y="218" width="80" height="20" rx="10" fill="#f3f3f3"/><rect x="70" y="288" width="120" height="20" rx="10" fill="#f3f3f3"/><rect x="210" y="288" width="140" height="20" rx="10" fill="#f3f3f3"/><rect x="370" y="288" width="60" height="20" rx="10" fill="#f3f3f3"/></g><g fill="#E50914"><circle cx="620" cy="88" r="5"/><circle cx="520" cy="158" r="5"/><circle cx="500" cy="228" r="5"/><circle cx="560" cy="298" r="5"/></g></svg>
       </div>
     </div>
   </section>
 
-  <!-- QUIZ -->
   <section id="quiz" class="cta-banner">
     <div class="container row">
       <div>
         <h3 style="margin:0 0 8px;font-size:22px">Is your project running at peak efficiency?</h3>
-        <p class="lead" style="margin:0">6 quick questions. About 2 minutes. We review and follow up with 2-3 specific suggestions you can use this week.</p>
+        <p class="lead" style="margin:0">6 quick questions. About 2 minutes. We will review and follow up with 2–3 specific suggestions you can use this week.</p>
       </div>
       <div><a class="btn" href="https://tally.so/r/nrZ7qN" target="_blank" rel="noopener">Take the 6-question self-check</a></div>
     </div>
   </section>
 
-  <!-- WHAT -->
   <section id="what">
     <div class="container">
-      <h2>What we do</h2>
+      <h2>Consulting that doesn't suck</h2>
       <p class="lead">No theory. We fix what slows you down and costs you money. Clear plans. Clean handoffs. Real accountability.</p>
       <div class="grid-3">
         <article class="tile"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg><h3>On-site performance audits</h3><p>We find bottlenecks before they become cost and schedule hits. You get a simple punch list that crews can follow.</p></article>
@@ -209,72 +202,37 @@
     </div>
   </section>
 
-  <!-- WHO -->
   <section id="who" class="alt">
     <div class="container who">
       <div>
         <h2>Supporting small and mid-sized contractors across Ontario</h2>
-        <p class="lead">If you run a 5 to 50 person crew, we help you run leaner, safer, and more profitable projects. Simple as that.</p>
+        <p class="lead">If you run a 5 to 50-person crew, we help you run leaner, safer, and more profitable projects. Simple as that.</p>
         <ul><li>Site servicing and utilities</li><li>Roads and civil</li><li>Rail and transit support</li><li>General contractors</li></ul>
       </div>
       <div class="mapbox" aria-hidden="true"><div class="coverage"><span class="chip">GTA core</span><span class="chip">Golden Horseshoe</span><span class="chip">Province-wide by arrangement</span></div></div>
     </div>
   </section>
 
-  <!-- SERVICES BUNDLES -->
   <section id="services">
     <div class="container">
-      <div class="section-kicker">For 5-50 person crews</div>
+      <div class="section-kicker">For 5–50 person crews</div>
       <h2>Direct services we deliver</h2>
-      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output. Not sure where to start? The intro call highlights 2-3 of these plays for your job.</p>
-
+      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output. Not sure where to start? The intro call highlights 2–3 of these plays for your job.</p>
       <div class="grid-3">
-        <article class="tile">
-          <h3>Daily Flow</h3>
-          <ul>
-            <li><strong>Daily production board and huddle:</strong> visual targets, variances, next-day prep.</li>
-            <li><strong>Task planning sheets and crew briefs:</strong> method, hazards, interfaces, done-looks-like.</li>
-            <li><strong>Onboarding and role clarity:</strong> quick start for new hands and subs.</li>
-          </ul>
-          <p class="micro">Typical impact: fewer stoppages, faster setups, less rework.</p>
-        </article>
-
-        <article class="tile">
-          <h3>Pre-Job Readiness</h3>
-          <ul>
-            <li><strong>Two-week lookahead and procurement:</strong> materials, subs, permits, access lined up.</li>
-            <li><strong>Pre-job readiness pack:</strong> permits, locates, utilities, traffic all squared before day one.</li>
-            <li><strong>Work area and interface mapping:</strong> traffic layouts, laydown, interface maps to reduce clashes.</li>
-          </ul>
-          <p class="micro">Typical impact: clean handoffs, fewer surprises in week one.</p>
-        </article>
-
-        <article class="tile">
-          <h3>Change and Safety</h3>
-          <ul>
-            <li><strong>Changed conditions and commercial clarity:</strong> early flagging with facts on scope, time, cost.</li>
-            <li><strong>Safety documentation tune-up:</strong> JHAs, FLHAs, toolbox talks that match the work.</li>
-            <li><strong>Incident investigation and response:</strong> calm fact finding and clear actions.</li>
-            <li><strong>Utility locates and permit orchestration:</strong> One Call and agencies coordinated so field work proceeds.</li>
-          </ul>
-          <p class="micro">Typical impact: faster decisions, cleaner paperwork, risk under control.</p>
-        </article>
+        <article class="tile"><span class="svc-num">01</span><h3>Daily production board and huddle</h3><p>Simple visual targets, variances, and next-day prep that crews actually use.</p><p class="micro">Potential cost savings: 2–10% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">02</span><h3>Two-week lookahead and procurement</h3><p>Line up materials, subs, permits, and access so work does not stall.</p><p class="micro">Potential cost savings: 3–12% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">03</span><h3>Task planning sheets and crew briefs</h3><p>Clear method, hazards, interfaces, and done-looks-like for each task.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">04</span><h3>Pre-job readiness pack</h3><p>Permits, locates, access, utilities, and traffic all squared away before day one.</p><p class="micro">Potential cost savings: 4–15% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">05</span><h3>Safety documentation tune-up</h3><p>JHAs, FLHAs, toolbox talks, and close-out logs that match the work on site.</p><p class="micro">Potential cost savings: 2–6% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">06</span><h3>Incident investigation and response</h3><p>Calm fact-finding, clear actions, and plain-language reporting.</p><p class="micro">Potential cost savings: case-by-case.</p></article>
+        <article class="tile"><span class="svc-num">07</span><h3>Utility locates and permit orchestration</h3><p>Coordinate One Call, utilities, and agencies so field work can proceed.</p><p class="micro">Potential cost savings: 2–10% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">08</span><h3>Work area and interface mapping</h3><p>Traffic layouts, laydown, and interface maps that reduce clashes.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">09</span><h3>Onboarding and role clarity</h3><p>Simple briefings and checklists so new hands and subs plug in fast.</p><p class="micro">Potential cost savings: 1–6% depending on job.</p></article>
       </div>
-
-      <!-- Starter Sprint -->
-      <div class="tile" style="margin-top:18px">
-        <h3 style="margin-top:0">Starter Sprint - 2 weeks</h3>
-        <p>We focus on one crew and one scope. You get a tightened daily huddle, a working lookahead, and a simple readiness pack. We meet owners weekly, adjust fast, and leave you with tools your team can keep using.</p>
-        <p class="micro">Fixed scope. Fixed timeline. Fees discussed on the intro call.</p>
-      </div>
-
-      <div class="cta-row" style="margin-top:16px">
-        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a call today</a>
-      </div>
+      <div class="cta-row" style="margin-top:16px"><a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a call today</a></div>
     </div>
   </section>
 
-  <!-- PROGRAMS -->
   <section id="programs" class="alt">
     <div class="container">
       <div class="section-kicker">Ongoing support</div>
@@ -283,25 +241,23 @@
       <div class="grid-2">
         <article class="tile"><h3>Foreperson and lead-hand development</h3><p>Practical coaching: daily targets, clean handoffs, quick variance calls.</p></article>
         <article class="tile"><h3>On-call support retainer</h3><p>Help on demand for planning, permits, client communication, and incidents.</p></article>
-        <article class="tile"><h3>Changed conditions and commercial clarity</h3><p>We flag changes early and set out the facts on scope, time, and cost so decisions happen fast and the project stays whole.</p></article>
+        <article class="tile"><h3>Changed conditions and commercial clarity</h3><p>I flag changed conditions early and set out the facts on scope, time, and cost so decisions happen fast and the project stays whole. Often a material impact on cash and margin.</p></article>
         <article class="tile"><h3>Safety and culture routines</h3><p>Short, repeatable practices that stick: stretch and flex, near-miss reviews, quick refreshers.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- HOW -->
   <section id="how">
     <div class="container">
       <h2>How it works</h2>
       <div class="steps">
         <div class="step"><h3>1. Free Straight-Talk Call</h3><p>30 minutes to understand the work and outline the best next steps.</p></div>
         <div class="step"><h3>2. On-site walkthrough and quick hits</h3><p>Spot bottlenecks, align near-term plan, and capture actions while we are there.</p></div>
-        <div class="step"><h3>3. Simple plan and follow-through</h3><p>Owners, dates, and visuals. We turn boards, briefs, and lookaheads around in 48-72 hours.</p></div>
+        <div class="step"><h3>3. Simple plan and follow-through</h3><p>Owners, dates, and visuals. We turn boards, briefs, and lookaheads around in 48–72 hours.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF -->
   <section id="proof">
     <div class="container">
       <h2>About and credibility</h2>
@@ -310,29 +266,24 @@
         <h3 style="margin-top:0">Neil Beaven, Founder</h3>
         <p class="lead">Experienced Superintendent and founder of Site Strategies, with nearly 20 years on Ontario civil and transit jobs. I help small and mid-sized contractors run steadier, safer, more profitable sites.</p>
         <ul>
-          <li><strong>Changed conditions, handled properly:</strong> clear facts on scope, time, and cost to drive decisions.</li>
-          <li><strong>Production and flow:</strong> simple daily routines, clean handoffs, practical visuals that crews use.</li>
-          <li><strong>Clear communication:</strong> steady with clients, contract admins, and owner reps, especially when relationships are tense.</li>
-          <li><strong>Hands-on delivery:</strong> punch lists, lookaheads, boards, and brief write-ups turned around in 48-72 hours.</li>
+          <li><strong>Changed conditions, handled properly:</strong> I read the situation fast, set out clear facts on scope, time, and cost, and get decisions made.</li>
+          <li><strong>Production and flow:</strong> simple daily routines, clean handoffs, and practical visuals that crews actually follow.</li>
+          <li><strong>Clear communication:</strong> calm with clients, contract admins, and owner reps, especially when relationships are tense.</li>
+          <li><strong>Hands-on delivery:</strong> punch lists, lookaheads, boards, and brief write-ups turned around in 48–72 hours.</li>
         </ul>
       </div>
 
-      <!-- Illustrative field scenarios instead of testimonials -->
       <div class="tile" style="margin-top:18px">
-        <h3>Field scenarios we design for</h3>
-        <ul>
-          <li><strong>Watermain tie-in, 8-person crew:</strong> late locate or traffic control can stall work. Our readiness pack aims to prevent that stall and keep the shift productive.</li>
-          <li><strong>Road cut and backfill near utilities:</strong> unclear interfaces slow crews. Our interface map reduces clashes and speeds inspection windows.</li>
-          <li><strong>Changed conditions after demo:</strong> scope ambiguity burns days. Our change note sets out facts fast so owners can decide quickly.</li>
-        </ul>
-        <p class="micro">These are illustrative examples to show how we work. We will tailor to your site.</p>
+        <h3>Immediate operational impact</h3>
+        <p class="lead">We bring specific changes you can put in place this week, not a report to shelve.</p>
+        <ul><li><strong>Quick wins:</strong> tighten the daily huddle, clean handoffs, prep for tomorrow before you leave.</li><li><strong>Measurable:</strong> fewer stoppages, faster setups, less rework.</li><li><strong>Built with the crew:</strong> changes are agreed on in the field so they stick.</li></ul>
       </div>
 
-      <h3 id="presentation">Overview - 10-page presentation</h3>
-      <p class="note deck-desc">A concise 10-page overview: what we do, who we help, field scenarios, and how we start. Handy to share with owners and supers.</p>
+      <h3 id="presentation">Overview (10-page presentation)</h3>
+      <p class="note deck-desc">A concise 10-page overview: what we do, who we help, field examples, and how we start. Handy to share with owners and supers.</p>
 
       <div id="pdfMobileOnly" class="tile">
-        <p class="note deck-desc-mobile">A concise 10-page overview you can share with owners and supers.</p>
+        <p class="note deck-desc-mobile">A concise 10-page overview: what we do, who we help, field examples, and how we start. Handy to share with owners and supers.</p>
         <div class="mobile-pdf-actions">
           <a class="btn" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a>
           <a class="btn secondary" href="assets/SiteStrategiesOverview.pdf" download>Download PDF</a>
@@ -353,7 +304,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
       <h2>More questions? Send us a message</h2>
@@ -366,172 +316,36 @@
         <label for="msg">What do you need help with</label>
         <textarea id="msg" name="message" rows="4" style="width:100%;margin:6px 0 12px;padding:10px;border-radius:10px;border:1px solid var(--stroke);background:#0f0f0f;color:#fff"></textarea>
         <button class="btn" type="submit">Send message</button>
-        <p class="micro" style="margin-top:10px">Privacy note: we only use your info to reply. No lists. No spam.</p>
       </form>
     </div>
   </section>
 
-  <!-- STARTER TOOLS (replaces external resources) -->
   <section id="resources">
     <div class="container">
-      <h2>Starter tools for contractors</h2>
-      <div class="grid-3">
-        <article class="tile">
-          <h3>1-page readiness sketch</h3>
-          <p>Simple prompts to prep day one: access, permits, traffic, utilities, materials, interfaces, hazards, inspections.</p>
-          <ul>
-            <li>Tomorrow's setup confirmed</li>
-            <li>Materials and equipment checked off</li>
-            <li>Utilities and locates in hand</li>
-            <li>Traffic and interfaces marked</li>
-          </ul>
-          <p class="micro">Use it as a quick huddle guide.</p>
-        </article>
-        <article class="tile">
-          <h3>Daily production board template</h3>
-          <p>Targets, variances, next-day prep. Keep it visible and simple.</p>
-        </article>
-        <article class="tile">
-          <h3>Change note outline</h3>
-          <p>Scope, time, cost facts on one page to speed decisions.</p>
-        </article>
-      </div>
-      <div class="cta-row" style="margin-top:12px">
-        <a class="btn secondary" href="#contact">Want the files packaged? Ask for the starter toolkit</a>
+      <h2>Helpful Resources for Contractors</h2>
+      <div class="resources-grid">
+        <article class="resource-card"><h3>One Way Underground</h3><p>Site servicing, utilities, and civil works.</p><a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener">Visit One Way Underground</a></article>
+        <article class="resource-card"><h3>Ontario One Call</h3><p>Request underground utility locates before digging.</p><a href="https://ontarioonecall.ca" target="_blank" rel="noopener">Visit Ontario One Call</a></article>
+        <article class="resource-card"><h3>Infrastructure Ontario</h3><p>Building essential public assets across Ontario.</p><a href="https://www.infrastructureontario.ca" target="_blank" rel="noopener">Explore Infrastructure Ontario</a></article>
+        <article class="resource-card"><h3>Metrolinx</h3><p>Transit projects shaping the Greater Toronto Area.</p><a href="https://www.metrolinx.com" target="_blank" rel="noopener">Visit Metrolinx</a></article>
+        <article class="resource-card"><h3>Canadian Construction Association</h3><p>Advocacy and resources for construction professionals.</p><a href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a></article>
+        <article class="resource-card"><h3>Ontario Road Builders' Association</h3><p>Advancing safe, sustainable road construction.</p><a href="https://orba.org" target="_blank" rel="noopener">Visit ORBA</a></article>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="container" style="display:flex;flex-direction:column;gap:12px">
-      <div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
-        <div>© <span id="y"></span> Site Strategies. All rights reserved.</div>
-        <div><a href="#top">Back to top</a></div>
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span class="chip" style="background:#111;color:#eee;border-color:#444">Ontario-based</span>
-        <span class="chip" style="background:#111;color:#eee;border-color:#444">Safety-certified experience</span>
-        <span class="chip" style="background:#111;color:#eee;border-color:#444">WSIB compliant</span>
-      </div>
-    </div>
+    <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap"><div>© <span id="y"></span> Site Strategies. All rights reserved.</div><div><a href="#top">Back to top</a></div></div>
   </footer>
 
   <script>
-  // Year
   document.getElementById('y').textContent=(new Date).getFullYear();
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      const id=a.getAttribute('href');
-      if(id.length>1){
-        const el=document.querySelector(id);
-        if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}
-      }
-    })
-  });
-
-  // Active section in nav + compact header
-  (function(){
-    const links=Array.from(document.querySelectorAll('header nav a'));
-    const map=new Map(links.map(l=>[l.getAttribute('href'),l]));
-    const ids=['#what','#who','#services','#programs','#how','#proof','#contact','#resources'];
-    const sections=ids.map(id=>document.querySelector(id)).filter(Boolean);
-    const activate=id=>{links.forEach(l=>l.classList.remove('active'));const a=map.get(id);if(a)a.classList.add('active')};
-
-    function setHeaderOffset(){
-      const header=document.querySelector('header.site');
-      const h=Math.ceil((header&&header.offsetHeight)?header.offsetHeight:80);
-      document.documentElement.style.setProperty('--header-h',h+'px');return h
-    }
-    let headerH=setHeaderOffset(),io;
-
-    function createObserver(){
-      if(io)io.disconnect();
-      io=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{if(entry.isIntersecting)activate('#'+entry.target.id)})
-      },{root:null,rootMargin:`-${headerH+8}px 0px -60% 0px`,threshold:.25});
-      sections.forEach(s=>io.observe(s))
-    }
-    createObserver();
-    window.addEventListener('resize',()=>{const newH=setHeaderOffset();if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}});
-
-    let compact=false;const ENTER=80,EXIT=20;let ticking=false;
-    function applyCompact(next){
-      if(next===compact)return;compact=next;
-      const headerEl=document.querySelector('header.site');if(!headerEl)return;
-      headerEl.classList.toggle('compact',compact);
-      requestAnimationFrame(()=>{const newH=setHeaderOffset();if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}})
-    }
-    function onScroll(){
-      if(ticking)return;ticking=true;
-      requestAnimationFrame(()=>{
-        const y=window.scrollY||document.documentElement.scrollTop||0;
-        if(!compact&&y>ENTER)applyCompact(true); else if(compact&&y<EXIT)applyCompact(false);
-        ticking=false
-      })
-    }
-    onScroll();window.addEventListener('scroll',onScroll,{passive:true})
-  })();
-
-  // Email draft
-  function emailDraft(e){
-    e.preventDefault();
-    const name=encodeURIComponent(document.getElementById('name').value.trim());
-    const email=encodeURIComponent(document.getElementById('email').value.trim());
-    const msg=encodeURIComponent(document.getElementById('msg').value.trim());
-    const subject=encodeURIComponent('Site Strategies: Message');
-    const body=encodeURIComponent(`Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\nMessage:\n${decodeURIComponent(msg)}`);
-    window.location.href=`mailto:neilbeaven1@gmail.com?subject=${subject}&body=${body}`
-  }
-
-  // Deck mount
-  (function(){
-    const deck=document.getElementById('deck'),
-          pdfMount=document.getElementById('pdfMount'),
-          pdfPath='assets/SiteStrategiesOverview.pdf#view=FitH',
-          ua=navigator.userAgent||navigator.vendor||window.opera,
-          isMobile=/Android|iPhone|iPad|iPod/i.test(ua);
-
-    function mountIframe(){
-      if(isMobile||!pdfMount||pdfMount.firstChild)return;
-      const f=document.createElement('iframe');
-      f.className='pdf-frame';f.title='Site Strategies Presentation';
-      f.setAttribute('loading','lazy');f.src=pdfPath;pdfMount.appendChild(f)
-    }
-    if(deck){
-      deck.addEventListener('toggle',()=>{if(deck.open)mountIframe()});
-      deck.querySelectorAll('.deck-summary .deck-actions a').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()))
-    }
-    if(location.hash==='#presentation'&&deck&&!deck.open){deck.open=true;setTimeout(mountIframe,0)}
-    window.openDeck=function(e){if(e)e.preventDefault();if(deck&&!deck.open)deck.open=true;const el=document.getElementById('presentation');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(mountIframe,50)}
-  })();
-
-  // Quiz hint
-  (function(){
-    const note=document.getElementById('quizNote');
-    if(!note)return;
-    const p=new URLSearchParams(location.search),
-          hinted=p.has('quiz')||p.get('from')==='quiz',
-          ref=(document.referrer||'').toLowerCase(),
-          fromForms=/(forms\.gle|typeform\.com|surveymonkey\.com|jotform\.com)/.test(ref);
-    if(hinted||fromForms)note.style.display='block'
-  })();
-
-  // Mobile drawer
-  (function(){
-    var b=document.getElementById('menuToggle'),
-        d=document.getElementById('mobileDrawer');
-    function setTop(){const h=getComputedStyle(document.documentElement).getPropertyValue('--header-h');if(d)d.style.top=h}
-    function close(){if(!d)return;d.classList.remove('open');document.body.classList.remove('nav-open');if(b)b.setAttribute('aria-expanded','false')}
-    function open(){if(!d)return;setTop();d.classList.add('open');document.body.classList.add('nav-open');if(b)b.setAttribute('aria-expanded','true')}
-    if(b&&d){
-      b.addEventListener('click',function(){d.classList.contains('open')?close():open()});
-      window.addEventListener('resize',setTop);
-      d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)})
-    }
-  })();
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const el=document.querySelector(id);if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+  (function(){const links=Array.from(document.querySelectorAll('header nav a'));const map=new Map(links.map(l=>[l.getAttribute('href'),l]));const ids=['#what','#who','#services','#programs','#how','#proof','#contact'];const sections=ids.map(id=>document.querySelector(id)).filter(Boolean);const activate=id=>{links.forEach(l=>l.classList.remove('active'));const a=map.get(id);if(a)a.classList.add('active')};function setHeaderOffset(){const header=document.querySelector('header.site');const h=Math.ceil((header&&header.offsetHeight)?header.offsetHeight:80);document.documentElement.style.setProperty('--header-h',h+'px');return h}let headerH=setHeaderOffset(),io;function createObserver(){if(io)io.disconnect();io=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)activate('#'+entry.target.id)})},{root:null,rootMargin:`-${headerH+8}px 0px -60% 0px`,threshold:.25});sections.forEach(s=>io.observe(s))}createObserver();window.addEventListener('resize',()=>{const newH=setHeaderOffset();if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}});let compact=false;const ENTER_COMPACT=80,EXIT_COMPACT=20;let ticking=false;function applyCompact(next){if(next===compact)return;compact=next;const headerEl=document.querySelector('header.site');if(!headerEl)return;headerEl.classList.toggle('compact',compact);requestAnimationFrame(()=>{const newH=setHeaderOffset();if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}})}function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const y=window.scrollY||document.documentElement.scrollTop||0;if(!compact&&y>ENTER_COMPACT)applyCompact(true);else if(compact&&y<EXIT_COMPACT)applyCompact(false);ticking=false})}onScroll();window.addEventListener('scroll',onScroll,{passive:true})})();
+  function emailDraft(e){e.preventDefault();const name=encodeURIComponent(document.getElementById('name').value.trim());const email=encodeURIComponent(document.getElementById('email').value.trim());const msg=encodeURIComponent(document.getElementById('msg').value.trim());const subject=encodeURIComponent('Site Strategies: Message');const body=encodeURIComponent(`Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\nMessage:\n${decodeURIComponent(msg)}`);window.location.href=`mailto:neilbeaven1@gmail.com?subject=${subject}&body=${body}`}
+  ;(function(){const deck=document.getElementById('deck'),pdfMount=document.getElementById('pdfMount'),pdfPath='assets/SiteStrategiesOverview.pdf#view=FitH',ua=navigator.userAgent||navigator.vendor||window.opera,isMobile=/Android|iPhone|iPad|iPod/i.test(ua);function mountIframe(){if(isMobile||!pdfMount||pdfMount.firstChild)return;const f=document.createElement('iframe');f.className='pdf-frame';f.title='Site Strategies Presentation';f.setAttribute('loading','lazy');f.src=pdfPath;pdfMount.appendChild(f)}if(deck){deck.addEventListener('toggle',()=>{if(deck.open)mountIframe()});deck.querySelectorAll('.deck-summary .deck-actions a').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()))}if(location.hash==='#presentation'&&deck&&!deck.open){deck.open=true;setTimeout(mountIframe,0)}window.openDeck=function(e){if(e)e.preventDefault();if(deck&&!deck.open)deck.open=true;const el=document.getElementById('presentation');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(mountIframe,50)}})();
+  (function(){const note=document.getElementById('quizNote');if(!note)return;const p=new URLSearchParams(location.search),hinted=p.has('quiz')||p.get('from')==='quiz',ref=(document.referrer||'').toLowerCase(),fromForms=/(forms\.gle|typeform\.com|surveymonkey\.com|jotform\.com)/.test(ref);if(hinted||fromForms)note.style.display='block'})();
+  (function(){var b=document.getElementById('menuToggle'),d=document.getElementById('mobileDrawer'),h=document.querySelector('header.site');function setTop(){if(d&&h)d.style.top=getComputedStyle(document.documentElement).getPropertyValue('--header-h')}function close(){if(!d)return;d.classList.remove('open');document.body.classList.remove('nav-open');if(b)b.setAttribute('aria-expanded','false')}function open(){if(!d)return;setTop();d.classList.add('open');document.body.classList.add('nav-open');if(b)b.setAttribute('aria-expanded','true')}if(b&&d){b.addEventListener('click',function(){d.classList.contains('open')?close():open()});window.addEventListener('resize',setTop);d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)})}})();
   </script>
 </body>
 </html>
