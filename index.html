@@ -32,6 +32,28 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Site Strategies","url":"https://neilbeaven.github.io/sitestrategiesintro/","logo":"https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png","sameAs":["https://www.linkedin.com/in/neilbeaven"]}</script>
 
   <style>
+    /* Helpful Resources - Option A styling */
+.resource-card{
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.resource-card h3{ color:#fff; }
+.resource-card p{ color:var(--muted); }
+.resource-card .res-btn{
+  display:inline-block;
+  margin-top:.6rem;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1.5px solid var(--stroke);
+  background:transparent;
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+}
+.resource-card .res-btn:hover{ filter:brightness(1.05); }
+
   :root{--bg:#0B0B0B;--ink:#fff;--muted:#C8C8C8;--brand:#E50914;--panel:#1A1A1A;--stroke:#3A3A3A;--linkedin:#0077B5;--header-h:96px;--tap:44px}
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;max-width:100%;overflow-x:hidden}
@@ -381,19 +403,100 @@
     </div>
   </section>
 
-  <section id="resources">
-    <div class="container">
-      <h2>Helpful Resources for Contractors</h2>
-      <div class="resources-grid">
-        <article class="resource-card"><h3>One Way Underground</h3><p>Site servicing, utilities, and civil works.</p><a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener">Visit One Way Underground</a></article>
-        <article class="resource-card"><h3>Ontario One Call</h3><p>Request underground utility locates before digging.</p><a href="https://ontarioonecall.ca" target="_blank" rel="noopener">Visit Ontario One Call</a></article>
-        <article class="resource-card"><h3>Infrastructure Ontario</h3><p>Building essential public assets across Ontario.</p><a href="https://www.infrastructureontario.ca" target="_blank" rel="noopener">Explore Infrastructure Ontario</a></article>
-        <article class="resource-card"><h3>Metrolinx</h3><p>Transit projects shaping the Greater Toronto Area.</p><a href="https://www.metrolinx.com" target="_blank" rel="noopener">Visit Metrolinx</a></article>
-        <article class="resource-card"><h3>Canadian Construction Association</h3><p>Advocacy and resources for construction professionals.</p><a href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a></article>
-        <article class="resource-card"><h3>Ontario Road Builders' Association</h3><p>Advancing safe, sustainable road construction.</p><a href="https://orba.org" target="_blank" rel="noopener">Visit ORBA</a></article>
-      </div>
+<section id="resources">
+  <div class="container">
+    <h2>Helpful Resources for Contractors</h2>
+
+    <div class="resources-grid">
+      <!-- 1 -->
+      <article class="resource-card">
+        <h3>One Way Underground</h3>
+        <p>Site servicing, utilities, and civil works.</p>
+        <a class="res-btn" href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener">Visit site</a>
+      </article>
+
+      <!-- 2 -->
+      <article class="resource-card">
+        <h3>Ontario One Call</h3>
+        <p>Request underground utility locates before digging.</p>
+        <a class="res-btn" href="https://ontarioonecall.ca" target="_blank" rel="noopener">Request locates</a>
+      </article>
+
+      <!-- Training and certifications moved up here -->
+      <!-- 3 -->
+      <article class="resource-card">
+        <h3>CSTS 2020 – ACSA</h3>
+        <p>Baseline CSTS training. Common requirement in Alberta and BC.</p>
+        <a class="res-btn" href="https://www.youracsa.ca/courses/csts2020/" target="_blank" rel="noopener">Start CSTS 2020</a>
+      </article>
+
+      <!-- 4 -->
+      <article class="resource-card">
+        <h3>Gold Seal Certification – Training</h3>
+        <p>Accepted training paths and requirements for G.S.C. applicants.</p>
+        <a class="res-btn" href="https://www.cca-acc.com/gold-seal/how-to-apply/training/" target="_blank" rel="noopener">Review requirements</a>
+      </article>
+
+      <!-- 5 -->
+      <article class="resource-card">
+        <h3>CCOHS – Free Courses</h3>
+        <p>Free health and safety training for workers and management.</p>
+        <a class="res-btn" href="https://www.ccohs.ca/products/courses" target="_blank" rel="noopener">Browse free courses</a>
+      </article>
+
+      <!-- 6 -->
+      <article class="resource-card">
+        <h3>WHMIS Certificate – AIX Safety</h3>
+        <p>Free WHMIS training with optional emailed PDF certificate.</p>
+        <a class="res-btn" href="https://aixsafety.com/wp-content/uploads/articulate_uploads/WMS-July27-2025Aix/story.html" target="_blank" rel="noopener">Get WHMIS certificate</a>
+      </article>
+
+      <!-- 7 -->
+      <article class="resource-card">
+        <h3>Ontario MOL – Supervisor Awareness</h3>
+        <p>Mandatory 5 step awareness program for supervisors in Ontario.</p>
+        <a class="res-btn" href="https://www.ontario.ca/page/supervisor-health-and-safety-awareness-five-steps" target="_blank" rel="noopener">Take supervisor training</a>
+      </article>
+
+      <!-- 8 -->
+      <article class="resource-card">
+        <h3>Ontario MOL – Worker Awareness</h3>
+        <p>Mandatory 4 step awareness program for workers in Ontario.</p>
+        <a class="res-btn" href="https://www.ontario.ca/page/worker-health-and-safety-awareness-four-steps" target="_blank" rel="noopener">Take worker training</a>
+      </article>
+
+      <!-- Associations and projects -->
+      <!-- 9 -->
+      <article class="resource-card">
+        <h3>Infrastructure Ontario</h3>
+        <p>Building essential public assets across Ontario.</p>
+        <a class="res-btn" href="https://www.infrastructureontario.ca" target="_blank" rel="noopener">Explore projects</a>
+      </article>
+
+      <!-- 10 -->
+      <article class="resource-card">
+        <h3>Metrolinx</h3>
+        <p>Transit projects shaping the Greater Toronto Area.</p>
+        <a class="res-btn" href="https://www.metrolinx.com" target="_blank" rel="noopener">Visit Metrolinx</a>
+      </article>
+
+      <!-- 11 -->
+      <article class="resource-card">
+        <h3>Canadian Construction Association</h3>
+        <p>Advocacy and resources for construction professionals.</p>
+        <a class="res-btn" href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a>
+      </article>
+
+      <!-- 12 -->
+      <article class="resource-card">
+        <h3>Ontario Road Builders' Association</h3>
+        <p>Advancing safe, sustainable road construction.</p>
+        <a class="res-btn" href="https://orba.org" target="_blank" rel="noopener">Visit ORBA</a>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap"><div>© <span id="y"></span> Site Strategies. All rights reserved.</div><div><a href="#top">Back to top</a></div></div>
