@@ -67,6 +67,8 @@
   .resource-card{background:linear-gradient(135deg,rgba(229,9,20,.9),rgba(0,0,0,.9));padding:1rem;border-radius:10px;border:1px solid rgba(255,255,255,.1)}
   .resource-card h3{margin:.25rem 0 .25rem;font-size:1.1rem;color:#fff}.resource-card p{margin:.25rem 0 .75rem;font-size:.95rem;color:var(--muted)}.resource-card a{color:#fff;text-decoration:underline;text-underline-offset:2px}
   #services .grid-3{align-items:stretch}#services .tile{display:flex;flex-direction:column;height:100%;position:relative;padding-top:32px}#services .tile p:last-of-type{margin-top:auto}#services .tile h3{margin-top:12px;padding-right:58px}
+  /* Center the “Not sure which play fits?” CTA */
+  #services .cta-row{justify-content:center}
   .pdf-frame{width:100%;height:600px;border:none;background:#fff;border-radius:12px}
   .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
   .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
@@ -100,12 +102,18 @@
   .mobile-drawer .btn{align-self:flex-start}.mobile-drawer.open{transform:translateY(0)}body.nav-open{overflow:hidden}
   .hero-graphic{padding:0}.hero-svg{display:block;width:100%;height:auto;border-radius:12px}
   .deck-summary .hint{font-style:normal;color:var(--muted);font-weight:700;font-size:14px;margin-left:8px}
-  /* Desktop layout for the quiz: center the text block and the button under it */
+  /* Desktop quiz: center text block and button under it */
   @media (min-width:781px){
     #quiz .row{flex-direction:column;align-items:center;text-align:center}
     #quiz .row>div:first-child{max-width:700px}
     #quiz .row>div:last-child{width:100%;display:flex;justify-content:center;margin-top:16px}
   }
+  /* Founder block: full-bleed */
+  .founder-bleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+  /* Contact section centered */
+  #contact .container{text-align:center}
+  #contact form{margin:0 auto;text-align:left}
+  #contact form button.btn{display:block;margin:12px auto 0}
   @media (max-width:1080px){nav a{margin-left:12px;font-size:15px}header .actions .btn{padding:10px 12px;font-size:14px}}
   @media (max-width:980px){.hero .inner,.who{grid-template-columns:1fr}}
   @media (max-width:780px){
@@ -246,18 +254,18 @@
   <section id="proof">
     <div class="container">
       <h2>About and credibility</h2>
-      <div class="grid-2">
-        <div class="tile">
-          <h3 style="margin-top:0">Neil Beaven, Founder</h3>
-          <p class="lead">Experienced Superintendent and founder of Site Strategies, with nearly 20 years on Ontario civil and transit jobs. I help small and mid-sized contractors run steadier, safer, more profitable sites.</p>
-          <ul>
-            <li><strong>Changed conditions, handled properly:</strong> I read the situation fast, set out clear facts on scope, time, and cost, and get decisions made.</li>
-            <li><strong>Production and flow:</strong> simple daily routines, clean handoffs, and practical visuals that crews actually follow.</li>
-            <li><strong>Clear communication:</strong> calm with clients, contract admins, and owner reps, especially when relationships are tense.</li>
-            <li><strong>Hands-on delivery:</strong> punch lists, lookaheads, boards, and brief write-ups turned around in 48–72 hours.</li>
-          </ul>
-        </div>
+      <!-- Founder block now full-bleed -->
+      <div class="tile founder-bleed">
+        <h3 style="margin-top:0">Neil Beaven, Founder</h3>
+        <p class="lead">Experienced Superintendent and founder of Site Strategies, with nearly 20 years on Ontario civil and transit jobs. I help small and mid-sized contractors run steadier, safer, more profitable sites.</p>
+        <ul>
+          <li><strong>Changed conditions, handled properly:</strong> I read the situation fast, set out clear facts on scope, time, and cost, and get decisions made.</li>
+          <li><strong>Production and flow:</strong> simple daily routines, clean handoffs, and practical visuals that crews actually follow.</li>
+          <li><strong>Clear communication:</strong> calm with clients, contract admins, and owner reps, especially when relationships are tense.</li>
+          <li><strong>Hands-on delivery:</strong> punch lists, lookaheads, boards, and brief write-ups turned around in 48–72 hours.</li>
+        </ul>
       </div>
+
       <div class="tile" style="margin-top:18px">
         <h3>Immediate operational impact</h3>
         <p class="lead">We bring specific changes you can put in place this week, not a report to shelve.</p>
