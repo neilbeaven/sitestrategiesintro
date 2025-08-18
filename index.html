@@ -196,6 +196,59 @@
   #resources .resource-card .res-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
   @media (max-width:980px){#resources .resources-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:640px){#resources .resources-grid{grid-template-columns:1fr}}
+ /* Helpful Resources — mobile polish */
+
+/* 2-up starts earlier on large phones */
+@media (max-width:980px){
+  #resources .resources-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+/* Only fall back to single column below 480px (instead of 640px) */
+@media (max-width:480px){
+  #resources .resources-grid{ grid-template-columns:1fr; gap:12px; }
+}
+
+/* Compact card layout on small phones: put CTA to the right, tighten spacing */
+@media (max-width:480px){
+  #resources .resource-card{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title  cta"
+      "body   cta";
+    align-items:center;
+    column-gap:10px;
+    row-gap:6px;
+    padding:12px;             /* was 14–16px */
+    border-radius:10px;
+  }
+  #resources .resource-card h3{
+    grid-area:title;
+    margin:0 0 2px;
+    font-size:1rem;           /* slightly smaller */
+    line-height:1.2;
+  }
+  #resources .resource-card p{
+    grid-area:body;
+    margin:0;
+    font-size:.94rem;
+    color:var(--muted);
+  }
+  #resources .resource-card .res-btn{
+    grid-area:cta;
+    margin:0;                 /* no bottom margin since it's inline */
+    padding:8px 10px;         /* keep tap target ~44px with line-height */
+    border-radius:9px;
+    font-weight:800;
+    line-height:1.2;
+  }
+}
+
+/* Extra tiny screens (optional): shave a bit more padding if needed */
+@media (max-width:360px){
+  #resources .resource-card{ padding:10px; }
+  #resources .resource-card .res-btn{ padding:7px 10px; }
+}
+
   </style>
 
   <link rel="canonical" href="https://neilbeaven.github.io/sitestrategiesintro/" />
@@ -256,7 +309,7 @@
 
   <section id="what">
     <div class="container">
-      <h2>Consulting that gets results.k</h2>
+      <h2>Consulting that gets results.</h2>
       <p class="lead">No theory. We fix what slows you down and costs you money. Clear plans. Clean handoffs. Real accountability.</p>
       <div class="grid-3">
         <article class="tile"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg><h3>On-site performance audits</h3><p>We find bottlenecks before they become cost and schedule hits. You get a simple punch list that crews can follow.</p></article>
