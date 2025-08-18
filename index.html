@@ -32,6 +32,71 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Site Strategies","url":"https://neilbeaven.github.io/sitestrategiesintro/","logo":"https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png","sameAs":["https://www.linkedin.com/in/neilbeaven"]}</script>
 
   <style>
+    /* Resources polish */
+#resources .resources-grid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
+
+/* Calmer card surface: subtle red tint over dark panel */
+#resources .resource-card{
+  display:flex;           /* so we can push the CTA down */
+  flex-direction:column;
+  background:
+    linear-gradient(145deg, rgba(229,9,20,.18), rgba(0,0,0,0)),
+    var(--panel);
+  border:1px solid var(--stroke);
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 10px 24px rgba(0,0,0,.4);
+  transition:transform .16s ease, box-shadow .16s ease;
+}
+
+#resources .resource-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 1px 0 rgba(255,255,255,.06) inset, 0 16px 28px rgba(0,0,0,.55);
+}
+
+/* Headings and copy rhythm */
+#resources .resource-card h3{margin:0 0 6px; line-height:1.2;}
+#resources .resource-card p{margin:0 0 12px; color:var(--muted);}
+
+/* CTA pinned to bottom-left, stronger focus */
+#resources .resource-card .res-btn{
+  margin-top:auto;             /* pins to bottom */
+  align-self:flex-start;       /* left aligns */
+  padding:10px 12px;
+  border-radius:10px;
+  border:1.5px solid var(--stroke);
+  background:transparent;
+  color:#fff; font-weight:800; text-decoration:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1);
+}
+#resources .resource-card .res-btn:hover{ filter:brightness(1.05); }
+#resources .resource-card .res-btn:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px rgba(229,9,20,.45);
+}
+
+/* Grid behavior at mid widths: 2 columns feels best */
+@media (max-width:980px){
+  #resources .resources-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+@media (max-width:640px){
+  #resources .resources-grid{ grid-template-columns:1fr; }
+}
+
+/* Optional small group headers that span full width */
+#resources .resources-group{
+  grid-column:1 / -1;
+  margin:4px 0 2px;
+  color:var(--muted);
+  font-size:.95rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
     /* Helpful Resources - Option A styling */
 .resource-card{
   background: var(--panel);
@@ -421,7 +486,7 @@
         <p>Request underground utility locates before digging.</p>
         <a class="res-btn" href="https://ontarioonecall.ca" target="_blank" rel="noopener">Request locates</a>
       </article>
-
+<h3 class="resources-group">Training and certifications</h3>
       <!-- Training and certifications moved up here -->
       <!-- 3 -->
       <article class="resource-card">
@@ -467,6 +532,7 @@
 
       <!-- Associations and projects -->
       <!-- 9 -->
+      <h3 class="resources-group">Associations and projects</h3>
       <article class="resource-card">
         <h3>Infrastructure Ontario</h3>
         <p>Building essential public assets across Ontario.</p>
