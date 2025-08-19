@@ -526,22 +526,40 @@
       if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}
     });
 
-    // Shrink header sooner on scroll
-    let compact=false; const ENTER=20, EXIT=8;
-    function applyCompact(next){
-      if(next===compact)return; compact=next;
-      const headerEl=document.querySelector('header.site'); if(!headerEl)return;
-      headerEl.classList.toggle('compact',compact);
-      requestAnimationFrame(()=>{const newH=setHeaderOffset(); if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}})
-    }
-    function onScroll(){
-      const y=window.scrollY||document.documentElement.scrollTop||0;
-      if(!compact&&y>ENTER)applyCompact(true);
-      else if(compact&&y<EXIT)applyCompact(false);
-    }
-    onScroll();
-    window.addEventListener('scroll',onScroll,{passive:true});
-  })();
+// Shrink header on scroll — start expanded on load if near top
+let compact = false;
+const ENTER = 20, EXIT = 8; // tweak if you want it to shrink later/earlier
+const headerEl = document.querySelector('header.site');
+
+function applyCompact(next){
+  if(next === compact) return;
+  compact = next;
+  if(!headerEl) return;
+  headerEl.classList.toggle('compact', compact);
+  requestAnimationFrame(()=>{
+    const newH = setHeaderOffset();
+    if(Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); }
+  });
+}
+
+function onScroll(){
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
+  if(!compact && y > ENTER) applyCompact(true);
+  else if(compact && y < EXIT) applyCompact(false);
+}
+
+// Ensure expanded on initial paint when at the very top
+window.addEventListener('load', () => {
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
+  if(y <= EXIT){
+    headerEl && headerEl.classList.remove('compact');
+    compact = false;
+    headerH = setHeaderOffset();
+  }
+  onScroll(); // run once to sync state if the page loads scrolled
+}, { once: true });
+
+window.addEventListener('scroll', onScroll, { passive:true });
 
   function emailDraft(e){
     e.preventDefault();
