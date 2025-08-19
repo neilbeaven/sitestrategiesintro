@@ -28,7 +28,9 @@
   :root{--bg:#0B0B0B;--ink:#fff;--muted:#C8C8C8;--brand:#E50914;--panel:#1A1A1A;--stroke:#3A3A3A;--linkedin:#0077B5;--header-h:96px;--tap:44px}
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;max-width:100%;overflow-x:hidden}
+  /* Reserve space for the fixed header */
   body{padding-top:var(--header-h)}
+
   img,svg,iframe{max-width:100%;height:auto}
   a{color:inherit;text-decoration:none}
   .container{width:min(1120px,92%);margin:0 auto}
@@ -42,10 +44,14 @@
   .btn:active{transform:translateY(0);box-shadow:0 2px 10px rgba(0,0,0,.4) inset}
   .btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
   .btn .full{display:inline}.btn .short{display:none}
+  /* small icon helper for button flair */
   .btn .ico{width:18px;height:18px;margin-right:8px;vertical-align:-3px}
 
   /* Header + nav (fixed) */
-  header.site{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
+  header.site{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)
+  }
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;transition:padding .2s ease}
   .brand{display:flex;align-items:center;gap:12px;font-weight:800}
   .brand img{width:clamp(40px,5vw,72px);height:clamp(40px,5vw,72px);border-radius:12px;display:block}
@@ -61,16 +67,30 @@
   .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;margin-left:8px;border-radius:10px;border:1px solid var(--stroke);background:transparent;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
   .icon-btn:hover{filter:brightness(1.1)}
   .icon-btn svg{width:18px;height:18px;display:block}
-
-  /* Mobile drawer */
-  .mobile-drawer{
-    position:fixed;left:0;right:0;top:var(--header-h);
-    transform:translateY(-120%);transition:transform .2s ease;z-index:70;
-    background:linear-gradient(180deg,#141414,#0f0f0f);border-bottom:1px solid var(--stroke);
-    padding:12px 16px 24px;display:flex;flex-direction:column;gap:12px;max-width:100vw
+  /* Text label variant for quiet header button */
+  .icon-btn.label{
+    width:auto;
+    padding:0 10px;
+    height:36px;
+    font-weight:800;
+    letter-spacing:.2px;
   }
+
+.mobile-drawer{
+  position:fixed;left:0;right:0;top:var(--header-h);
+  transform:translateY(-120%);transition:transform .2s ease;z-index:70;
+  background:linear-gradient(180deg,#141414,#0f0f0f);border-bottom:1px solid var(--stroke);
+  padding:12px 16px 24px;display:flex;flex-direction:column;gap:12px;max-width:100vw
+}
+
   .mobile-drawer a{color:#fff;font-weight:700;padding:10px 6px;border-radius:10px;min-height:var(--tap);display:flex;align-items:center}
-  .mobile-drawer .btn{align-self:center;width:clamp(240px,92%,520px);justify-content:center;text-align:center}
+.mobile-drawer .btn{
+  align-self:center;                 /* center the button in the drawer */
+  width:clamp(240px, 92%, 520px);    /* responsive width, same for all three */
+  justify-content:center;            /* center icon + text inside */
+  text-align:center;
+}
+
   .mobile-drawer.open{transform:translateY(0)}
   body.nav-open{overflow:hidden}
 
@@ -114,61 +134,18 @@
   .tile ul{margin:8px 0 0 18px;color:var(--muted)}
   .tile ul li{margin:4px 0}
 
-  /* ===== Services: grouped collapsibles + compact cards ===== */
-  #services .lead{margin-bottom:10px}
-  .svc-intro{color:var(--muted);font-size:15px;margin:6px 0 14px}
-  .svc-controls{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 14px}
-  .svc-controls .link{background:transparent;border:1px solid var(--stroke);color:#fff;border-radius:10px;padding:8px 10px;font-weight:800;cursor:pointer}
-  .svc-controls .link:hover{filter:brightness(1.05)}
-
-  .svc-groups{display:grid;gap:12px}
-  details.svc-group{background:linear-gradient(180deg,#1d1d1d,#151515);border:1px solid var(--stroke);border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4);overflow:hidden}
-  details.svc-group[open]{box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 14px 28px rgba(0,0,0,.55)}
-  .svc-summary{list-style:none;display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;font-weight:900}
-  .svc-summary::marker{content:""}
-  .svc-summary .dot{width:10px;height:24px;border-radius:999px;background:var(--brand);box-shadow:0 0 0 2px rgba(229,9,20,.25)}
-  .svc-summary .meta{margin-left:auto;color:var(--muted);font-weight:700}
-  details.svc-group .svc-summary::after{content:"▾";margin-left:10px;opacity:.9;transition:transform .2s ease}
-  details.svc-group[open] .svc-summary{border-bottom:1px solid var(--stroke);background:rgba(255,255,255,.04)}
-  details.svc-group[open] .svc-summary::after{transform:rotate(180deg)}
-  .svc-body{padding:14px 16px 16px}
-
-  .svc-cards{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
-  @media (max-width:980px){.svc-cards{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:620px){.svc-cards{grid-template-columns:1fr}}
-
-  .svc-card{background:var(--panel);border:1px solid var(--stroke);border-radius:12px;padding:14px;display:grid;gap:8px;transition:transform .16s ease,box-shadow .16s ease}
-  .svc-card:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 16px 28px rgba(0,0,0,.55)}
-  .svc-title{margin:0;font-size:16px;font-weight:900}
-  .svc-one{margin:0;color:var(--muted);font-size:14px}
-  .svc-badges{display:flex;flex-wrap:wrap;gap:6px}
-  .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:#111;font-size:12px;font-weight:800}
-  .badge .b{font-weight:900;color:#fff}
-
-  /* ===== Programs: snapshot rows with expand ===== */
-  .programs-intro{color:var(--muted);font-size:15px;margin:6px 0 16px}
-  .programs-snapshot{display:grid;gap:12px}
-  .program{border:1px solid var(--stroke);background:linear-gradient(180deg,#1d1d1d,#151515);border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4);overflow:hidden}
-  .program summary{list-style:none;display:grid;grid-template-columns:1.2fr 1fr 1.2fr;gap:12px;align-items:center;padding:14px 16px;cursor:pointer;font-weight:900}
-  .program summary::marker{content:""}
-  .program summary .p-title{font-weight:900}
-  .program summary .p-meta{color:var(--muted);font-weight:700}
-  .program summary .caret{margin-left:auto;justify-self:end}
-  .program[open] summary{background:rgba(255,255,255,.04);border-bottom:1px solid var(--stroke)}
-  .program[open] summary .caret{transform:rotate(180deg);transition:transform .2s ease}
-  .program .p-body{padding:14px 16px 16px}
-  .program .p-body ul{margin:6px 0 0 18px;color:var(--muted)}
-  .program .p-body li{margin:4px 0}
-  @media (max-width:820px){
-    .program summary{grid-template-columns:1fr}
-    .program summary .p-meta{justify-self:start}
-    .program summary .caret{display:block}
-  }
+  /* Services tweaks */
+  #services .grid-3{align-items:stretch}
+  #services .tile{display:flex;flex-direction:column;height:100%;position:relative;padding-top:32px}
+  #services .tile p:last-of-type{margin-top:auto}
+  #services .tile h3{margin-top:12px;padding-right:58px}
+  #services .cta-row{justify-content:center}
 
   /* PDF presentation */
   .pdf-frame{width:100%;height:600px;border:none;background:#fff;border-radius:12px}
   .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
   .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
+  /* CHANGE 366: narrower deck container */
   #proof .deck,#proof #pdfMobileOnly{max-width:860px;margin:12px auto 0}
 
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -214,13 +191,14 @@
   /* Contact */
   #contact .container{text-align:center}
   #contact form{margin:0 auto;text-align:left}
+  /* CHANGE 365: left-align the submit button */
   #contact form button.btn{display:inline-flex;margin:12px 0 0}
 
   /* Mobile nav breakpoint */
   @media (max-width:900px){
     header.site .wrap nav{display:none !important}
     header.site .actions .btn{display:none !important}
-    header.site .actions .icon-btn{display:none !important}
+    header.site .actions .icon-btn{display:none !important} /* hide desktop icons on mobile */
     header.site .hamburger{display:inline-flex !important}
   }
 
@@ -240,7 +218,7 @@
     .brand img{width:36px;height:36px}
   }
 
-  /* Helpful Resources styles kept from 1.2.1 */
+  /* Helpful Resources (Option A, tidy + mobile polish already in place) */
   #resources .resources-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   #resources .resource-card{display:flex;flex-direction:column;background:linear-gradient(145deg,rgba(229,9,20,.12),rgba(0,0,0,0)),var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4);transition:transform .16s ease,box-shadow .16s ease}
   #resources .resource-card:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 16px 28px rgba(0,0,0,.55)}
@@ -278,13 +256,14 @@
       </nav>
       <div class="actions">
         <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener"><span class="full">Book a call today</span><span class="short">Book a call</span></a>
+
         <!-- Quiet desktop icons -->
         <a class="icon-btn" href="mailto:neilbeaven1@gmail.com" aria-label="Email us">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
         </a>
-        <a class="icon-btn" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener" aria-label="Connect on LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 17V9m0-3h0M12 17v-4a3 3 0 0 1 6 0v4"/></svg>
-        </a>
+        <!-- LinkedIn as text (no icon) -->
+        <a class="icon-btn label" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">LinkedIn</a>
+
         <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-controls="mobileDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -293,8 +272,12 @@
   <nav id="mobileDrawer" class="mobile-drawer" aria-hidden="true" aria-label="Mobile">
     <a href="#what">What we do</a><a href="#who">Who we help</a><a href="#services">Services</a><a href="#programs">Programs</a><a href="#how">How it works</a><a href="#proof">Proof</a><a href="#contact">Contact</a>
     <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
+    <!-- Styled utility buttons on mobile -->
     <a class="btn linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">Connect on LinkedIn</a>
-    <a class="btn light" href="mailto:neilbeaven1@gmail.com">Email us</a>
+    <a class="btn light" href="mailto:neilbeaven1@gmail.com">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      Email us
+    </a>
   </nav>
 
   <section class="hero" id="top">
@@ -339,196 +322,46 @@
     </div>
   </section>
 
-  <!-- ===== SERVICES (Grouped + Compact) ===== -->
-  <section id="services">
-    <div class="container">
-      <h2>Direct services (9)</h2>
-      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output.</p>
-      <p class="svc-intro">Start with a group. Open to see the plays and examples.</p>
-      <div class="svc-controls">
-        <button class="link" id="svcExpandAll" type="button">Expand all</button>
-        <button class="link" id="svcCollapseAll" type="button">Collapse all</button>
+  <section id="who" class="alt">
+    <div class="container who">
+      <div>
+        <h2>Supporting small and mid-sized contractors across Ontario</h2>
+        <p class="lead">If you run a 5 to 50-person crew, we help you run leaner, safer, and more profitable projects. Simple as that.</p>
+        <ul><li>Site servicing and utilities</li><li>Roads and civil</li><li>Rail and transit support</li><li>General contractors</li></ul>
       </div>
-
-      <div class="svc-groups">
-
-        <details class="svc-group" open>
-          <summary class="svc-summary"><span class="dot" aria-hidden="true"></span>Flow &amp; Production <span class="meta">(3 plays)</span></summary>
-          <div class="svc-body">
-            <div class="svc-cards">
-              <article class="svc-card">
-                <h4 class="svc-title">Daily production board &amp; huddle</h4>
-                <p class="svc-one">Simple visual targets, variances, and next-day prep that crews actually use.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 2–10%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-              <article class="svc-card">
-                <h4 class="svc-title">Task planning sheets &amp; crew briefs</h4>
-                <p class="svc-one">Clear method, hazards, interfaces, and “done looks like” for each task.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 2–8%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-              <article class="svc-card">
-                <h4 class="svc-title">Work area &amp; interface mapping</h4>
-                <p class="svc-one">Traffic layouts, laydown, and interfaces that reduce clashes and stoppages.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 2–8%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </details>
-
-        <details class="svc-group">
-          <summary class="svc-summary"><span class="dot" aria-hidden="true"></span>Readiness &amp; Procurement <span class="meta">(3 plays)</span></summary>
-          <div class="svc-body">
-            <div class="svc-cards">
-              <article class="svc-card">
-                <h4 class="svc-title">Two-week lookahead &amp; procurement</h4>
-                <p class="svc-one">Line up materials, subs, permits, and access so work does not stall.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 3–12%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-              <article class="svc-card">
-                <h4 class="svc-title">Pre-job readiness pack</h4>
-                <p class="svc-one">Permits, locates, access, utilities, traffic—squared away before day one.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 4–15%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-              <article class="svc-card">
-                <h4 class="svc-title">Utility locates &amp; permit orchestration</h4>
-                <p class="svc-one">Coordinate One Call, utilities, and agencies so field work can proceed.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 2–10%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </details>
-
-        <details class="svc-group">
-          <summary class="svc-summary"><span class="dot" aria-hidden="true"></span>Safety &amp; Culture <span class="meta">(3 plays)</span></summary>
-          <div class="svc-body">
-            <div class="svc-cards">
-              <article class="svc-card">
-                <h4 class="svc-title">Safety documentation tune-up</h4>
-                <p class="svc-one">JHAs, FLHAs, toolbox talks, and close-out logs that match the work on site.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 2–6%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-              <article class="svc-card">
-                <h4 class="svc-title">Incident investigation</h4>
-                <p class="svc-one">Calm fact-finding, clear actions, and plain-language reporting.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> Case-by-case</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-              <article class="svc-card">
-                <h4 class="svc-title">Onboarding &amp; role clarity</h4>
-                <p class="svc-one">Briefings and checklists so new hands and subs plug in fast.</p>
-                <div class="svc-badges">
-                  <span class="badge"><span class="b">Impact</span> 1–6%</span>
-                  <span class="badge"><span class="b">Setup</span> 48–72h</span>
-                </div>
-              </article>
-            </div>
-          </div>
-        </details>
-
-      </div>
-
-      <div class="cta-row" style="margin-top:16px">
-        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a call today</a>
-      </div>
+      <div class="mapbox" aria-hidden="true"><div class="coverage"><span class="chip">GTA core</span><span class="chip">Golden Horseshoe</span><span class="chip">Province-wide by arrangement</span></div></div>
     </div>
   </section>
 
-  <!-- ===== PROGRAMS (Snapshot + Expand) ===== -->
+  <section id="services">
+    <div class="container">
+      <h2>Direct services we deliver</h2>
+      <p class="lead">Hands-on, on-site packages to improve flow, safety, and output. Not sure where to start? The intro call highlights 2–3 of these plays for your job.</p>
+      <div class="grid-3">
+        <article class="tile"><span class="svc-num">01</span><h3>Daily production board and huddle</h3><p>Simple visual targets, variances, and next-day prep that crews actually use.</p><p class="micro">Potential cost savings: 2–10% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">02</span><h3>Two-week lookahead and procurement</h3><p>Line up materials, subs, permits, and access so work does not stall.</p><p class="micro">Potential cost savings: 3–12% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">03</span><h3>Task planning sheets and crew briefs</h3><p>Clear method, hazards, interfaces, and done-looks-like for each task.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">04</span><h3>Pre-job readiness pack</h3><p>Permits, locates, access, utilities, and traffic all squared away before day one.</p><p class="micro">Potential cost savings: 4–15% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">05</span><h3>Safety documentation tune-up</h3><p>JHAs, FLHAs, toolbox talks, and close-out logs that match the work on site.</p><p class="micro">Potential cost savings: 2–6% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">06</span><h3>Incident investigation</h3><p>Calm fact-finding, clear actions, and plain-language reporting.</p><p class="micro">Potential cost savings: case-by-case.</p></article>
+        <article class="tile"><span class="svc-num">07</span><h3>Utility locates and permit orchestration</h3><p>Coordinate One Call, utilities, and agencies so field work can proceed.</p><p class="micro">Potential cost savings: 2–10% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">08</span><h3>Work area and interface mapping</h3><p>Traffic layouts, laydown, and interface maps that reduce clashes.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
+        <article class="tile"><span class="svc-num">09</span><h3>Onboarding and role clarity</h3><p>Simple briefings and checklists so new hands and subs plug in fast.</p><p class="micro">Potential cost savings: 1–6% depending on job.</p></article>
+      </div>
+      <div class="cta-row" style="margin-top:16px"><a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a call today</a></div>
+    </div>
+  </section>
+
   <section id="programs" class="alt">
     <div class="container">
       <div class="section-kicker">Ongoing support</div>
-      <h2>Programs &amp; leadership support (4)</h2>
-      <p class="programs-intro">Snapshot first—open a row to see what delivery looks like.</p>
-
-      <div class="programs-snapshot">
-
-        <details class="program">
-          <summary>
-            <span class="p-title">Foreperson &amp; lead-hand development</span>
-            <span class="p-meta">Who: forepersons &amp; leads</span>
-            <span class="p-meta">Cadence: weekly/bi-weekly (30–45m) <span class="caret">▾</span></span>
-          </summary>
-          <div class="p-body">
-            <p class="lead">Practical coaching: daily targets, clean handoffs, quick variance calls.</p>
-            <ul>
-              <li>Set and review simple daily production targets.</li>
-              <li>Handoff checklists so next crews aren’t blocked.</li>
-              <li>Short debrief rhythm that sticks on busy jobs.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="program">
-          <summary>
-            <span class="p-title">On-call support retainer</span>
-            <span class="p-meta">Who: PMs, supers, small teams</span>
-            <span class="p-meta">Cadence: as needed <span class="caret">▾</span></span>
-          </summary>
-          <div class="p-body">
-            <p class="lead">Help on demand for planning, permits, client communication, and incidents.</p>
-            <ul>
-              <li>Fast answers on permit steps and sequencing.</li>
-              <li>Quick plan reviews and lookahead tune-ups.</li>
-              <li>Plain-language notes for owners and admins.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="program">
-          <summary>
-            <span class="p-title">Changed conditions &amp; commercial clarity</span>
-            <span class="p-meta">Who: PMs &amp; supers under owner pressure</span>
-            <span class="p-meta">Cadence: on demand <span class="caret">▾</span></span>
-          </summary>
-          <div class="p-body">
-            <p class="lead">Flag changes early and set out facts on scope, time, and cost so decisions happen fast.</p>
-            <ul>
-              <li>Evidence pack: photos, quantities, interfaces, narrative.</li>
-              <li>Clear asks and impact: what decision is needed and when.</li>
-              <li>Keeps the project whole; protects cash and margin.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="program">
-          <summary>
-            <span class="p-title">Safety &amp; culture routines</span>
-            <span class="p-meta">Who: crews &amp; supervisors</span>
-            <span class="p-meta">Cadence: daily/weekly <span class="caret">▾</span></span>
-          </summary>
-          <div class="p-body">
-            <p class="lead">Short, repeatable practices that stick: stretch &amp; flex, near-miss reviews, quick refreshers.</p>
-            <ul>
-              <li>10-minute toolbox talk formats tied to real tasks.</li>
-              <li>Near-miss capture and close-out rhythm.</li>
-              <li>Simple visuals crews can run without you.</li>
-            </ul>
-          </div>
-        </details>
-
+      <h2>Programs and leadership support</h2>
+      <p class="lead">Ongoing help that builds habit and culture for forepersons, supers, and small contractor teams.</p>
+      <div class="grid-2">
+        <article class="tile"><h3>Foreperson and lead-hand development</h3><p>Practical coaching: daily targets, clean handoffs, quick variance calls.</p></article>
+        <article class="tile"><h3>On-call support retainer</h3><p>Help on demand for planning, permits, client communication, and incidents.</p></article>
+        <article class="tile"><h3>Changed conditions and commercial clarity</h3><p>I flag changed conditions early and set out the facts on scope, time, and cost so decisions happen fast and the project stays whole. Often a material impact on cash and margin.</p></article>
+        <article class="tile"><h3>Safety and culture routines</h3><p>Short, repeatable practices that stick: stretch and flex, near-miss reviews, quick refreshers.</p></article>
       </div>
     </div>
   </section>
@@ -636,7 +469,6 @@
   <script>
   document.getElementById('y').textContent=(new Date).getFullYear();
 
-  // Smooth anchor scroll
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
       const id=a.getAttribute('href');
@@ -644,7 +476,6 @@
     })
   });
 
-  // Active nav + header size
   (function(){
     const links=[...document.querySelectorAll('header nav a')];
     const map=new Map(links.map(l=>[l.getAttribute('href'),l]));
@@ -674,45 +505,49 @@
       if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}
     });
 
-    // Shrink header on scroll — ensure expanded on initial load if near top
-    let compact=false;
-    const ENTER=80, EXIT=20;
-    let ticking=false;
-    const headerEl=document.querySelector('header.site');
+// Shrink header on scroll — ensure expanded on initial load if near top
+let compact=false;
+const ENTER=80, EXIT=20;
+let ticking=false;
+const headerEl=document.querySelector('header.site');
 
-    function applyCompact(next){
-      if(next===compact) return;
-      compact = next;
-      if(!headerEl) return;
-      headerEl.classList.toggle('compact', compact);
-      requestAnimationFrame(()=>{
-        const newH = setHeaderOffset();
-        if(Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); }
-      });
-    }
-    function onScroll(){
-      if(ticking) return;
-      ticking = true;
-      requestAnimationFrame(()=>{
-        const y = window.scrollY || document.documentElement.scrollTop || 0;
-        if(!compact && y > ENTER) applyCompact(true);
-        else if(compact && y < EXIT) applyCompact(false);
-        ticking = false;
-      });
-    }
-    window.addEventListener('load', () => {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
-      if(y <= EXIT){
-        headerEl && headerEl.classList.remove('compact');
-        compact = false;
-        headerH = setHeaderOffset();
-      }
-      onScroll();
-    }, { once:true });
-    window.addEventListener('scroll',onScroll,{passive:true});
+function applyCompact(next){
+  if(next===compact) return;
+  compact = next;
+  if(!headerEl) return;
+  headerEl.classList.toggle('compact', compact);
+  requestAnimationFrame(()=>{
+    const newH = setHeaderOffset();
+    if(Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); }
+  });
+}
+
+function onScroll(){
+  if(ticking) return;
+  ticking = true;
+  requestAnimationFrame(()=>{
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    if(!compact && y > ENTER) applyCompact(true);
+    else if(compact && y < EXIT) applyCompact(false);
+    ticking = false;
+  });
+}
+
+// Force expanded state at initial paint when at top
+window.addEventListener('load', () => {
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
+  if(y <= EXIT){
+    headerEl && headerEl.classList.remove('compact');
+    compact = false;
+    headerH = setHeaderOffset();
+  }
+  onScroll(); // sync if page restored scrolled
+}, { once:true });
+
+window.addEventListener('scroll', onScroll, { passive:true });
+
   })();
 
-  // Email draft
   function emailDraft(e){
     e.preventDefault();
     const name=encodeURIComponent(document.getElementById('name').value.trim());
@@ -723,7 +558,6 @@
     window.location.href=`mailto:neilbeaven1@gmail.com?subject=${subject}&body=${body}`
   }
 
-  // PDF deck
   (function(){
     const deck=document.getElementById('deck'),pdfMount=document.getElementById('pdfMount'),pdfPath='assets/SiteStrategiesOverview.pdf#view=FitH';
     const ua=navigator.userAgent||navigator.vendor||window.opera,isMobile=/Android|iPhone|iPad|iPod/i.test(ua);
@@ -736,7 +570,6 @@
     window.openDeck=function(e){if(e)e.preventDefault();if(deck&&!deck.open)deck.open=true;const el=document.getElementById('presentation');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(mountIframe,50)}
   })();
 
-  // Quiz note
   (function(){
     const note=document.getElementById('quizNote'); if(!note)return;
     const p=new URLSearchParams(location.search),hinted=p.has('quiz')||p.get('from')==='quiz';
@@ -744,7 +577,6 @@
     if(hinted||fromForms)note.style.display='block'
   })();
 
-  // Mobile drawer
   (function(){
     var b=document.getElementById('menuToggle'),d=document.getElementById('mobileDrawer'),h=document.querySelector('header.site');
     function setTop(){if(d&&h)d.style.top=getComputedStyle(document.documentElement).getPropertyValue('--header-h')}
@@ -755,15 +587,6 @@
       window.addEventListener('resize',setTop);
       d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)})
     }
-  })();
-
-  // Services: Expand/Collapse all
-  (function(){
-    const expandBtn=document.getElementById('svcExpandAll');
-    const collapseBtn=document.getElementById('svcCollapseAll');
-    const groups=[...document.querySelectorAll('#services details.svc-group')];
-    if(expandBtn) expandBtn.addEventListener('click',()=>groups.forEach(g=>g.open=true));
-    if(collapseBtn) collapseBtn.addEventListener('click',()=>groups.forEach(g=>g.open=false));
   })();
   </script>
 </body>
