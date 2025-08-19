@@ -473,7 +473,58 @@
   });
 
   (function(){
-    const links=[...document.querySelectorAll('header nav a')];
+<script>
+(function(){
+  const links=[...document.querySelectorAll('header nav a')];
+  const map=new Map(links.map(l=>[l.getAttribute('href'),l]));
+  const ids=['#what','#who','#services','#programs','#how','#proof','#contact'];
+  const sections=ids.map(id=>document.querySelector(id)).filter(Boolean);
+
+  const header=document.querySelector('header.site');
+  function setHeaderOffset(){
+    const h=Math.ceil(header?.offsetHeight||80);
+    document.documentElement.style.setProperty('--header-h',h+'px');
+    return h;
+  }
+  let headerH=setHeaderOffset();
+
+  function activate(id){
+    links.forEach(l=>l.classList.remove('active'));
+    const a=map.get(id);
+    if(a) a.classList.add('active');
+  }
+
+  // Pick the section whose top is at or above the adjusted viewport top.
+  function updateActive(){
+    const y = (window.scrollY || document.documentElement.scrollTop || 0) + headerH + 24;
+    let current = ids[0];
+    for(const s of sections){
+      if(s && s.offsetTop <= y) current = '#'+s.id;
+    }
+    // If scrolled to the very bottom, force last section
+    if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2){
+      current = ids[ids.length-1];
+    }
+    activate(current);
+  }
+
+  // Recompute header height on resize and keep highlight in sync
+  function onResize(){
+    const newH=setHeaderOffset();
+    if(Math.abs(newH-headerH)>2){ headerH=newH; updateActive(); }
+  }
+
+  // Init + listeners
+  updateActive();
+  window.addEventListener('scroll', ()=>{ requestAnimationFrame(updateActive); }, { passive:true });
+  window.addEventListener('resize', onResize);
+
+  // Keep highlight correct on hash jumps and smooth-scroll completions
+  window.addEventListener('load', updateActive, { once:true });
+  window.addEventListener('hashchange', updateActive);
+})();
+</script>
+
     const map=new Map(links.map(l=>[l.getAttribute('href'),l]));
     const ids=['#what','#who','#services','#programs','#how','#proof','#contact'];
     const sections=ids.map(id=>document.querySelector(id)).filter(Boolean);
