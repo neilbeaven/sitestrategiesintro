@@ -500,23 +500,47 @@
       if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}
     });
 
-    let compact=false;const ENTER=80,EXIT=20;let ticking=false;
-    function applyCompact(next){
-      if(next===compact)return;compact=next;
-      const headerEl=document.querySelector('header.site');if(!headerEl)return;
-      headerEl.classList.toggle('compact',compact);
-      requestAnimationFrame(()=>{const newH=setHeaderOffset();if(Math.abs(newH-headerH)>2){headerH=newH;createObserver()}})
-    }
-    function onScroll(){
-      if(ticking)return;ticking=true;
-      requestAnimationFrame(()=>{
-        const y=window.scrollY||document.documentElement.scrollTop||0;
-        if(!compact&&y>ENTER)applyCompact(true);else if(compact&&y<EXIT)applyCompact(false);
-        ticking=false;
-      })
-    }
-    onScroll();
-    window.addEventListener('scroll',onScroll,{passive:true});
+// Shrink header on scroll — ensure expanded on initial load if near top
+let compact=false;
+const ENTER=80, EXIT=20;
+let ticking=false;
+const headerEl=document.querySelector('header.site');
+
+function applyCompact(next){
+  if(next===compact) return;
+  compact = next;
+  if(!headerEl) return;
+  headerEl.classList.toggle('compact', compact);
+  requestAnimationFrame(()=>{
+    const newH = setHeaderOffset();
+    if(Math.abs(newH - headerH) > 2){ headerH = newH; createObserver(); }
+  });
+}
+
+function onScroll(){
+  if(ticking) return;
+  ticking = true;
+  requestAnimationFrame(()=>{
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    if(!compact && y > ENTER) applyCompact(true);
+    else if(compact && y < EXIT) applyCompact(false);
+    ticking = false;
+  });
+}
+
+// Force expanded state at initial paint when at top
+window.addEventListener('load', () => {
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
+  if(y <= EXIT){
+    headerEl && headerEl.classList.remove('compact');
+    compact = false;
+    headerH = setHeaderOffset();
+  }
+  onScroll(); // sync if page restored scrolled
+}, { once:true });
+
+window.addEventListener('scroll', onScroll, { passive:true });
+
   })();
 
   function emailDraft(e){
