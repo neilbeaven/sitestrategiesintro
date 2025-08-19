@@ -222,11 +222,20 @@
   #resources .resource-card .res-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
   @media (max-width:980px){#resources .resources-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:480px){#resources .resources-grid{grid-template-columns:1fr;gap:12px}}
+  /* === Mobile layout fix for Resources: title + button on top, description full width below === */
   @media (max-width:480px){
-    #resources .resource-card{display:grid;grid-template-columns:1fr auto;grid-template-areas:"title cta" "body cta";align-items:center;column-gap:10px;row-gap:6px;padding:12px;border-radius:10px}
+    #resources .resource-card{
+      display:grid;
+      grid-template-columns:1fr auto;
+      grid-template-areas:
+        "title cta"
+        "body  body";           /* description spans full width */
+      align-items:start;
+      column-gap:10px;row-gap:6px;padding:12px;border-radius:10px
+    }
     #resources .resource-card h3{grid-area:title;margin:0 0 2px;font-size:1rem;line-height:1.2}
     #resources .resource-card p{grid-area:body;margin:0;font-size:.94rem;color:var(--muted)}
-    #resources .resource-card .res-btn{grid-area:cta;margin:0;padding:8px 10px;border-radius:9px;font-weight:800;line-height:1.2}
+    #resources .resource-card .res-btn{grid-area:cta;margin:0;padding:8px 10px;border-radius:9px;font-weight:800;line-height:1.2;justify-self:end;align-self:start}
   }
   @media (max-width:360px){
     #resources .resource-card{padding:10px}
