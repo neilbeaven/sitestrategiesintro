@@ -28,9 +28,7 @@
   :root{--bg:#0B0B0B;--ink:#fff;--muted:#C8C8C8;--brand:#E50914;--panel:#1A1A1A;--stroke:#3A3A3A;--linkedin:#0077B5;--header-h:96px;--tap:44px}
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;max-width:100%;overflow-x:hidden}
-  /* Reserve space for the fixed header */
   body{padding-top:var(--header-h)}
-
   img,svg,iframe{max-width:100%;height:auto}
   a{color:inherit;text-decoration:none}
   .container{width:min(1120px,92%);margin:0 auto}
@@ -44,14 +42,10 @@
   .btn:active{transform:translateY(0);box-shadow:0 2px 10px rgba(0,0,0,.4) inset}
   .btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
   .btn .full{display:inline}.btn .short{display:none}
-  /* small icon helper for button flair */
   .btn .ico{width:18px;height:18px;margin-right:8px;vertical-align:-3px}
 
   /* Header + nav (fixed) */
-  header.site{
-    position:fixed;top:0;left:0;right:0;z-index:1000;
-    backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)
-  }
+  header.site{position:fixed;top:0;left:0;right:0;z-index:1000;backdrop-filter:blur(6px);background:#0b0b0bd9;border-bottom:1px solid var(--stroke)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;transition:padding .2s ease}
   .brand{display:flex;align-items:center;gap:12px;font-weight:800}
   .brand img{width:clamp(40px,5vw,72px);height:clamp(40px,5vw,72px);border-radius:12px;display:block}
@@ -68,21 +62,9 @@
   .icon-btn:hover{filter:brightness(1.1)}
   .icon-btn svg{width:18px;height:18px;display:block}
 
-.mobile-drawer{
-  position:fixed;left:0;right:0;top:var(--header-h);
-  transform:translateY(-120%);transition:transform .2s ease;z-index:70;
-  background:linear-gradient(180deg,#141414,#0f0f0f);border-bottom:1px solid var(--stroke);
-  padding:12px 16px 24px;display:flex;flex-direction:column;gap:12px;max-width:100vw
-}
-
+  .mobile-drawer{position:fixed;left:0;right:0;top:var(--header-h);transform:translateY(-120%);transition:transform .2s ease;z-index:70;background:linear-gradient(180deg,#141414,#0f0f0f);border-bottom:1px solid var(--stroke);padding:12px 16px 24px;display:flex;flex-direction:column;gap:12px;max-width:100vw}
   .mobile-drawer a{color:#fff;font-weight:700;padding:10px 6px;border-radius:10px;min-height:var(--tap);display:flex;align-items:center}
-.mobile-drawer .btn{
-  align-self:center;                 /* center the button in the drawer */
-  width:clamp(240px, 92%, 520px);    /* responsive width, same for all three */
-  justify-content:center;            /* center icon + text inside */
-  text-align:center;
-}
-
+  .mobile-drawer .btn{align-self:center;width:clamp(240px,92%,520px);justify-content:center;text-align:center}
   .mobile-drawer.open{transform:translateY(0)}
   body.nav-open{overflow:hidden}
 
@@ -137,7 +119,6 @@
   .pdf-frame{width:100%;height:600px;border:none;background:#fff;border-radius:12px}
   .mobile-pdf-actions{display:none;gap:.6rem;margin:.75rem 0 0}
   .note{color:var(--muted);font-size:.95rem;margin-top:.75rem}
-  /* CHANGE 366: narrower deck container */
   #proof .deck,#proof #pdfMobileOnly{max-width:860px;margin:12px auto 0}
 
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -183,14 +164,13 @@
   /* Contact */
   #contact .container{text-align:center}
   #contact form{margin:0 auto;text-align:left}
-  /* CHANGE 365: left-align the submit button */
   #contact form button.btn{display:inline-flex;margin:12px 0 0}
 
   /* Mobile nav breakpoint */
   @media (max-width:900px){
     header.site .wrap nav{display:none !important}
     header.site .actions .btn{display:none !important}
-    header.site .actions .icon-btn{display:none !important} /* hide desktop icons on mobile */
+    header.site .actions .icon-btn{display:none !important}
     header.site .hamburger{display:inline-flex !important}
   }
 
@@ -210,7 +190,7 @@
     .brand img{width:36px;height:36px}
   }
 
-  /* Helpful Resources (Option A, tidy + mobile polish already in place) */
+  /* Helpful Resources */
   #resources .resources-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   #resources .resource-card{display:flex;flex-direction:column;background:linear-gradient(145deg,rgba(229,9,20,.12),rgba(0,0,0,0)),var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4);transition:transform .16s ease,box-shadow .16s ease}
   #resources .resource-card:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 16px 28px rgba(0,0,0,.55)}
@@ -222,20 +202,11 @@
   #resources .resource-card .res-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
   @media (max-width:980px){#resources .resources-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media (max-width:480px){#resources .resources-grid{grid-template-columns:1fr;gap:12px}}
-  /* === Mobile layout fix for Resources: title + button on top, description full width below === */
   @media (max-width:480px){
-    #resources .resource-card{
-      display:grid;
-      grid-template-columns:1fr auto;
-      grid-template-areas:
-        "title cta"
-        "body  body";           /* description spans full width */
-      align-items:start;
-      column-gap:10px;row-gap:6px;padding:12px;border-radius:10px
-    }
+    #resources .resource-card{display:grid;grid-template-columns:1fr auto;grid-template-areas:"title cta" "body cta";align-items:center;column-gap:10px;row-gap:6px;padding:12px;border-radius:10px}
     #resources .resource-card h3{grid-area:title;margin:0 0 2px;font-size:1rem;line-height:1.2}
     #resources .resource-card p{grid-area:body;margin:0;font-size:.94rem;color:var(--muted)}
-    #resources .resource-card .res-btn{grid-area:cta;margin:0;padding:8px 10px;border-radius:9px;font-weight:800;line-height:1.2;justify-self:end;align-self:start}
+    #resources .resource-card .res-btn{grid-area:cta;margin:0;padding:8px 10px;border-radius:9px;font-weight:800;line-height:1.2}
   }
   @media (max-width:360px){
     #resources .resource-card{padding:10px}
@@ -274,7 +245,6 @@
   <nav id="mobileDrawer" class="mobile-drawer" aria-hidden="true" aria-label="Mobile">
     <a href="#what">What we do</a><a href="#who">Who we help</a><a href="#services">Services</a><a href="#programs">Programs</a><a href="#how">How it works</a><a href="#proof">Proof</a><a href="#contact">Contact</a>
     <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
-    <!-- Styled utility buttons on mobile -->
     <a class="btn linkedin" href="https://www.linkedin.com/in/neilbeaven" target="_blank" rel="noopener">
       <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 17V9m0-3h0M12 17v-4a3 3 0 0 1 6 0v4"/></svg>
       Connect on LinkedIn
@@ -294,12 +264,14 @@
         <p class="sub">We turn daily site activity into plain, actionable reporting, so decisions happen fast, changes are controlled, and work keeps moving.</p>
         <div class="cta-row">
           <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Book a call today</a>
-          <a class="btn secondary" href="https://tally.so/r/nrZ7qN" target="_blank" rel="noopener">Run the 2-minute self-check</a>
+          <!-- changed: open embedded questionnaire -->
+          <a class="btn secondary" href="#questionnaire" data-open-quiz>Run the 2-minute self-check</a>
         </div>
         <p class="micro">Typically you will leave with a 2-week action sketch, one bottleneck to unblock, and a simple daily production check.</p>
         <div class="powered"><span>Powered by</span><a href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener" aria-label="One Way Underground (opens in new tab)"><img src="assets/OneWayUndergroundLogo.png" alt="One Way Underground logo" width="112" height="112" loading="lazy" /></a></div>
       </div>
       <div class="card hero-graphic" aria-hidden="true" style="padding:0">
+        <!-- svg unchanged -->
         <svg class="hero-svg" viewBox="0 0 800 420" role="img" aria-label="Decorative flow graphic"><defs><linearGradient id="bggrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#141414"/><stop offset="100%" stop-color="#101010"/></linearGradient><radialGradient id="glow" cx="85%" cy="0%" r="65%"><stop offset="0%" stop-color="rgba(229,9,20,0.25)"/><stop offset="100%" stop-color="rgba(229,9,20,0)"/></radialGradient><pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#1f1f1f"/></pattern></defs><rect width="800" height="420" fill="url(#bggrad)"/><rect width="800" height="420" fill="url(#grid)" opacity="0.45"/><rect width="800" height="420" fill="url(#glow)"/><g opacity="0.8" stroke="#2a2a2a" stroke-width="2"><rect x="40" y="70" width="720" height="36" rx="10" fill="#151515"/><rect x="40" y="140" width="720" height="36" rx="10" fill="#151515"/><rect x="40" y="210" width="720" height="36" rx="10" fill="#151515"/><rect x="40" y="280" width="720" height="36" rx="10" fill="#151515"/></g><g><rect x="70" y="78" width="130" height="20" rx="10" fill="#f3f3f3"/><rect x="220" y="78" width="90" height="20" rx="10" fill="#f3f3f3"/><rect x="340" y="78" width="160" height="20" rx="10" fill="#f3f3f3"/><rect x="70" y="148" width="110" height="20" rx="10" fill="#f3f3f3"/><rect x="200" y="148" width="150" height="20" rx="10" fill="#f3f3f3"/><rect x="370" y="148" width="95" height="20" rx="10" fill="#f3f3f3"/><rect x="70" y="218" width="170" height="20" rx="10" fill="#f3f3f3"/><rect x="260" y="218" width="110" height="20" rx="10" fill="#f3f3f3"/><rect x="390" y="218" width="80" height="20" rx="10" fill="#f3f3f3"/><rect x="70" y="288" width="120" height="20" rx="10" fill="#f3f3f3"/><rect x="210" y="288" width="140" height="20" rx="10" fill="#f3f3f3"/><rect x="370" y="288" width="60" height="20" rx="10" fill="#f3f3f3"/></g><g fill="#E50914"><circle cx="620" cy="88" r="5"/><circle cx="520" cy="158" r="5"/><circle cx="500" cy="228" r="5"/><circle cx="560" cy="298" r="5"/></g></svg>
       </div>
     </div>
@@ -311,7 +283,8 @@
         <h3 style="margin:0 0 8px;font-size:22px">Be honest. Is your project running you, or are you running it?</h3>
         <p class="lead" style="margin:0">Answer 6 quick questions. About 2 minutes. You’ll get a score that shows how dialed-in your operation really is with what to do next.</p>
       </div>
-      <div><a class="btn" href="https://tally.so/r/nrZ7qN" target="_blank" rel="noopener">Take the 6-question self-check</a></div>
+      <!-- changed: open embedded questionnaire -->
+      <div><a class="btn" href="#questionnaire" data-open-quiz>Take the 6-question self-check</a></div>
     </div>
   </section>
 
@@ -334,16 +307,15 @@
         <p class="lead">If you run a 5 to 50-person crew, we help you run leaner, safer, and more profitable projects. Simple as that.</p>
         <ul><li>Site servicing and utilities</li><li>Roads and civil</li><li>Rail and transit support</li><li>General contractors</li></ul>
       </div>
-    <div class="mapbox" aria-hidden="true">
-  <div class="coverage">
-    <span class="chip">Toronto</span>
-    <span class="chip">GTA+</span>
-    <span class="chip">The Golden Horseshoe</span>
-    <span class="chip">Barrie</span>
-    <span class="chip">South Western Ontario or Province-wide by arrangement</span>
-  </div>
-</div>
-
+      <div class="mapbox" aria-hidden="true">
+        <div class="coverage">
+          <span class="chip">Toronto</span>
+          <span class="chip">GTA+</span>
+          <span class="chip">The Golden Horseshoe</span>
+          <span class="chip">Barrie</span>
+          <span class="chip">South Western Ontario or Province-wide by arrangement</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -362,10 +334,13 @@
         <article class="tile"><span class="svc-num">08</span><h3>Work area and interface mapping</h3><p>Traffic layouts, laydown, and interface maps that reduce clashes.</p><p class="micro">Potential cost savings: 2–8% depending on job.</p></article>
         <article class="tile"><span class="svc-num">09</span><h3>Onboarding and role clarity</h3><p>Simple briefings and checklists so new hands and subs plug in fast.</p><p class="micro">Potential cost savings: 1–6% depending on job.</p></article>
       </div>
-      <div class="cta-row" style="margin-top:16px"><a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a call today</a></div>
+      <div class="cta-row" style="margin-top:16px">
+        <a class="btn" href="https://calendly.com/neilbeaven1/short-intro-video-call-to-discuss-opportunities" target="_blank" rel="noopener">Not sure which play fits? Book a call today</a>
+      </div>
     </div>
   </section>
 
+  <!-- NEW: Embedded Questionnaire (after Programs, before Contact) -->
   <section id="programs" class="alt">
     <div class="container">
       <div class="section-kicker">Ongoing support</div>
@@ -377,6 +352,29 @@
         <article class="tile"><h3>Changed conditions and commercial clarity</h3><p>I flag changed conditions early and set out the facts on scope, time, and cost so decisions happen fast and the project stays whole. Often a material impact on cash and margin.</p></article>
         <article class="tile"><h3>Safety and culture routines</h3><p>Short, repeatable practices that stick: stretch and flex, near-miss reviews, quick refreshers.</p></article>
       </div>
+    </div>
+  </section>
+
+  <!-- Embedded Tally Questionnaire -->
+  <section id="questionnaire">
+    <div class="container">
+      <details id="quizDeck" class="deck" aria-label="Project Health Check questionnaire">
+        <summary class="deck-summary">
+          <span>Project Health Check (6 questions) <em class="hint">(click to expand)</em></span>
+          <div class="deck-actions">
+            <a class="btn tiny" href="#questionnaire" data-open-quiz>Open</a>
+            <a class="btn tiny secondary" href="#questionnaire" data-close-quiz>Hide</a>
+          </div>
+        </summary>
+        <div class="deck-body">
+          <!-- Tally embed: src is set lazily when opened -->
+          <iframe id="tallyFrame"
+                  data-tally-src="https://tally.so/embed/nrZ7qN?alignLeft=1&hideTitle=1&dynamicHeight=1&formEventsForwarding=1"
+                  loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0"
+                  title="SITE STRATEGIES PROJECT HEALTH CHECK — Be honest. Is your project running you, or are you running it?"></iframe>
+          <p class="note">This self-check runs inside the page. Use the buttons above to open or hide it.</p>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -491,7 +489,7 @@
     })
   });
 
-  // ===== Active-link highlight (fixed) =====
+  // ===== Active-link highlight (kept from your version) =====
   (function(){
     const links=[...document.querySelectorAll('header nav a')];
     const map=new Map(links.map(l=>[l.getAttribute('href'),l]));
@@ -513,7 +511,6 @@
       if(a) a.classList.add('active');
     }
 
-    // IntersectionObserver for responsiveness to section entries
     function createObserver(){
       if(io) io.disconnect();
       io=new IntersectionObserver(entries=>{
@@ -525,21 +522,18 @@
     }
     createObserver();
 
-    // Scroll-position fallback to handle overlapping sections (Services/Proof)
     function calcAndActivate(){
       const y = (window.scrollY || document.documentElement.scrollTop || 0) + headerH + 24;
       let current = ids[0];
       for(const s of sections){
         if(s && s.offsetTop <= y) current = '#'+s.id;
       }
-      // If at the very bottom, force last section
       if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2){
         current = ids[ids.length-1];
       }
       activate(current);
     }
 
-    // Keep header height & observers in sync
     function onResize(){
       const newH=setHeaderOffset();
       if(Math.abs(newH-headerH)>2){
@@ -549,14 +543,13 @@
       }
     }
 
-    // Init + listeners
     calcAndActivate();
     window.addEventListener('scroll', ()=>{ requestAnimationFrame(calcAndActivate); }, { passive:true });
     window.addEventListener('resize', onResize);
     window.addEventListener('load', calcAndActivate, { once:true });
     window.addEventListener('hashchange', calcAndActivate);
 
-    // ===== Header compact behavior (unchanged) =====
+    // Header compact behavior
     let compact=false;
     const ENTER=80, EXIT=20;
     let ticking=false;
@@ -583,7 +576,6 @@
       });
     }
 
-    // Force expanded state at initial paint when at top
     window.addEventListener('load', () => {
       const y = window.scrollY || document.documentElement.scrollTop || 0;
       if(y <= EXIT){
@@ -591,12 +583,58 @@
         compact = false;
         headerH = setHeaderOffset();
       }
-      onScrollCompact(); // sync if page restored scrolled
+      onScrollCompact();
     }, { once:true });
 
     window.addEventListener('scroll', onScrollCompact, { passive:true });
   })();
-  // ===== end Active-link highlight fix =====
+  // ===== end Active-link highlight =====
+
+  // ===== Questionnaire open/close + lazy embed loader =====
+  (function(){
+    const quizSection = document.getElementById('questionnaire');
+    const deck = document.getElementById('quizDeck');
+    const iframe = document.getElementById('tallyFrame');
+
+    function loadTally(){
+      const d=document, w="https://tally.so/widgets/embed.js";
+      const v=function(){
+        if(typeof Tally!=="undefined"){ Tally.loadEmbeds(); }
+        else d.querySelectorAll('iframe[data-tally-src]:not([src])').forEach(function(e){ e.src=e.dataset.tallySrc; });
+      };
+      if(typeof Tally!=="undefined"){ v(); }
+      else if(d.querySelector('script[src="'+w+'"]')==null){
+        const s=d.createElement("script"); s.src=w; s.onload=v; s.onerror=v; d.body.appendChild(s);
+      }else{
+        // script tag exists but maybe not loaded yet — try anyway
+        v();
+      }
+    }
+
+    function openQuiz(e){
+      if(e) e.preventDefault();
+      if(deck && !deck.open){ deck.open = true; }
+      // ensure the iframe has a src (lazy)
+      if(iframe && !iframe.getAttribute('src')) loadTally();
+      quizSection && quizSection.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    function closeQuiz(e){
+      if(e) e.preventDefault();
+      if(deck && deck.open){ deck.open = false; }
+    }
+
+    // expose for other scripts if needed
+    window.openQuiz = openQuiz;
+
+    // wire buttons
+    document.querySelectorAll('[data-open-quiz]').forEach(el=>el.addEventListener('click', openQuiz));
+    document.querySelectorAll('[data-close-quiz]').forEach(el=>el.addEventListener('click', closeQuiz));
+
+    // Also load when user opens the details manually
+    deck && deck.addEventListener('toggle', ()=>{ if(deck.open){ if(iframe && !iframe.getAttribute('src')) loadTally(); } });
+
+  })();
+  // ===== end Questionnaire block =====
 
   function emailDraft(e){
     e.preventDefault();
@@ -621,12 +659,15 @@
     window.openDeck=function(e){if(e)e.preventDefault();if(deck&&!deck.open)deck.open=true;const el=document.getElementById('presentation');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(mountIframe,50)}
   })();
 
-  // Quiz note hint
+  // Quiz note hint — now also opens the questionnaire on arrival
   (function(){
     const note=document.getElementById('quizNote'); if(!note)return;
     const p=new URLSearchParams(location.search),hinted=p.has('quiz')||p.get('from')==='quiz';
     const ref=(document.referrer||'').toLowerCase(),fromForms=/(forms\.gle|typeform\.com|surveymonkey\.com|jotform\.com)/.test(ref);
-    if(hinted||fromForms)note.style.display='block'
+    if(hinted||fromForms){
+      note.style.display='block';
+      if(typeof window.openQuiz === 'function'){ window.openQuiz(); }
+    }
   })();
 
   // Mobile drawer
