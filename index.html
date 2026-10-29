@@ -159,7 +159,7 @@
   #pdfMobileOnly{display:none}.deck-desc-mobile{display:none}
   .micro{color:var(--muted);font-size:13px;margin:6px 0 0}
   .quiz-note{color:var(--muted);font-size:14px;margin:0 0 10px}
-  .deck-actions{display:flex;gap:8px;margin-left:auto}.btn.tiny{padding:8px 10px;font-size:13px;border-radius:8px}
+  .deck-actions{display:flex;gap:8px;margin-left:auto}#proof .deck-actions-standalone{max-width:860px;margin:10px auto 0}.btn.tiny{padding:8px 10px;font-size:13px;border-radius:8px}
 
   header.site.compact .wrap{padding:12px 0}
   header.site.compact .brand img{width:clamp(32px,4.5vw,64px);height:clamp(32px,4.5vw,64px);border-radius:10px}
@@ -492,8 +492,7 @@
 
       <details id="deck" class="deck" aria-label="Overview presentation">
         <summary class="deck-summary" role="button" aria-controls="pdfMount" aria-expanded="false">
-          <span>View overview (10 pages) <em class="hint">(click to expand)</em></span>
-          <div class="deck-actions"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div>
+          <span>View the 10-page overview</span>
         </summary>
         <div class="deck-body">
           <div id="pdfMount" aria-live="polite" aria-busy="false"></div>
@@ -501,6 +500,7 @@
           <p class="note">On phones the deck opens in a new tab or downloads. On desktop it is embedded above.</p>
         </div>
       </details>
+      <div class="deck-actions deck-actions-standalone"><a class="btn tiny" href="assets/SiteStrategiesOverview.pdf" target="_blank" rel="noopener">Open in new tab</a><a class="btn tiny secondary" href="assets/SiteStrategiesOverview.pdf" download>Download</a></div>
     </div>
   </section>
 
@@ -676,7 +676,6 @@
     function mountIframe(){if(isMobile||!pdfMount||pdfMount.firstChild)return;const f=document.createElement('iframe');f.className='pdf-frame';f.title='Site Strategies Presentation';f.setAttribute('loading','lazy');f.src=pdfPath;pdfMount.appendChild(f)}
     if(deck){
       deck.addEventListener('toggle',()=>{if(deck.open)mountIframe()});
-      deck.querySelectorAll('.deck-summary .deck-actions a').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()))
     }
     if(location.hash==='#presentation'&&deck&&!deck.open){deck.open=true;setTimeout(mountIframe,0)}
     window.openDeck=function(e){if(e)e.preventDefault();if(deck&&!deck.open)deck.open=true;const el=document.getElementById('presentation');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(mountIframe,50)}
