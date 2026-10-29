@@ -204,28 +204,15 @@
     .brand img{width:36px;height:36px}
   }
 
-  /* Helpful Resources (cards) */
-  #resources .resources-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-  #resources .resource-card{display:flex;flex-direction:column;background:linear-gradient(145deg,rgba(229,9,20,.12),rgba(0,0,0,0)),var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4);transition:transform .16s ease,box-shadow .16s ease}
-  #resources .resource-card:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 16px 28px rgba(0,0,0,.55)}
-  #resources .resource-card h3{margin:0 0 6px;line-height:1.2}
-  #resources .resource-card p{margin:0 0 12px;color:var(--muted)}
-  #resources .resource-card .res-btn{margin-top:auto;align-self:flex-start;padding:9px 12px;border-radius:10px;border:1.5px solid var(--stroke);background:transparent;color:#fff;font-weight:800;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
-  #resources .resource-card .res-btn::after{content:" ↗";opacity:.9}
-  #resources .resource-card .res-btn:hover{filter:brightness(1.08)}
-  #resources .resource-card .res-btn:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(229,9,20,.45)}
-  @media (max-width:980px){#resources .resources-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (max-width:480px){#resources .resources-grid{grid-template-columns:1fr;gap:12px}}
-  @media (max-width:480px){
-    #resources .resource-card{display:grid;grid-template-columns:1fr auto;grid-template-areas:"title cta" "body body";align-items:center;column-gap:10px;row-gap:6px;padding:12px;border-radius:10px}
-    #resources .resource-card h3{grid-area:title;margin:0 0 2px;font-size:1rem;line-height:1.2}
-    #resources .resource-card p{grid-area:body;margin:0;font-size:.94rem;color:var(--muted)}
-    #resources .resource-card .res-btn{grid-area:cta;margin:0;padding:8px 10px;border-radius:9px;font-weight:800;line-height:1.2}
-  }
-  @media (max-width:360px){
-    #resources .resource-card{padding:10px}
-    #resources .resource-card .res-btn{padding:7px 10px}
-  }
+  /* Helpful Resources (slim list) */
+  #resources .resources-list{list-style:none;margin:12px auto 0;padding:0;max-width:860px}
+  #resources .resources-list li{border-top:1px solid var(--stroke)}
+  #resources .resources-list li:last-child{border-bottom:1px solid var(--stroke)}
+  #resources .resources-list a{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;padding:14px 4px;color:#fff;text-decoration:none}
+  #resources .resources-list a:hover{background:rgba(255,255,255,.04)}
+  #resources .resources-list strong{white-space:nowrap}
+  #resources .resources-list span{color:var(--muted)}
+  #resources .resources-list a::after{content:"↗";margin-left:auto;opacity:.8}
 
   /* Questionnaire (Tally) — taller container + solid pill CTA */
   #questionnaire .deck-body iframe{
@@ -501,6 +488,19 @@
     </div>
   </section>
 
+  <section id="resources">
+    <div class="container">
+      <h2>Helpful Resources for Contractors</h2>
+      <ul class="resources-list">
+        <li><a href="https://ontarioonecall.ca" target="_blank" rel="noopener"><strong>Ontario One Call</strong><span>Request underground utility locates before digging.</span></a></li>
+        <li><a href="https://www.ccohs.ca/products/courses" target="_blank" rel="noopener"><strong>CCOHS – Free Courses</strong><span>Free health and safety training for workers and management.</span></a></li>
+        <li><a href="https://aixsafety.com/wp-content/uploads/articulate_uploads/WMS-July27-2025Aix/story.html" target="_blank" rel="noopener"><strong>WHMIS Certificate – AIX Safety</strong><span>Free WHMIS training with optional emailed PDF certificate.</span></a></li>
+        <li><a href="https://www.ontario.ca/page/supervisor-health-and-safety-awareness-five-steps" target="_blank" rel="noopener"><strong>Ontario MOL – Supervisor Awareness</strong><span>Mandatory 5 step awareness program for supervisors in Ontario.</span></a></li>
+        <li><a href="https://www.ontario.ca/page/worker-health-and-safety-awareness-four-steps" target="_blank" rel="noopener"><strong>Ontario MOL – Worker Awareness</strong><span>Mandatory 4 step awareness program for workers in Ontario.</span></a></li>
+      </ul>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="container">
       <h2>More questions? Send us a message</h2>
@@ -517,28 +517,6 @@
     </div>
   </section>
 
-  <section id="resources">
-    <div class="container">
-      <h2>Helpful Resources for Contractors</h2>
-      <div class="resources-grid">
-        <article class="resource-card"><h3>One Way Underground</h3><p>Site servicing, utilities, and civil works.</p><a class="res-btn" href="https://neilbeaven.github.io/Business/" target="_blank" rel="noopener">Visit site</a></article>
-        <article class="resource-card"><h3>Ontario One Call</h3><p>Request underground utility locates before digging.</p><a class="res-btn" href="https://ontarioonecall.ca" target="_blank" rel="noopener">Request locates</a></article>
-
-        <article class="resource-card"><h3>CSTS 2020 – ACSA</h3><p>Baseline CSTS training. Common requirement in Alberta and BC.</p><a class="res-btn" href="https://www.youracsa.ca/courses/csts2020/" target="_blank" rel="noopener">Start CSTS 2020</a></article>
-        <article class="resource-card"><h3>Gold Seal Certification – Training</h3><p>Accepted training paths and requirements for G.S.C. applicants.</p><a class="res-btn" href="https://www.cca-acc.com/gold-seal/how-to-apply/training/" target="_blank" rel="noopener">Review requirements</a></article>
-        <article class="resource-card"><h3>CCOHS – Free Courses</h3><p>Free health and safety training for workers and management.</p><a class="res-btn" href="https://www.ccohs.ca/products/courses" target="_blank" rel="noopener">Browse free courses</a></article>
-        <article class="resource-card"><h3>WHMIS Certificate – AIX Safety</h3><p>Free WHMIS training with optional emailed PDF certificate.</p><a class="res-btn" href="https://aixsafety.com/wp-content/uploads/articulate_uploads/WMS-July27-2025Aix/story.html" target="_blank" rel="noopener">Get WHMIS certificate</a></article>
-
-        <article class="resource-card"><h3>Ontario MOL – Supervisor Awareness</h3><p>Mandatory 5 step awareness program for supervisors in Ontario.</p><a class="res-btn" href="https://www.ontario.ca/page/supervisor-health-and-safety-awareness-five-steps" target="_blank" rel="noopener">Take supervisor training</a></article>
-        <article class="resource-card"><h3>Ontario MOL – Worker Awareness</h3><p>Mandatory 4 step awareness program for workers in Ontario.</p><a class="res-btn" href="https://www.ontario.ca/page/worker-health-and-safety-awareness-four-steps" target="_blank" rel="noopener">Take worker training</a></article>
-
-        <article class="resource-card"><h3>Infrastructure Ontario</h3><p>Building essential public assets across Ontario.</p><a class="res-btn" href="https://www.infrastructureontario.ca" target="_blank" rel="noopener">Explore projects</a></article>
-        <article class="resource-card"><h3>Metrolinx</h3><p>Transit projects shaping the Greater Toronto Area.</p><a class="res-btn" href="https://www.metrolinx.com" target="_blank" rel="noopener">Visit Metrolinx</a></article>
-        <article class="resource-card"><h3>Canadian Construction Association</h3><p>Advocacy and resources for construction professionals.</p><a class="res-btn" href="https://www.cca-acc.com" target="_blank" rel="noopener">Visit CCA</a></article>
-        <article class="resource-card"><h3>Ontario Road Builders' Association</h3><p>Advancing safe, sustainable road construction.</p><a class="res-btn" href="https://orba.org" target="_blank" rel="noopener">Visit ORBA</a></article>
-      </div>
-    </div>
-  </section>
 
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap"><div>© <span id="y"></span> Site Strategies. All rights reserved.</div><div><a href="#top">Back to top</a></div></div>
