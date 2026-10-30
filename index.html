@@ -181,8 +181,8 @@
   #contact form{margin:0 auto;text-align:left}
   #contact form button.btn{display:inline-flex;margin:12px 0 0}
 
-  /* Mobile nav breakpoint */
-  @media (max-width:900px){
+  /* Mobile nav breakpoint — the full header needs ~1120px to fit, so collapse to the hamburger below that instead of letting links overlap */
+  @media (max-width:1240px){
     header.site .wrap nav{display:none !important}
     header.site .actions .btn{display:none !important}
     header.site .actions .icon-btn{display:none !important}
