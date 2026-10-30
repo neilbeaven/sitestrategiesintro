@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Consulting That Gets Results" />
   <meta name="twitter:description" content="Practical, on-site consulting powered by nearly 20 years of field leadership." />
-  <meta name="twitter:image" content="assets/SiteStrategiesLogo.png" />
+  <meta name="twitter:image" content="https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png" />
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Site Strategies","url":"https://neilbeaven.github.io/sitestrategiesintro/","logo":"https://neilbeaven.github.io/sitestrategiesintro/assets/SiteStrategiesLogo.png","sameAs":["https://www.linkedin.com/in/neilbeaven"]}</script>
 
@@ -659,8 +659,8 @@
   (function(){
     var b=document.getElementById('menuToggle'),d=document.getElementById('mobileDrawer'),h=document.querySelector('header.site');
     function setTop(){if(d&&h)d.style.top=getComputedStyle(document.documentElement).getPropertyValue('--header-h')}
-    function close(){if(!d)return;d.classList.remove('open');document.body.classList.remove('nav-open');if(b)b.setAttribute('aria-expanded','false')}
-    function open(){if(!d)return;setTop();d.classList.add('open');document.body.classList.add('nav-open');if(b)b.setAttribute('aria-expanded','true')}
+    function close(){if(!d)return;d.classList.remove('open');document.body.classList.remove('nav-open');d.setAttribute('aria-hidden','true');if(b)b.setAttribute('aria-expanded','false')}
+    function open(){if(!d)return;setTop();d.classList.add('open');document.body.classList.add('nav-open');d.setAttribute('aria-hidden','false');if(b)b.setAttribute('aria-expanded','true')}
     if(b&&d){
       b.addEventListener('click',function(){d.classList.contains('open')?close():open()});
       window.addEventListener('resize',setTop);
