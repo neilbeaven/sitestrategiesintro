@@ -181,7 +181,7 @@
   #contact form{margin:0 auto;text-align:left}
   #contact form button.btn{display:inline-flex;margin:12px 0 0}
 
-  /* Mobile nav breakpoint — the full header needs ~1120px to fit, so collapse to the hamburger below that instead of letting links overlap */
+  /* Mobile nav breakpoint: the full header needs ~1120px to fit, so collapse to the hamburger below that instead of letting links overlap */
   @media (max-width:1240px){
     header.site .wrap nav{display:none !important}
     header.site .actions .btn{display:none !important}
@@ -215,7 +215,7 @@
   #resources .resources-list span{color:var(--muted)}
   #resources .resources-list a::after{content:"↗";margin-left:auto;opacity:.8}
 
-  /* Questionnaire (Tally) — taller container + solid pill CTA */
+  /* Questionnaire (Tally): taller container + solid pill CTA */
   #questionnaire .deck-body iframe{
     width:100%;
     min-height:1400px; /* mobile/tablet baseline */
@@ -365,7 +365,7 @@
         <article class="tile"><span class="svc-num">01</span><h3>Daily production board and huddle</h3><p>Simple visual targets, variances, and next-day prep that crews actually use.</p><p class="micro">Measured by: planned vs actual production, and crew standby hours.</p></article>
         <article class="tile"><span class="svc-num">02</span><h3>Two-week lookahead and procurement</h3><p>Line up materials, subs, permits, and access so work does not stall.</p><p class="micro">Measured by: stalled work from missing materials, subs, permits, or access.</p></article>
         <article class="tile"><span class="svc-num">03</span><h3>Task planning sheets and crew briefs</h3><p>Clear method, hazards, interfaces, and done-looks-like for each task.</p><p class="micro">Measured by: rework and repeat instructions on the same task.</p></article>
-        <article class="tile"><span class="svc-num">04</span><h3>Pre-job readiness pack</h3><p>Permits, locates, access, utilities, and traffic all squared away before day one.</p><p class="micro">Measured by: avoidable remobilization and day-one delays.</p></article>
+        <article class="tile"><span class="svc-num">04</span><h3>Pre-job readiness pack</h3><p>Permits, locates, access, utilities, and traffic all coordinated before day one.</p><p class="micro">Measured by: avoidable remobilization and day-one delays.</p></article>
         <article class="tile"><span class="svc-num">05</span><h3>Safety documentation tune-up</h3><p>JHAs, FLHAs, toolbox talks, and close-out logs that match the work on site.</p><p class="micro">Measured by: documentation gaps found at inspection or close-out.</p></article>
         <article class="tile"><span class="svc-num">06</span><h3>Incident investigation</h3><p>Calm fact-finding, clear actions, and plain-language reporting.</p><p class="micro">Measured by: repeat incidents and open actions closed.</p></article>
         <article class="tile"><span class="svc-num">07</span><h3>Utility locates and permit orchestration</h3><p>Coordinate One Call, utilities, and agencies so field work can proceed.</p><p class="micro">Measured by: standby time waiting on locates and permits.</p></article>
@@ -394,7 +394,7 @@
   <section id="questionnaire">
     <div class="container">
       <h2>Project Health Check</h2>
-      <p class="lead">Six quick questions to see how dialed-in your operation is — and what to fix first.</p>
+      <p class="lead">Six quick questions to see how dialed-in your operation is, and what to fix first.</p>
 
       <details class="deck" aria-label="Questionnaire" id="questionnaireDeck">
         <summary class="deck-summary">
@@ -411,7 +411,7 @@
                   frameborder="0"
                   marginheight="0"
                   marginwidth="0"
-                  title="SITE STRATEGIES PROJECT HEALTH CHECK — Be honest. Is your project running you, or are you running it?"></iframe>
+                  title="SITE STRATEGIES PROJECT HEALTH CHECK: Be honest. Is your project running you, or are you running it?"></iframe>
           <script>
             (function(){
               var d=document,w="https://tally.so/widgets/embed.js",
@@ -495,7 +495,6 @@
       <ul class="resources-list">
         <li><a href="https://ontarioonecall.ca" target="_blank" rel="noopener"><strong>Ontario One Call</strong><span>Request underground utility locates before digging.</span></a></li>
         <li><a href="https://www.ccohs.ca/products/courses" target="_blank" rel="noopener"><strong>CCOHS – Free Courses</strong><span>Free health and safety training for workers and management.</span></a></li>
-        <li><a href="https://aixsafety.com/wp-content/uploads/articulate_uploads/WMS-July27-2025Aix/story.html" target="_blank" rel="noopener"><strong>WHMIS Certificate – AIX Safety</strong><span>Free WHMIS training with optional emailed PDF certificate.</span></a></li>
         <li><a href="https://www.ontario.ca/page/supervisor-health-and-safety-awareness-five-steps" target="_blank" rel="noopener"><strong>Ontario MOL – Supervisor Awareness</strong><span>Mandatory 5 step awareness program for supervisors in Ontario.</span></a></li>
         <li><a href="https://www.ontario.ca/page/worker-health-and-safety-awareness-four-steps" target="_blank" rel="noopener"><strong>Ontario MOL – Worker Awareness</strong><span>Mandatory 4 step awareness program for workers in Ontario.</span></a></li>
       </ul>
@@ -641,7 +640,8 @@
     const ua=navigator.userAgent||navigator.vendor||window.opera,isMobile=/Android|iPhone|iPad|iPod/i.test(ua);
     function mountIframe(){if(isMobile||!pdfMount||pdfMount.firstChild)return;const f=document.createElement('iframe');f.className='pdf-frame';f.title='Site Strategies Presentation';f.setAttribute('loading','lazy');f.src=pdfPath;pdfMount.appendChild(f)}
     if(deck){
-      deck.addEventListener('toggle',()=>{if(deck.open)mountIframe()});
+      const deckSummary=deck.querySelector('.deck-summary');
+      deck.addEventListener('toggle',()=>{if(deckSummary)deckSummary.setAttribute('aria-expanded',deck.open?'true':'false');if(deck.open)mountIframe()});
     }
     if(location.hash==='#presentation'&&deck&&!deck.open){deck.open=true;setTimeout(mountIframe,0)}
     window.openDeck=function(e){if(e)e.preventDefault();if(deck&&!deck.open)deck.open=true;const el=document.getElementById('presentation');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(mountIframe,50)}
@@ -664,6 +664,7 @@
     if(b&&d){
       b.addEventListener('click',function(){d.classList.contains('open')?close():open()});
       window.addEventListener('resize',setTop);
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){close();b.focus()}});
       d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)})
     }
   })();
