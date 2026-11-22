@@ -110,7 +110,7 @@
   .who{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
   .mapbox{border-radius:14px;border:1px solid var(--stroke);background:radial-gradient(#1f1f1f 1px,transparent 1px) 0 0/10px 10px;display:grid;place-items:center;color:var(--muted);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4);padding:24px 16px}
 
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:step;align-items:start}
   .step{background:var(--panel);border:1px solid var(--stroke);padding:18px;border-radius:14px;position:relative;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 10px 24px rgba(0,0,0,.4)}
   .step::before{counter-increment:step;content:counter(step);position:absolute;top:-12px;left:-12px;width:36px;height:36px;border-radius:10px;background:var(--brand);display:grid;place-items:center;font-weight:800}
 
